@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class SurfingbirdSurfButtonLayout
 {
-  /**
-   *
-   */
-  const Common = "common";
+    /**
+     *
+     */
+    const Common = "common";
 
-  /**
-   *
-   */
-  const Micro = "micro";
+    /**
+     *
+     */
+    const Micro = "micro";
 
-  /**
-   *
-   */
-  const Vertical = "vert";
+    /**
+     *
+     */
+    const Vertical = "vert";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class YandexMoneyButtonSize
 {
-  /**
-   *
-   */
-  const Small = "s";
+    /**
+     *
+     */
+    const Small = "s";
 
-  /**
-   *
-   */
-  const Medium = "m";
+    /**
+     *
+     */
+    const Medium = "m";
 
-  /**
-   *
-   */
-  const Large = "l";
+    /**
+     *
+     */
+    const Large = "l";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

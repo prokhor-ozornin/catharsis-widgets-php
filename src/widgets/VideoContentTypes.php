@@ -6,42 +6,45 @@ namespace Catharsis\Web;
  */
 final class VideoContentTypes
 {
-  /**
-   *
-   */
-  const Flash = "video/x-flv";
+    /**
+     *
+     */
+    const Flash = "video/x-flv";
 
-  /**
-   *
-   */
-  const WindowsMediaVideo = "video/x-ms-wmv";
+    /**
+     *
+     */
+    const WindowsMediaVideo = "video/x-ms-wmv";
 
-  /**
-   *
-   */
-  const WebM = "video/webm";
+    /**
+     *
+     */
+    const WebM = "video/webm";
 
-  /**
-   *
-   */
-  const QuickTime = "video/quicktime";
+    /**
+     *
+     */
+    const QuickTime = "video/quicktime";
 
-  /**
-   *
-   */
-  const OggTheora = "video/ogg";
+    /**
+     *
+     */
+    const OggTheora = "video/ogg";
 
-  /**
-   *
-   */
-  const MP4 = "video/mp4";
+    /**
+     *
+     */
+    const MP4 = "video/mp4";
 
-  /**
-   * 
-   */
-  const MPEG1 = "video/mpeg";
+    /**
+     *
+     */
+    const MPEG1 = "video/mpeg";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

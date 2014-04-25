@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class TwitterTweetButtonCountBoxPosition
 {
-  /**
-   *
-   */
-  const Horizontal = "horizontal";
+    /**
+     *
+     */
+    const Horizontal = "horizontal";
 
-  /**
-   *
-   */
-  const None = "none";
+    /**
+     *
+     */
+    const None = "none";
 
-  /**
-   *
-   */
-  const Vertical = "vertical";
+    /**
+     *
+     */
+    const Vertical = "vertical";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

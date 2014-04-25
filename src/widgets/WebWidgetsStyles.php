@@ -6,11 +6,14 @@ namespace Catharsis\Web;
  */
 final class WebWidgetsStyles
 {
-  use
-  HtmlHelpersTrait,
-  VideoJSStylesTrait;
 
-  private function __construct()
-  {
-  }
+    use HtmlHelpersTrait,
+        VideoJSStylesTrait;
+
+    private function __construct()
+    {
+
+    }
 }
+
+?>

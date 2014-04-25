@@ -6,27 +6,30 @@ namespace Catharsis\Web;
  */
 final class GooglePlusOneButtonSize
 {
-  /**
-   *
-   */
-  const Medium = "medium";
+    /**
+     *
+     */
+    const Medium = "medium";
 
-  /**
-   *
-   */
-  const Small = "small";
+    /**
+     *
+     */
+    const Small = "small";
 
-  /**
-   *
-   */
-  const Standard = "standard";
+    /**
+     *
+     */
+    const Standard = "standard";
 
-  /**
-   *
-   */
-  const Tall = "tall";
+    /**
+     *
+     */
+    const Tall = "tall";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

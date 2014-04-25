@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 trait TumblrScriptsTrait
 {
-  /**
-   * Renders required JavaScript <script> tags.
-   * @return string JavaScript code.
-   */
-  public static function tumblr()
-  {
-    return self::javascript_link("http://platform.tumblr.com/v1/share.js");
-  }
+    /**
+     * Renders required JavaScript <script> tags.
+     * @return string JavaScript code.
+     */
+    public static function tumblr()
+    {
+        return self::javascriptLink("http://platform.tumblr.com/v1/share.js");
+    }
 }
+
+?>

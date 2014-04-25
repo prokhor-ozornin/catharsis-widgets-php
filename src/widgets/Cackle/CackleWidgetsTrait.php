@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait CackleWidgetsTrait
 {
-  private static $cackle;
+    private static $_cackle;
 
-  /**
-   * Returns factory class instance for rendering Cackle widgets.
-   * @return \Catharsis\Web\CackleWidgetsFactory
-   */
-  public static function cackle()
-  {
-    return empty(self::$cackle) ? (self::$cackle = new CackleWidgetsFactory()) : self::$cackle;
-  }
+    /**
+     * Returns factory class instance for rendering Cackle widgets.
+     * @return \Catharsis\Web\CackleWidgetsFactory
+     */
+    public static function cackle()
+    {
+        return empty(self::$_cackle)
+            ? (self::$_cackle = new CackleWidgetsFactory())
+            : self::$_cackle;
+    }
 }
+
+?>

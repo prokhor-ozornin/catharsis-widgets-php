@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait MailRuWidgetsTrait
 {
-  private static $mailru;
+    private static $_mailru;
 
-  /**
-   * Returns factory class instance for rendering Mail.ru widgets.
-   * @return \Catharsis\Web\MailRuWidgetsFactory
-   */
-  public static function mailru()
-  {
-    return empty(self::$mailru) ? (self::$mailru = new MailRuWidgetsFactory()) : self::$mailru;
-  }
+    /**
+     * Returns factory class instance for rendering Mail.ru widgets.
+     * @return \Catharsis\Web\MailRuWidgetsFactory
+     */
+    public static function mailru()
+    {
+        return empty(self::$_mailru)
+            ? (self::$_mailru = new MailRuWidgetsFactory())
+            : self::$_mailru;
+    }
 }
+
+?>

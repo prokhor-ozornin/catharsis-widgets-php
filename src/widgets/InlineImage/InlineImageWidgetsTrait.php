@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 trait InlineImageWidgetsTrait
 {
-  /**
-   * Creates new inline image widget.
-   * @return \Catharsis\Web\InlineImageWidget Initialized widget with default options.
-   */
-  public static function inline_image()
-  {
-    return new InlineImageWidget();
-  }
+    /**
+     * Creates new inline image widget.
+     * @return \Catharsis\Web\InlineImageWidget Initialized widget with default options.
+     */
+    public static function inlineImage()
+    {
+        return new InlineImageWidget();
+    }
 }
+
+?>

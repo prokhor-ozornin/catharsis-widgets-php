@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class FacebookColorScheme
 {
-  /**
-   *
-   */
-  const Dark = "dark";
+    /**
+     *
+     */
+    const Dark = "dark";
 
-  /**
-   *
-   */
-  const Light = "light";
+    /**
+     *
+     */
+    const Light = "light";
+    
+    private function __construct()
+    {
 
-  private function __construct()
-  {
-  }
+    }
 }
+
+?>

@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class MailRuLikeButtonType
 {
-  /**
-   *
-   */
-  const All = "combo";
+    /**
+     *
+     */
+    const All = "combo";
 
-  /**
-   *
-   */
-  const MailRu = "mm";
+    /**
+     *
+     */
+    const MailRu = "mm";
 
-  /**
-   *
-   */
-  const Odnoklassniki = "ok";
+    /**
+     *
+     */
+    const Odnoklassniki = "ok";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

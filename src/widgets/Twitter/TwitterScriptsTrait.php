@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 trait TwitterScriptsTrait
 {
-  /**
-   * Renders required JavaScript <script> tags.
-   * @return string JavaScript code.
-   */
-  public static function twitter()
-  {
-    return self::javascript_link(Widgets::scripts_path()."/twitter_initialize.js");
-  }
+    /**
+     * Renders required JavaScript <script> tags.
+     * @return string JavaScript code.
+     */
+    public static function twitter()
+    {
+        return self::javascriptLink(Widgets::scripts_path() . "/twitter_initialize.js");
+    }
 }
+
+?>

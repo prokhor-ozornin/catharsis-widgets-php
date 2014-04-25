@@ -100,7 +100,7 @@ _Note:_ Hyperlinks must have a specific CSS class for this to work, as described
 
 _Code:_
 
-`Catharsis\Web\Widgets::cackle()->comments_count()->account("20049")`
+`Catharsis\Web\Widgets::cackle()->commentsCount()->account("20049")`
 
 **3. Latest comments**
 
@@ -108,9 +108,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::cackle()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::cackle()->latest_comments()->account("20049")`
+`Catharsis\Web\Widgets::cackle()->latestComments()->account("20049")`
 
-`Catharsis\Web\Widgets::cackle()->latest_comments()->account("20049")->max(15)->avatar_size(32)->title_size(50)->text_size(255)`
+`Catharsis\Web\Widgets::cackle()->latestComments()->account("20049")->max(15)->avatarSize(32)->titleSize(50)->textSize(255)`
 
 **4. OAuth login**
 
@@ -138,7 +138,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->initialize()->app_id("1437917246425293")`
+`Catharsis\Web\Widgets::facebook()->initialize()->appId("1437917246425293")`
 
 **2. Activity Feed**
 
@@ -146,11 +146,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->activity_feed()`
+`Catharsis\Web\Widgets::facebook()->activityFeed()`
 
-`Catharsis\Web\Widgets::facebook()->activity_feed()->domain("yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->activityFeed()->domain("yandex.ru")`
 
-`Catharsis\Web\Widgets::facebook()->activity_feed()->domain("yandex.ru")->header(false)->recommendations()->color_scheme(Catharsis\Web\FacebookColorScheme::Dark)`
+`Catharsis\Web\Widgets::facebook()->activityFeed()->domain("yandex.ru")->header(false)->recommendations()->colorScheme(Catharsis\Web\FacebookColorScheme::Dark)`
 
 **3. Recommendations Feed**
 
@@ -158,11 +158,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->recommendations_feed()`
+`Catharsis\Web\Widgets::facebook()->recommendationsFeed()`
 
-`Catharsis\Web\Widgets::facebook()->recommendations_feed()->domain("yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->recommendationsFeed()->domain("yandex.ru")`
 
-`Catharsis\Web\Widgets::facebook()->recommendations_feed()->domain("yandex.ru")->header(false)->color_scheme(Catharsis\Web\FacebookColorScheme::Dark)`
+`Catharsis\Web\Widgets::facebook()->recommendationsFeed()->domain("yandex.ru")->header(false)->colorScheme(Catharsis\Web\FacebookColorScheme::Dark)`
 
 **4. Comments**
 
@@ -186,7 +186,7 @@ _Code:_
 
 `Catharsis\Web\Widgets::facebook()->facepile()->url("http://yandex.ru")`
 
-`Catharsis\Web\Widgets::facebook()->facepile()->url("http://yandex.ru")->max_rows(5)->size(Catharsis\Web\FacebookFacepileSize::Large)->height("300")`
+`Catharsis\Web\Widgets::facebook()->facepile()->url("http://yandex.ru")->maxRows(5)->photoSize(Catharsis\Web\FacebookFacepileSize::Large)->height("300")`
 
 **6. Follow Button**
 
@@ -194,9 +194,9 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->follow()->url("http://www.facebook.com/zuck")`
+`Catharsis\Web\Widgets::facebook()->followButton()->url("http://www.facebook.com/zuck")`
 
-`Catharsis\Web\Widgets::facebook()->follow()->url("http://www.facebook.com/zuck")->kids()->faces()->layout(Catharsis\Web\FacebookButtonLayout::BoxCount)`
+`Catharsis\Web\Widgets::facebook()->followButton()->url("http://www.facebook.com/zuck")->kidsMode()->faces()->layout(Catharsis\Web\FacebookButtonLayout::BoxCount)`
 
 **7. Like Box**
 
@@ -204,9 +204,9 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->like_box()->url("https://www.facebook.com/pages/Clear-Words/515749945120070")`
+`Catharsis\Web\Widgets::facebook()->likeBox()->url("https://www.facebook.com/pages/Clear-Words/515749945120070")`
 
-`Catharsis\Web\Widgets::facebook()->like_box()->url("https://www.facebook.com/pages/Clear-Words/515749945120070")->header(false)->border(false)->faces(false)->stream()->width("500")`
+`Catharsis\Web\Widgets::facebook()->likeBox()->url("https://www.facebook.com/pages/Clear-Words/515749945120070")->header(false)->border(false)->faces(false)->stream()->width("500")`
 
 **8. Like Button**
 
@@ -214,11 +214,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->like()->url("http://yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")`
 
-`Catharsis\Web\Widgets::facebook()->like()->url("http://yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")`
 
-`Catharsis\Web\Widgets::facebook()->like()->url("http://yandex.ru")->layout(Catharsis\Web\FacebookLikeButtonLayout::BoxCount)->faces()->verb(Catharsis\Web\FacebookLikeButtonVerb::Recommend)`
+`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")->layout(Catharsis\Web\FacebookLikeButtonLayout::BoxCount)->faces()->verb(Catharsis\Web\FacebookLikeButtonVerb::Recommend)`
 
 **9. Embedded post**
 
@@ -234,11 +234,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->send()`
+`Catharsis\Web\Widgets::facebook()->sendButton()`
 
-`Catharsis\Web\Widgets::facebook()->send()->url("http://yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->sendButton()->url("http://yandex.ru")`
 
-`Catharsis\Web\Widgets::facebook()->send()->url("http://yandex.ru")->color_scheme(Catharsis\Web\FacebookColorScheme::Dark)->kids()`
+`Catharsis\Web\Widgets::facebook()->sendButton()->url("http://yandex.ru")->colorScheme(Catharsis\Web\FacebookColorScheme::Dark)->kidsMode()`
 
 **11. Embedded video**
 
@@ -264,9 +264,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::google()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::google()->plus_one()`
+`Catharsis\Web\Widgets::google()->plusOneButton()`
 
-`Catharsis\Web\Widgets::google()->plus_one()->url("http://yandex.ru")->alignment(Catharsis\Web\GooglePlusOneButtonAlignment::Right)->size(Catharsis\Web\GooglePlusOneButtonSize::Tall)->annotation(Catharsis\Web\GooglePlusOneButtonAnnotation::Inline)->recommendations(false)`
+`Catharsis\Web\Widgets::google()->plusOneButton()->url("http://yandex.ru")->alignment(Catharsis\Web\GooglePlusOneButtonAlignment::Right)->size(Catharsis\Web\GooglePlusOneButtonSize::Tall)->annotation(Catharsis\Web\GooglePlusOneButtonAnnotation::Inline)->recommendations(false)`
 
 **Gravatar**
 
@@ -276,9 +276,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::gravatar()->image_url()->email("prokhor.ozornin@yandex.ru")`
+`Catharsis\Web\Widgets::gravatar()->imageUrl()->email("prokhor.ozornin@yandex.ru")`
 
-`Catharsis\Web\Widgets::gravatar()->image_url()->email("prokhor.ozornin@yandex.ru")->extension("jpg")->force_default()->size(320)`
+`Catharsis\Web\Widgets::gravatar()->imageUrl()->email("prokhor.ozornin@yandex.ru")->extension("jpg")->forceDefault()->size(320)`
 
 **2. User profile URL**
 
@@ -286,9 +286,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::gravatar()->profile_url()->email("prokhor.ozornin@yandex.ru")`
+`Catharsis\Web\Widgets::gravatar()->profileUrl()->email("prokhor.ozornin@yandex.ru")`
 
-`Catharsis\Web\Widgets::gravatar()->profile_url()->email("prokhor.ozornin@yandex.ru")->xml()`
+`Catharsis\Web\Widgets::gravatar()->profileUrl()->email("prokhor.ozornin@yandex.ru")->xml()`
 
 **IntenseDebate**
 
@@ -316,7 +316,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::livejournal()->like()`
+`Catharsis\Web\Widgets::livejournal()->likeButton()`
 
 **2. Repost Button**
 
@@ -324,9 +324,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::livejournal()->repost()`
+`Catharsis\Web\Widgets::livejournal()->repostButton()`
 
-`Catharsis\Web\Widgets::livejournal()->repost()->title("title")->text("text")`
+`Catharsis\Web\Widgets::livejournal()->repostButton()->title("title")->text("text")`
 
 **Mail.ru**
 
@@ -354,9 +354,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::mailru()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::mailru()->like()`
+`Catharsis\Web\Widgets::mailru()->likeButton()`
 
-`Catharsis\Web\Widgets::mailru()->like()->layout(Catharsis\Web\MailRuLikeButtonLayout::Second)->text(false)->counter_position(Catharsis\Web\MailRuLikeButtonCounterPosition::Upper)->size(30)`
+`Catharsis\Web\Widgets::mailru()->likeButton()->layout(Catharsis\Web\MailRuLikeButtonLayout::Second)->text(false)->counterPosition(Catharsis\Web\MailRuLikeButtonCounterPosition::Upper)->size(30)`
 
 **4. Faces**
 
@@ -366,7 +366,7 @@ _Code:_
 
 `Catharsis\Web\Widgets::mailru()->faces()->domain("mail.ru")->width(640)->height(480)`
 
-`Catharsis\Web\Widgets::mailru()->faces()->domain("mail.ru")->width(640)->height(480)->font(Catharsis\Web\MailRuFacesFont::Tahoma)->show_title(false)->background_color("aaffaa")->hyperlink_color("ffaaff")->border_color("aaaaaa")`
+`Catharsis\Web\Widgets::mailru()->faces()->domain("mail.ru")->width(640)->height(480)->font(Catharsis\Web\MailRuFacesFont::Tahoma)->title(false)->backgroundColor("aaffaa")->hyperlinkColor("ffaaff")->borderColor("aaaaaa")`
 
 **5. Groups**
 
@@ -376,7 +376,7 @@ _Code:_
 
 `Catharsis\Web\Widgets::mailru()->groups()->account("mail_ru")->width(640)->height(480)`
 
-`Catharsis\Web\Widgets::mailru()->groups()->account("mail_ru")->width(640)->height(480)->background_color("aaffaa")->button_color("ffaaff")->subscribers(false)->text_color("aaaadd")`
+`Catharsis\Web\Widgets::mailru()->groups()->account("mail_ru")->width(640)->height(480)->backgroundColor("aaffaa")->buttonColor("ffaaff")->subscribers(false)->textColor("aaaadd")`
 
 **Pinterest**
 
@@ -386,9 +386,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::pinterest()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::pinterest()->follow_button()->account("pinterest")`
+`Catharsis\Web\Widgets::pinterest()->followButton()->account("pinterest")`
 
-`Catharsis\Web\Widgets::pinterest()->follow_button()->account("pinterest")->label("Pinterest")`
+`Catharsis\Web\Widgets::pinterest()->followButton()->account("pinterest")->label("Pinterest")`
 
 **2. Embedded Pin**
 
@@ -424,9 +424,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::pinterest()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::pinterest()->pin_it_button()->url("http://www.flickr.com/photos/kentbrew/6851755809")->image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg")->description("Next stop: Pinterest")`
+`Catharsis\Web\Widgets::pinterest()->pinItButton()->url("http://www.flickr.com/photos/kentbrew/6851755809")->image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg")->description("Next stop: Pinterest")`
 
-`Catharsis\Web\Widgets::pinterest()->pin_it_button()->url("http://www.flickr.com/photos/kentbrew/6851755809")->image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg")->description("Next stop: Pinterest")->counter_position(Catharsis\Web\PinterestPinItButtonPinCountPosition::None)->size(Catharsis\Web\PinterestPinItButtonSize::Large)->red()->shape(Catharsis\Web\PinterestPinItButtonShape::Rectangular)->language("ja")`
+`Catharsis\Web\Widgets::pinterest()->pinItButton()->url("http://www.flickr.com/photos/kentbrew/6851755809")->image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg")->description("Next stop: Pinterest")->counter(Catharsis\Web\PinterestPinItButtonPinCountPosition::None)->size(Catharsis\Web\PinterestPinItButtonSize::Large)->red()->shape(Catharsis\Web\PinterestPinItButtonShape::Rectangular)->language("ja")`
 
 **RuTube**
 
@@ -446,9 +446,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::soundcloud()->profile_icon()->account("prokhor-ozornin")`
+`Catharsis\Web\Widgets::soundcloud()->profileIcon()->account("prokhor-ozornin")`
 
-`Catharsis\Web\Widgets::soundcloud()->profile_icon()->account("prokhor-ozornin")->black_white()->size(Catharsis\Web\SoundCloudProfileIconSize::Size64)`
+`Catharsis\Web\Widgets::soundcloud()->profileIcon()->account("prokhor-ozornin")->blackWhite()->size(Catharsis\Web\SoundCloudProfileIconSize::Size64)`
 
 **Surfingbird**
 
@@ -458,9 +458,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::surfingbird()` JavaScript bund
 
 _Code:_
 
-`Catharsis\Web\Widgets::surfingbird()->surf()`
+`Catharsis\Web\Widgets::surfingbird()->surfButton()`
 
-`Catharsis\Web\Widgets::surfingbird()->surf()->color(Catharsis\Web\SurfingbirdSurfButtonColor::Blue)->counter()->label("Share")->url("http://yandex.ru")->layout(Catharsis\Web\SurfingbirdSurfButtonLayout::Common)`
+`Catharsis\Web\Widgets::surfingbird()->surfButton()->color(Catharsis\Web\SurfingbirdSurfButtonColor::Blue)->counter()->label("Share")->url("http://yandex.ru")->layout(Catharsis\Web\SurfingbirdSurfButtonLayout::Common)`
 
 **Tumblr**
 
@@ -470,9 +470,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::tumblr()->follow()->account("clear-words-en")`
+`Catharsis\Web\Widgets::tumblr()->followButton()->account("clear-words-en")`
 
-`Catharsis\Web\Widgets::tumblr()->follow()->account("clear-words-en")->color_scheme(Catharsis\Web\TumblrFollowButtonColorScheme::Dark)->type(Catharsis\Web\TumblrFollowButtonType::Second)`
+`Catharsis\Web\Widgets::tumblr()->followButton()->account("clear-words-en")->colorScheme(Catharsis\Web\TumblrFollowButtonColorScheme::Dark)->type(Catharsis\Web\TumblrFollowButtonType::Second)`
 
 **2. Share Button**
 
@@ -480,9 +480,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::tumblr()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::tumblr()->share()`
+`Catharsis\Web\Widgets::tumblr()->shareButton()`
 
-`Catharsis\Web\Widgets::tumblr()->share()->color_scheme(Catharsis\Web\TumblrShareButtonColorScheme::Gray)->type(Catharsis\Web\TumblrShareButtonType::Third)`
+`Catharsis\Web\Widgets::tumblr()->shareButton()->colorScheme(Catharsis\Web\TumblrShareButtonColorScheme::Gray)->type(Catharsis\Web\TumblrShareButtonType::Third)`
 
 **Twitter**
 
@@ -492,9 +492,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::twitter()` JavaScript bundle (
 
 _Code:_
 
-`Catharsis\Web\Widgets::twitter()->tweet()`
+`Catharsis\Web\Widgets::twitter()->tweetButton()`
 
-`Catharsis\Web\Widgets::twitter()->tweet()->hash_tags(array("first", "second", "third"))->url("http://yandex.ru")->text("Let's share it !")->via("Prokhor")->opt_out()`
+`Catharsis\Web\Widgets::twitter()->tweetButton()->hashTags(array("first", "second", "third"))->url("http://yandex.ru")->text("Let's share it !")->via("Prokhor")->suggestions(false)`
 
 **2. Follow Button**
 
@@ -502,9 +502,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::twitter()` JavaScript bundle (
 
 _Code:_
 
-`Catharsis\Web\Widgets::twitter()->follow()->account("prokhor_ozornin")`
+`Catharsis\Web\Widgets::twitter()->followButton()->account("prokhor_ozornin")`
 
-`Catharsis\Web\Widgets::twitter()->follow()->account("prokhor_ozornin")->opt_out(false)->count(false)->screen_name(false)`
+`Catharsis\Web\Widgets::twitter()->followButton()->account("prokhor_ozornin")->suggestions()->counter(false)->screenName(false)`
 
 **Vimeo**
 
@@ -524,7 +524,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->video()->id("167533148")->hash("7a0cdf6ef7a69e67")->user("5707198")->width("607")->height("360")->hd_quality()`
+`Catharsis\Web\Widgets::vkontakte()->video()->id("167533148")->hash("7a0cdf6ef7a69e67")->user("5707198")->width("607")->height("360")->hd()`
 
 **2. JS API initialization**
 
@@ -532,7 +532,7 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::vkontakte()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->initialize()->api_id("3816272")`
+`Catharsis\Web\Widgets::vkontakte()->initialize()->apiId("3816272")`
 
 **3. Comments**
 
@@ -560,7 +560,7 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->like()`
+`Catharsis\Web\Widgets::vkontakte()->likeButton()`
 
 **6. Subscription**
 
@@ -568,9 +568,9 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->subscribe()->account("5707198")`
+`Catharsis\Web\Widgets::vkontakte()->subscription()->account("5707198")`
 
-`Catharsis\Web\Widgets::vkontakte()->subscribe()->account("5707198")->only_button()`
+`Catharsis\Web\Widgets::vkontakte()->subscription()->account("5707198")->onlyButton()`
 
 **Yandex**
 
@@ -588,9 +588,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->like()`
+`Catharsis\Web\Widgets::yandex()->likeButton()`
 
-`Catharsis\Web\Widgets::yandex()->like()->title("Yandex Main Page")->text("Share")->url("http://yandex.ru")->size(Catharsis\Web\YandexLikeButtonSize::Small)`
+`Catharsis\Web\Widgets::yandex()->likeButton()->title("Yandex Main Page")->text("Share")->url("http://yandex.ru")->size(Catharsis\Web\YandexLikeButtonSize::Small)`
 
 **3. Embedded video**
 
@@ -606,9 +606,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->money_button()->account("41001577953208")->sum(15.5)->description("Test Payment")`
+`Catharsis\Web\Widgets::yandex()->moneyButton()->account("41001577953208")->sum(15.5)->description("Test Payment")`
 
-`Catharsis\Web\Widgets::yandex()->money_button()->account("41001577953208")->sum(15.5)->description("Test Payment")->type(Catharsis\Web\YandexMoneyButtonType::Card)->text(Catharsis\Web\YandexMoneyButtonText::Buy)->size(Catharsis\Web\YandexMoneyButtonSize::Medium)->color(Catharsis\Web\YandexMoneyButtonColor::White)->payer_address()->payer_email()->payer_full_name()->payer_phone()`
+`Catharsis\Web\Widgets::yandex()->moneyButton()->account("41001577953208")->sum(15.5)->description("Test Payment")->type(Catharsis\Web\YandexMoneyButtonType::Card)->text(Catharsis\Web\YandexMoneyButtonText::Buy)->size(Catharsis\Web\YandexMoneyButtonSize::Medium)->color(Catharsis\Web\YandexMoneyButtonColor::White)->askPayerAddress()->askPayerEmail()->askPayerFullName()->askPayerPhone()`
 
 **5. Yandex.Money donation form**
 
@@ -616,9 +616,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->money_donate_form()->account("41001577953208")->description("Test Donation")`
+`Catharsis\Web\Widgets::yandex()->moneyDonateForm()->account("41001577953208")->descriptionText("Test Donation")`
 
-`Catharsis\Web\Widgets::yandex()->money_donate_form()->account("41001577953208")->description("Test Donation")->show_description()->sum(15.5)->cards()->project_name("Yandex")->project_site("http://yandex.ru")->text(Catharsis\Web\YandexMoneyDonateFormText::Give)->payer_phone()->payer_full_name()->payer_comment()->payer_email()`
+`Catharsis\Web\Widgets::yandex()->moneyDonateForm()->account("41001577953208")->descriptionText("Test Donation")->description()->sum(15.5)->cards()->projectName("Yandex")->projectSite("http://yandex.ru")->text(Catharsis\Web\YandexMoneyDonateFormText::Give)->askPayerPhone()->askPayerFullName()->askPayerComment()->askPayerEmail()`
 
 **6. Yandex.Money payment form**
 
@@ -628,7 +628,7 @@ _Code:_
 
 `Catharsis\Web\Widgets::yandex()->money_payment_form()->account("41001577953208")->description("Test Payment")`
 
-`Catharsis\Web\Widgets::Yandex()->money_payment_form()->account("41001577953208")->description("Test Payment")->sum(15.5)->cards(false)->text(Catharsis\Web\YandexMoneyPaymentFormText::Transfer)->payer_comment()->payer_email()->payer_full_name()->payer_address()->payer_phone()->payer_purpose()`
+`Catharsis\Web\Widgets::Yandex()->money_payment_form()->account("41001577953208")->description("Test Payment")->sum(15.5)->cards(false)->text(Catharsis\Web\YandexMoneyPaymentFormText::Transfer)->askPayerComment()->askPayerEmail()->askPayerFullName()->askPayerAddress()->askPayerPhone()->askPayerPurpose()`
 
 **7. Share Button**
 
@@ -636,9 +636,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::yandex()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->share()`
+`Catharsis\Web\Widgets::yandex()->shareButton()`
 
-`Catharsis\Web\Widgets::yandex()->share()->services("facebook")->language("en")`
+`Catharsis\Web\Widgets::yandex()->shareButton()->services("facebook")->language("en")`
 
 **YouTube**
 

@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class TwitterFollowButtonAlignment
 {
-  /**
-   *
-   */
-  const Left = "left";
+    /**
+     *
+     */
+    const Left = "left";
 
-  /**
-   *
-   */
-  const Right = "right";
+    /**
+     *
+     */
+    const Right = "right";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

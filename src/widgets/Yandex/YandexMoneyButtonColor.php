@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class YandexMoneyButtonColor
 {
-  /**
-   *
-   */
-  const Orange = "orange";
+    /**
+     *
+     */
+    const Orange = "orange";
 
-  /**
-   *
-   */
-  const White = "white";
+    /**
+     *
+     */
+    const White = "white";
 
-  /**
-   *
-   */
-  const Black = "black";
+    /**
+     *
+     */
+    const Black = "black";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

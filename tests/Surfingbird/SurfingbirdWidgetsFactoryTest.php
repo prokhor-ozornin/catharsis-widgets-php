@@ -5,13 +5,15 @@
  */
 final class SurfingbirdWidgetsFactoryTest extends PHPUnit_Framework_TestCase
 {
-  /**
-   ** Performs testing of {@link Catharsis\Web\SurfingbirdWidgetsFactory::surf()} method.
-   */
-  public function test_surf_method()
-  {
-    $factory = new Catharsis\Web\SurfingbirdWidgetsFactory();
-    $this->assertNotSame($factory->surf(), $factory->surf());
-    $this->assertInstanceOf("Catharsis\Web\SurfingbirdSurfButtonWidget", $factory->surf());
-  }
+    /**
+     * * Performs testing of {@link Catharsis\Web\SurfingbirdWidgetsFactory::surfButton()} method.
+     */
+    public function test_surfButton_method()
+    {
+        $factory = new Catharsis\Web\SurfingbirdWidgetsFactory();
+        $this->assertNotSame($factory->surfButton(), $factory->surfButton());
+        $this->assertInstanceOf("Catharsis\Web\SurfingbirdSurfButtonWidget", $factory->surfButton());
+    }
 }
+
+?>

@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class TwitterTweetButtonSize
 {
-  /**
-   *
-   */
-  const Large = "large";
+    /**
+     *
+     */
+    const Large = "large";
 
-  /**
-   *
-   */
-  const Medium = "medium";
+    /**
+     *
+     */
+    const Medium = "medium";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

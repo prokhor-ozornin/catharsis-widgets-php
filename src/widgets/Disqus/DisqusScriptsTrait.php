@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 trait DisqusScriptsTrait
 {
-  /**
-   * Renders required JavaScript <script> tags.
-   * @return string JavaScript code.
-   */
-  public static function disqus()
-  {
-    return self::javascript_link(Widgets::scripts_path()."/disqus.js");
-  }
+    /**
+     * Renders required JavaScript <script> tags.
+     * @return string JavaScript code.
+     */
+    public static function disqus()
+    {
+        return self::javascriptLink(Widgets::scripts_path() . "/disqus.js");
+    }
 }
+
+?>

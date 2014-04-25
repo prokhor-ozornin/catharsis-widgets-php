@@ -6,76 +6,77 @@ namespace Catharsis\Web;
  * Requires {@link WidgetsScripts::tumblr_share} script to be included.
  * @link http://www.tumblr.com/buttons
  */
-class TumblrFollowButtonWidget extends HtmlWidgetBase
+class TumblrFollowButtonWidget extends HtmlWidget
 {
-  private $account;
-  private $color_scheme = TumblrFollowButtonColorScheme::Light;
-  private $type = TumblrFollowButtonType::First;
+    private $_account;
+    private $_colorScheme = TumblrFollowButtonColorScheme::Light;
+    private $_type = TumblrFollowButtonType::First;
 
-  /**
-   * Name of Tumblr account (blog).
-   * This attribute is required.
-   * @param string $account Name of blog.
-   * @return \Catharsis\Web\TumblrFollowButtonWidget Reference to the current widget.
-   */
-  public function account($account)
-  {
-    $this->account = (string) $account;
-    return $this;
-  }
-
-  /**
-   * Visual color scheme of button.
-   * @param string $color_scheme Color scheme for button.
-   * @return \Catharsis\Web\TumblrFollowButtonWidget Reference to the current widget.
-   */
-  public function color_scheme($color_scheme)
-  {
-    $this->color_scheme = (string) $color_scheme;
-    return $this;
-  }
-
-  /**
-   * Visual layout/appearance of button.
-   * @param string $type Layout of button.
-   * @return \Catharsis\Web\TumblrFollowButtonWidget Reference to the current widget.
-   */
-  public function type($type)
-  {
-    $this->type = (string) $type;
-    return $this;
-  }
-
-  /**
-   * Returns HTML markup text of widget.
-   */
-  public function __toString()
-  {
-    if (empty($this->account))
+    /**
+     * Name of Tumblr account (blog).
+     * This attribute is required.
+     * @param string $account Name of blog.
+     * @return \Catharsis\Web\TumblrFollowButtonWidget Reference to the current widget.
+     */
+    public function account($account)
     {
-      return "";
+        $this->_account = (string) $account;
+        return $this;
     }
 
-    $width = 189;
-    switch ($this->type)
+    /**
+     * Visual color scheme of button.
+     * @param string $colorScheme Color scheme for button.
+     * @return \Catharsis\Web\TumblrFollowButtonWidget Reference to the current widget.
+     */
+    public function colorScheme($colorScheme)
     {
-      case TumblrFollowButtonType::Second :
-        $width = 113;
-      break;
-
-      case TumblrFollowButtonType::Third :
-        $width = 18;
-      break;
+        $this->_colorScheme = (string) $colorScheme;
+        return $this;
     }
 
-    return self::html_tag("iframe", array(
-      "allowtransparency" => true,
-      "border" => 0,
-      "class" => "btn",
-      "frameborder" => 0,
-      "height" => 25,
-      "scrolling" => "no",
-      "src" => "http://platform.tumblr.com/v1/follow_button.html?button_type={$this->type}&tumblelog={$this->account}&color_scheme={$this->color_scheme}",
-      "width" => $width));
-  }
+    /**
+     * Visual layout/appearance of button.
+     * @param string $type Layout of button.
+     * @return \Catharsis\Web\TumblrFollowButtonWidget Reference to the current widget.
+     */
+    public function type($type)
+    {
+        $this->_type = (string) $type;
+        return $this;
+    }
+
+    /**
+     * Returns HTML markup text of widget.
+     */
+    public function __toString()
+    {
+        if (empty($this->_account)) {
+            return "";
+        }
+
+        $width = 189;
+        switch ($this->_type) {
+            case TumblrFollowButtonType::Second :
+                $width = 113;
+                break;
+
+            case TumblrFollowButtonType::Third :
+                $width = 18;
+                break;
+        }
+
+        return self::htmlTag("iframe", array(
+            "allowtransparency" => true,
+            "border" => 0,
+            "class" => "btn",
+            "frameborder" => 0,
+            "height" => 25,
+            "scrolling" => "no",
+            "src" => "http://platform.tumblr.com/v1/follow_button.html?button_type={$this->_type}&tumblelog={$this->_account}&color_scheme={$this->_colorScheme}",
+            "width" => $width
+        ));
+    }
 }
+
+?>

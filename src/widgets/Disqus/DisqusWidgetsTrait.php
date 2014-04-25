@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait DisqusWidgetsTrait
 {
-  private static $disqus;
-
-  /**
-   * Returns factory class instance for rendering Disqus widgets.
-   * @return \Catharsis\Web\DisqusWidgetsFactory
-   */
-  public static function disqus()
-  {
-    return empty(self::$disqus) ? (self::$disqus = new DisqusWidgetsFactory()) : self::$disqus;
-  }
+    private static $_disqus;
+    
+    /**
+     * Returns factory class instance for rendering Disqus widgets.
+     * @return \Catharsis\Web\DisqusWidgetsFactory
+     */
+    public static function disqus()
+    {
+        return empty(self::$_disqus)
+            ? (self::$_disqus = new DisqusWidgetsFactory())
+            : self::$_disqus;
+    }
 }
+
+?>

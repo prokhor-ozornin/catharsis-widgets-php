@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait VimeoWidgetsTrait
 {
-  private static $vimeo;
+    private static $_vimeo;
 
-  /**
-   *
-   * @return \Catharsis\Web\VimeoWidgetsFactory
-   */
-  public static function vimeo()
-  {
-    return empty(self::$vimeo) ? (self::$vimeo = new VimeoWidgetsFactory()) : self::$vimeo;
-  }
+    /**
+     *
+     * @return \Catharsis\Web\VimeoWidgetsFactory
+     */
+    public static function vimeo()
+    {
+        return empty(self::$_vimeo)
+            ? (self::$_vimeo = new VimeoWidgetsFactory())
+            : self::$_vimeo;
+    }
 }
+
+?>

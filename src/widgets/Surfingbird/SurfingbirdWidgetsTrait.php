@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait SurfingbirdWidgetsTrait
 {
-  private static $surfingbird;
+    private static $_surfingbird;
 
-  /**
-   * Returns factory class instance for rendering Surfingbird widgets.
-   * @return \Catharsis\Web\SurfingbirdWidgetsFactory
-   */
-  public static function surfingbird()
-  {
-    return empty(self::$surfingbird) ? (self::$surfingbird = new SurfingbirdWidgetsFactory()) : self::$surfingbird;
-  }
+    /**
+     * Returns factory class instance for rendering Surfingbird widgets.
+     * @return \Catharsis\Web\SurfingbirdWidgetsFactory
+     */
+    public static function surfingbird()
+    {
+        return empty(self::$_surfingbird)
+            ? (self::$_surfingbird = new SurfingbirdWidgetsFactory())
+            : self::$_surfingbird;
+    }
 }
+
+?>

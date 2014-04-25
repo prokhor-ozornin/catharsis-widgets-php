@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 final class VideoJSWidgetsFactory
 {
-  /**
-   * Creates new VideoJS player widget.
-   * @return \Catharsis\Web\VideoJSPlayerWidget Initialized widget with default options.
-   */
-  public function player()
-  {
-    return new VideoJSPlayerWidget();
-  }
+    /**
+     * Creates new VideoJS player widget.
+     * @return \Catharsis\Web\VideoJSPlayerWidget Initialized widget with default options.
+     */
+    public function player()
+    {
+        return new VideoJSPlayerWidget();
+    }
 }
+
+?>

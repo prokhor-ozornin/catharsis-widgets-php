@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 trait CackleScriptsTrait
 {
-  /**
-   * Renders required JavaScript <script> tags.
-   * @return string JavaScript code.
-   */
-  public static function cackle()
-  {
-    return self::javascript_link(Widgets::scripts_path()."/cackle.js");
-  }
+    /**
+     * Renders required JavaScript <script> tags.
+     * @return string JavaScript code.
+     */
+    public static function cackle()
+    {
+        return self::javascriptLink(Widgets::scripts_path() . "/cackle.js");
+    }
 }
+
+?>

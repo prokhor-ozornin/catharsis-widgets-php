@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait VideoJSWidgetsTrait
 {
-  private static $videojs;
+    private static $_videojs;
 
-  /**
-   * Returns factory class instance for rendering VideoJS widgets.
-   * @return \Catharsis\Web\VideoJSWidgetsFactory
-   */
-  public static function videojs()
-  {
-    return empty(self::$videojs) ? (self::$videojs = new VideoJSWidgetsFactory()) : self::$videojs;
-  }
+    /**
+     * Returns factory class instance for rendering VideoJS widgets.
+     * @return \Catharsis\Web\VideoJSWidgetsFactory
+     */
+    public static function videojs()
+    {
+        return empty(self::$_videojs)
+            ? (self::$_videojs = new VideoJSWidgetsFactory())
+            : self::$_videojs;
+    }
 }
+
+?>

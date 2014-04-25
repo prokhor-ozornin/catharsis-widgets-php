@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 final class SoundCloudWidgetsFactory
 {
-  /**
-   * Creates new SoundCloud profile icon widget.
-   * @return \Catharsis\Web\SoundCloudProfileIconWidget Initialized widget with default options.
-   */
-  public function profile_icon()
-  {
-    return new SoundCloudProfileIconWidget();
-  }
+    /**
+     * Creates new SoundCloud profile icon widget.
+     * @return \Catharsis\Web\SoundCloudProfileIconWidget Initialized widget with default options.
+     */
+    public function profileIcon()
+    {
+        return new SoundCloudProfileIconWidget();
+    }
 }
+
+?>

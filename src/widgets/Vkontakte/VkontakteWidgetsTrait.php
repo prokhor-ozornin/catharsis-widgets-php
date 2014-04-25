@@ -6,14 +6,17 @@ namespace Catharsis\Web;
  */
 trait VkontakteWidgetsTrait
 {
-  private static $vkontakte;
-
-  /**
-   * Returns factory class instance for rendering Vkontakte widgets.
-   * @return \Catharsis\Web\VkontakteWidgetsFactory
-   */
-  public static function vkontakte()
-  {
-    return empty(self::$vkontakte) ? (self::$vkontakte = new VkontakteWidgetsFactory()) : self::$vkontakte;
-  }
+    private static $_vkontakte;
+    /**
+     * Returns factory class instance for rendering Vkontakte widgets.
+     * @return \Catharsis\Web\VkontakteWidgetsFactory
+     */
+    public static function vkontakte()
+    {
+        return empty(self::$_vkontakte)
+            ? (self::$_vkontakte = new VkontakteWidgetsFactory())
+            : self::$_vkontakte;
+    }
 }
+
+?>

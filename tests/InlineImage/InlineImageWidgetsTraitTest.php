@@ -5,14 +5,16 @@
  */
 final class InlineImageWidgetsTraitTest extends PHPUnit_Framework_TestCase
 {
-  use Catharsis\Web\InlineImageWidgetsTrait;
+    use Catharsis\Web\InlineImageWidgetsTrait;
 
-  /**
-   * Performs testing of {@link Catharsis\Web\InlineImageWidgetsTrait::inline_image()} method.
-   */
-  public function test_inline_image_method()
-  {
-    $this->assertNotSame(self::inline_image(), self::inline_image());
-    $this->assertInstanceOf("Catharsis\Web\InlineImageWidget", self::inline_image());
-  }
+    /**
+     * Performs testing of {@link Catharsis\Web\InlineImageWidgetsTrait::inlineImage()} method.
+     */
+    public function test_inlineImage_method()
+    {
+        $this->assertNotSame(self::inlineImage(), self::inlineImage());
+        $this->assertInstanceOf("Catharsis\Web\InlineImageWidget", self::inlineImage());
+    }
 }
+
+?>

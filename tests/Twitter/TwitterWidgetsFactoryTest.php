@@ -5,23 +5,25 @@
  */
 final class TwitterWidgetsFactoryTest extends PHPUnit_Framework_TestCase
 {
-  /**
-   ** Performs testing of {@link Catharsis\Web\TwitterWidgetsFactory::follow()} method.
-   */
-  public function test_follow_method()
-  {
-    $factory = new Catharsis\Web\TwitterWidgetsFactory();
-    $this->assertNotSame($factory->follow(), $factory->follow());
-    $this->assertInstanceOf("Catharsis\Web\TwitterFollowButtonWidget", $factory->follow());
-  }
+    /**
+     * * Performs testing of {@link Catharsis\Web\TwitterWidgetsFactory::followButton()} method.
+     */
+    public function test_followButton_method()
+    {
+        $factory = new Catharsis\Web\TwitterWidgetsFactory();
+        $this->assertNotSame($factory->followButton(), $factory->followButton());
+        $this->assertInstanceOf("Catharsis\Web\TwitterFollowButtonWidget", $factory->followButton());
+    }
 
-  /**
-   ** Performs testing of {@link Catharsis\Web\TwitterWidgetsFactory::tweet()} method.
-   */
-  public function test_tweet_method()
-  {
-    $factory = new Catharsis\Web\TwitterWidgetsFactory();
-    $this->assertNotSame($factory->tweet(), $factory->tweet());
-    $this->assertInstanceOf("Catharsis\Web\TwitterTweetButtonWidget", $factory->tweet());
-  }
+    /**
+     * * Performs testing of {@link Catharsis\Web\TwitterWidgetsFactory::tweetButton()} method.
+     */
+    public function test_tweetButton_method()
+    {
+        $factory = new Catharsis\Web\TwitterWidgetsFactory();
+        $this->assertNotSame($factory->tweetButton(), $factory->tweetButton());
+        $this->assertInstanceOf("Catharsis\Web\TwitterTweetButtonWidget", $factory->tweetButton());
+    }
 }
+
+?>

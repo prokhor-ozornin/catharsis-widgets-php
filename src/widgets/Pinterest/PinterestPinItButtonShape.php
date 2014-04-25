@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class PinterestPinItButtonShape
 {
-  /**
-   * Rectangular.
-   */
-  const Rectangular = "rect";
+    /**
+     * Rectangular.
+     */
+    const Rectangular = "rect";
 
-  /**
-   * Circular.
-   */
-  const Circular = "round";
+    /**
+     * Circular.
+     */
+    const Circular = "round";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

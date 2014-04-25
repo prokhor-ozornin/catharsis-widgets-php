@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 trait VkontakteScriptsTrait
 {
-  /**
-   * Renders required JavaScript <script> tags.
-   * @return string JavaScript code.
-   */
-  public static function vkontakte()
-  {
-    return self::javascript_link("http://vk.com/js/api/openapi.js");
-  }
+    /**
+     * Renders required JavaScript <script> tags.
+     * @return string JavaScript code.
+     */
+    public static function vkontakte()
+    {
+        return self::javascriptLink("http://vk.com/js/api/openapi.js");
+    }
 }
+
+?>

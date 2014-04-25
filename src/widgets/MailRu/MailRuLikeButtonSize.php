@@ -41,3 +41,5 @@ final class MailRuLikeButtonSize
    */
   const Size150 = "150";
 }
+
+?>

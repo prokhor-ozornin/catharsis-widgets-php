@@ -6,14 +6,17 @@ namespace Catharsis\Web;
  */
 trait IntenseDebateWidgetsTrait
 {
-  private static $intensedebate;
-
-  /**
-   * Returns factory class instance for rendering IntenseDebate widgets.
-   * @return \Catharsis\Web\IntensedebateWidgetsFactory
-   */
-  public static function intensedebate()
-  {
-    return empty(self::$intensedebate) ? (self::$intensedebate = new IntenseDebateWidgetsFactory()) : self::$intensedebate;
-  }
+    private static $_intensedebate;
+    /**
+     * Returns factory class instance for rendering IntenseDebate widgets.
+     * @return \Catharsis\Web\IntensedebateWidgetsFactory
+     */
+    public static function intensedebate()
+    {
+        return empty(self::$_intensedebate)
+            ? (self::$_intensedebate = new IntenseDebateWidgetsFactory())
+            : self::$_intensedebate;
+    }
 }
+
+?>

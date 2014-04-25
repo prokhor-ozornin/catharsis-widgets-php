@@ -6,13 +6,16 @@ namespace Catharsis\Web;
  */
 trait GoogleScriptsTrait
 {
-  /**
-   * Renders required JavaScript <script> tags.
-   * @return string JavaScript code.
-   */
-  public static function google()
-  {
-    return self::javascript_link(Widgets::scripts_path()."/google_analytics.js").
-           self::javascript_link(Widgets::scripts_path()."/google_plusone.js");
-  }
+    /**
+     * Renders required JavaScript <script> tags.
+     * @return string JavaScript code.
+     */
+    public static function google()
+    {
+        return self::javascriptLink(Widgets::scripts_path()
+            . "/google_analytics.js")
+            .self::javascriptLink(Widgets::scripts_path() . "/google_plusone.js");
+    }
 }
+
+?>

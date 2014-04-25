@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class SurfingbirdSurfButtonColor
 {
-  /**
-   *
-   */
-  const Blue = "blue";
+    /**
+     *
+     */
+    const Blue = "blue";
 
-  /**
-   *
-   */
-  const Green = "green";
+    /**
+     *
+     */
+    const Green = "green";
 
-  /**
-   *
-   */
-  const Gray = "gray";
+    /**
+     *
+     */
+    const Gray = "gray";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

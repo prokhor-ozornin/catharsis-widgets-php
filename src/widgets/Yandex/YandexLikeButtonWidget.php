@@ -4,81 +4,81 @@ namespace Catharsis\Web;
 /**
  * Renders Yandex "Like" button.
  */
-class YandexLikeButtonWidget extends HtmlWidgetBase
+class YandexLikeButtonWidget extends HtmlWidget
 {
-  private $layout = YandexLikeButtonLayout::Button;
-  private $size = YandexLikeButtonSize::Large;
-  private $text;
-  private $title;
-  private $url;
+    private $_layout = YandexLikeButtonLayout::Button;
+    private $_size = YandexLikeButtonSize::Large;
+    private $_text;
+    private $_title;
+    private $_url;
 
-  /**
-   * Visual layout/appearance of the button.
-   * @param string $layout Layout of button.
-   * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
-   */
-  public function layout($layout)
-  {
-    $this->layout = (string) $layout;
-    return $this;
-  }
+    /**
+     * Visual layout/appearance of the button.
+     * @param string $layout Layout of button.
+     * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
+     */
+    public function layout($layout)
+    {
+        $this->_layout = (string) $layout;
+        return $this;
+    }
 
-  /**
-   * Size of the button.
-   * @param string $size Size of button.
-   * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
-   */
-  public function size($size)
-  {
-    $this->size = (string) $size;
-    return $this;
-  }
+    /**
+     * Size of the button.
+     * @param string $size Size of button.
+     * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
+     */
+    public function size($size)
+    {
+        $this->_size = (string) $size;
+        return $this;
+    }
 
-  /**
-   * Label text to draw on the button.
-   * @param string $text Label text.
-   * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
-   */
-  public function text($text)
-  {
-    $this->text = (string) $text;
-    return $this;
-  }
+    /**
+     * Label text to draw on the button.
+     * @param string $text Label text.
+     * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
+     */
+    public function text($text)
+    {
+        $this->_text = (string) $text;
+        return $this;
+    }
 
-  /**
-   * Custom title text for shared page.
-   * @param string $title Title text.
-   * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
-   */
-  public function title($title)
-  {
-    $this->title = (string) $title;
-    return $this;
-  }
+    /**
+     * Custom title text for shared page.
+     * @param string $title Title text.
+     * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
+     */
+    public function title($title)
+    {
+        $this->_title = (string) $title;
+        return $this;
+    }
 
-  /**
-   * URL address of web page to share.
-   * @param string $url URL address of web page.
-   * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
-   */
-  public function url($url)
-  {
-    $this->url = (string) $url;
-    return $this;
-  }
+    /**
+     * URL address of web page to share.
+     * @param string $url URL address of web page.
+     * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
+     */
+    public function url($url)
+    {
+        $this->_url = (string) $url;
+        return $this;
+    }
 
-  /**
-   * Returns HTML markup text of widget.
-   */
-  public function __toString()
-  {
-    return self::html_tag("a", array(
-      "name" => "ya-share",
-      "share_text" => $this->text,
-      "share_title" => $this->title,
-      "share_url" => $this->url,
-      "size" => $this->size,
-      "type" => $this->layout)).<<<EOT
+    /**
+     * Returns HTML markup text of widget.
+     */
+    public function __toString()
+    {
+        return self::htmlTag("a", array(
+            "name" => "ya-share",
+            "share_text" => $this->_text,
+            "share_title" => $this->_title,
+            "share_url" => $this->_url,
+            "size" => $this->_size,
+            "type" => $this->_layout)) . <<<EOT
       <script type="text/javascript">
         if (window.Ya && window.Ya.Share)
         {
@@ -105,5 +105,7 @@ class YandexLikeButtonWidget extends HtmlWidgetBase
         }
       </script>
 EOT;
-  }
+    }
 }
+
+?>

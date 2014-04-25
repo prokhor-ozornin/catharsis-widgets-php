@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class MailRuLikeButtonCounterPosition
 {
-  /**
-   *
-   */
-  const Right = "right";
+    /**
+     *
+     */
+    const Right = "right";
 
-  /**
-   *
-   */
-  const Upper = "upper";
+    /**
+     *
+     */
+    const Upper = "upper";
+    
+    private function __construct()
+    {
 
-  private function __construct()
-  {
-  }
+    }
 }
+
+?>

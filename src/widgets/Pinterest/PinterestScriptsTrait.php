@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 trait PinterestScriptsTrait
 {
-  /**
-   * Renders required JavaScript <script> tags.
-   * @return string JavaScript code.
-   */
-  public static function pinterest()
-  {
-    return self::javascript_link("http://assets.pinterest.com/js/pinit.js");
-  }
+    /**
+     * Renders required JavaScript <script> tags.
+     * @return string JavaScript code.
+     */
+    public static function pinterest()
+    {
+        return self::javascriptLink("http://assets.pinterest.com/js/pinit.js");
+    }
 }
+
+?>

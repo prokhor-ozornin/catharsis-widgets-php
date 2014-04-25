@@ -5,23 +5,25 @@
  */
 final class TumblrWidgetsFactoryTest extends PHPUnit_Framework_TestCase
 {
-  /**
-   ** Performs testing of {@link Catharsis\Web\TumblrWidgetsFactory::follow()} method.
-   */
-  public function test_follow_method()
-  {
-    $factory = new Catharsis\Web\TumblrWidgetsFactory();
-    $this->assertNotSame($factory->follow(), $factory->follow());
-    $this->assertInstanceOf("Catharsis\Web\TumblrFollowButtonWidget", $factory->follow());
-  }
+    /**
+     * * Performs testing of {@link Catharsis\Web\TumblrWidgetsFactory::followButton()} method.
+     */
+    public function test_followButton_method()
+    {
+        $factory = new Catharsis\Web\TumblrWidgetsFactory();
+        $this->assertNotSame($factory->followButton(), $factory->followButton());
+        $this->assertInstanceOf("Catharsis\Web\TumblrFollowButtonWidget", $factory->followButton());
+    }
 
-  /**
-   ** Performs testing of {@link Catharsis\Web\TumblrWidgetsFactory::share()} method.
-   */
-  public function test_share_method()
-  {
-    $factory = new Catharsis\Web\TumblrWidgetsFactory();
-    $this->assertNotSame($factory->share(), $factory->share());
-    $this->assertInstanceOf("Catharsis\Web\TumblrShareButtonWidget", $factory->share());
-  }
+    /**
+     * * Performs testing of {@link Catharsis\Web\TumblrWidgetsFactory::shareButton()} method.
+     */
+    public function test_shareButton_method()
+    {
+        $factory = new Catharsis\Web\TumblrWidgetsFactory();
+        $this->assertNotSame($factory->shareButton(), $factory->shareButton());
+        $this->assertInstanceOf("Catharsis\Web\TumblrShareButtonWidget", $factory->shareButton());
+    }
 }
+
+?>

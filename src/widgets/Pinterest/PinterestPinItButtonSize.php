@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class PinterestPinItButtonSize
 {
-  /**
-   * Small.
-   */
-  const Small = "small";
+    /**
+     * Small.
+     */
+    const Small = "small";
 
-  /**
-   * Large.
-   */
-  const Large = "large";
+    /**
+     * Large.
+     */
+    const Large = "large";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

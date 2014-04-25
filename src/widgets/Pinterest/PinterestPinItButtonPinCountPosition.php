@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class PinterestPinItButtonPinCountPosition
 {
-  /**
-   * Above button.
-   */
-  const Above = "above";
+    /**
+     * Above button.
+     */
+    const Above = "above";
 
-  /**
-   * Beside button.
-   */
-  const Beside = "beside";
+    /**
+     * Beside button.
+     */
+    const Beside = "beside";
 
-  /**
-   * Do not show.
-   */
-  const None = "none";
+    /**
+     * Do not show.
+     */
+    const None = "none";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

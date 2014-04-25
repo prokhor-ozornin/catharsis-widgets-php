@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait GravatarWidgetsTrait
 {
-  private static $gravatar;
-
-  /**
-   * Returns factory class instance for rendering Gravatar widgets.
-   * @return \Catharsis\Web\GravatarWidgetsFactory
-   */
-  public static function gravatar()
-  {
-    return empty(self::$gravatar) ? (self::$gravatar = new GravatarWidgetsFactory()) : self::$gravatar;
-  }
+    private static $_gravatar;
+    
+    /**
+     * Returns factory class instance for rendering Gravatar widgets.
+     * @return \Catharsis\Web\GravatarWidgetsFactory
+     */
+    public static function gravatar()
+    {
+        return empty(self::$_gravatar)
+            ? (self::$_gravatar = new GravatarWidgetsFactory())
+            : self::$_gravatar;
+    }
 }
+
+?>

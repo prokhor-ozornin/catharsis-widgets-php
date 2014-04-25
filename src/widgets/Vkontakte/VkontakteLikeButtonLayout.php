@@ -6,27 +6,30 @@ namespace Catharsis\Web;
  */
 final class VkontakteLikeButtonLayout
 {
-  /**
-   *
-   */
-  const Button = "button";
+    /**
+     *
+     */
+    const Button = "button";
 
-  /**
-   *
-   */
-  const Full = "full";
+    /**
+     *
+     */
+    const Full = "full";
 
-  /**
-   *
-   */
-  const Mini = "mini";
+    /**
+     *
+     */
+    const Mini = "mini";
 
-  /**
-   *
-   */
-  const Vertical = "vertical";
+    /**
+     *
+     */
+    const Vertical = "vertical";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

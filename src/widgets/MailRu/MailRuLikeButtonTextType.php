@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class MailRuLikeButtonTextType
 {
-  /**
-   *
-   */
-  const First = 1;
+    /**
+     *
+     */
+    const First = 1;
 
-  /**
-   *
-   */
-  const Second = 2;
+    /**
+     *
+     */
+    const Second = 2;
 
-  /**
-   *
-   */
-  const Third = 3;
+    /**
+     *
+     */
+    const Third = 3;
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

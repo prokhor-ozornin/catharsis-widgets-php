@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 trait VideoJSStylesTrait
 {
-  /**
-   * Renders required CSS <link> tags.
-   * @return string CSS code.
-   */
-  public static function videojs()
-  {
-    return self::css_link("http://vjs.zencdn.net/4.3/video-js.css");
-  }
+    /**
+     * Renders required CSS <link> tags.
+     * @return string CSS code.
+     */
+    public static function videojs()
+    {
+        return self::cssLink("http://vjs.zencdn.net/4.3/video-js.css");
+    }
 }
+
+?>

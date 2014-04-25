@@ -6,27 +6,30 @@ namespace Catharsis\Web;
  */
 final class YandexMoneyPaymentFormText
 {
-  /**
-   * "Pay".
-   */
-  const Pay = 1;
+    /**
+     * "Pay".
+     */
+    const Pay = 1;
 
-  /**
-   * "Buy".
-   */
-  const Buy = 2;
+    /**
+     * "Buy".
+     */
+    const Buy = 2;
 
-  /**
-   * "Transfer".
-   */
-  const Transfer = 3;
+    /**
+     * "Transfer".
+     */
+    const Transfer = 3;
 
-  /**
-   * "Give".
-   */
-  const Give = 4;
+    /**
+     * "Give".
+     */
+    const Give = 4;
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

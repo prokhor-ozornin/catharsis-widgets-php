@@ -6,12 +6,14 @@ namespace Catharsis\Web;
  */
 final class YouTubeWidgetsFactory
 {
-  /**
-   * Creates new YouTube embedded video widget.
-   * @return \Catharsis\Web\YouTubeVideoWidget Initialized widget with default options.
-   */
-  public function video()
-  {
-    return new YouTubeVideoWidget();
-  }
+    /**
+     * Creates new YouTube embedded video widget.
+     * @return \Catharsis\Web\YouTubeVideoWidget Initialized widget with default options.
+     */
+    public function video()
+    {
+        return new YouTubeVideoWidget();
+    }
 }
+
+?>

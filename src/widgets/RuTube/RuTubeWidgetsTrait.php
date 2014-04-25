@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait RuTubeWidgetsTrait
 {
-  private static $rutube;
+    private static $_rutube;
 
-  /**
-   * Returns factory class instance for rendering RuTube widgets.
-   * @return \Catharsis\Web\RuTubeWidgetsFactory
-   */
-  public static function rutube()
-  {
-    return empty(self::$rutube) ? (self::$rutube = new RuTubeWidgetsFactory()) : self::$rutube;
-  }
+    /**
+     * Returns factory class instance for rendering RuTube widgets.
+     * @return \Catharsis\Web\RuTubeWidgetsFactory
+     */
+    public static function rutube()
+    {
+        return empty(self::$_rutube)
+            ? (self::$_rutube = new RuTubeWidgetsFactory())
+            : self::$_rutube;
+    }
 }
+
+?>

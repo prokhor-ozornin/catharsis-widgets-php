@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class FacebookLikeButtonVerb
 {
-  /**
-   *
-   */
-  const Like = "like";
+    /**
+     *
+     */
+    const Like = "like";
 
-  /**
-   *
-   */
-  const Recommend = "recommend";
+    /**
+     *
+     */
+    const Recommend = "recommend";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

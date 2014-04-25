@@ -6,37 +6,40 @@ namespace Catharsis\Web;
  */
 final class VkontakteCommentsAttach
 {
-  /**
-   *
-   */
-  const All = "*";
+    /**
+     *
+     */
+    const All = "*";
 
-  /**
-   *
-   */
-  const Graffiti = "graffiti";
+    /**
+     *
+     */
+    const Graffiti = "graffiti";
 
-  /**
-   *
-   */
-  const Photo = "photo";
+    /**
+     *
+     */
+    const Photo = "photo";
 
-  /**
-   *
-   */
-  const Video = "video";
+    /**
+     *
+     */
+    const Video = "video";
 
-  /**
-   *
-   */
-  const Audio = "audio";
+    /**
+     *
+     */
+    const Audio = "audio";
 
-  /**
-   *
-   */
-  const Link = "link";
+    /**
+     *
+     */
+    const Link = "link";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

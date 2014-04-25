@@ -6,21 +6,23 @@ namespace Catharsis\Web;
  */
 final class WebWidgetsScripts
 {
-  use
-  HtmlHelpersTrait,
-  CackleScriptsTrait,
-  DisqusScriptsTrait,
-  GoogleScriptsTrait,
-  MailRuScriptsTrait,
-  PinterestScriptsTrait,
-  SurfingbirdScriptsTrait,
-  TumblrScriptsTrait,
-  TwitterScriptsTrait,
-  VideoJSScriptsTrait,
-  VkontakteScriptsTrait,
-  YandexScriptsTrait;
+    use HtmlHelpersTrait,
+        CackleScriptsTrait,
+        DisqusScriptsTrait,
+        GoogleScriptsTrait,
+        MailRuScriptsTrait,
+        PinterestScriptsTrait,
+        SurfingbirdScriptsTrait,
+        TumblrScriptsTrait,
+        TwitterScriptsTrait,
+        VideoJSScriptsTrait,
+        VkontakteScriptsTrait,
+        YandexScriptsTrait;
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

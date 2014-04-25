@@ -6,14 +6,18 @@ namespace Catharsis\Web;
  */
 trait YouTubeWidgetsTrait
 {
-  private static $youtube;
+    private static $_youtube;
 
-  /**
-   * Returns factory class instance for rendering YouTube widgets.
-   * @return \Catharsis\Web\YouTubeWidgetsFactory
-   */
-  public static function youtube()
-  {
-    return empty(self::$youtube) ? (self::$youtube = new YouTubeWidgetsFactory()) : self::$youtube;
-  }
+    /**
+     * Returns factory class instance for rendering YouTube widgets.
+     * @return \Catharsis\Web\YouTubeWidgetsFactory
+     */
+    public static function youtube()
+    {
+        return empty(self::$_youtube)
+            ? (self::$_youtube = new YouTubeWidgetsFactory())
+            : self::$_youtube;
+    }
 }
+
+?>

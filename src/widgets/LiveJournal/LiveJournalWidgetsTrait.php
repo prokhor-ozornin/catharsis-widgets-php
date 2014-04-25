@@ -6,14 +6,17 @@ namespace Catharsis\Web;
  */
 trait LiveJournalWidgetsTrait
 {
-  private static $livejournal;
-
-  /**
-   * Returns factory class instance for rendering LiveJournal widgets.
-   * @return \Catharsis\Web\LiveJournalWidgetsFactory
-   */
-  public static function livejournal()
-  {
-    return empty(self::$livejournal) ? (self::$livejournal = new LiveJournalWidgetsFactory()) : self::$livejournal;
-  }
+    private static $_livejournal;
+    /**
+     * Returns factory class instance for rendering LiveJournal widgets.
+     * @return \Catharsis\Web\LiveJournalWidgetsFactory
+     */
+    public static function livejournal()
+    {
+        return empty(self::$_livejournal)
+            ? (self::$_livejournal = new LiveJournalWidgetsFactory())
+            : self::$_livejournal;
+    }
 }
+
+?>

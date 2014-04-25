@@ -6,22 +6,25 @@ namespace Catharsis\Web;
  */
 final class MailRuFacesFont
 {
-  /**
-   * Arial.
-   */
-  const Arial = "Arial";
+    /**
+     * Arial.
+     */
+    const Arial = "Arial";
 
-  /**
-   * Tahoma.
-   */
-  const Tahoma = "Tahoma";
+    /**
+     * Tahoma.
+     */
+    const Tahoma = "Tahoma";
 
-  /**
-   * Georgia.
-   */
-  const Georgia = "Georgia";
+    /**
+     * Georgia.
+     */
+    const Georgia = "Georgia";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

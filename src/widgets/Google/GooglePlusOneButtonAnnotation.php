@@ -6,23 +6,25 @@ namespace Catharsis\Web;
  */
 final class GooglePlusOneButtonAnnotation
 {
-  /**
-   *
-   */
-  const Bubble = "bubble";
+    /**
+     *
+     */
+    const Bubble = "bubble";
 
-  /**
-   *
-   */
-  const Inline = "inline";
+    /**
+     *
+     */
+    const Inline = "inline";
 
-  /**
-   *
-   */
-  const None = "none";
+    /**
+     *
+     */
+    const None = "none";
+    
+    private function __construct()
+    {
 
-
-  private function __construct()
-  {
-  }
+    }
 }
+
+?>

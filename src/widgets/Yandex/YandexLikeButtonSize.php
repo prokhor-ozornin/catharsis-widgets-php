@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class YandexLikeButtonSize
 {
-  /**
-   *
-   */
-  const Large = "large";
+    /**
+     *
+     */
+    const Large = "large";
 
-  /**
-   *
-   */
-  const Small = "small";
+    /**
+     *
+     */
+    const Small = "small";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

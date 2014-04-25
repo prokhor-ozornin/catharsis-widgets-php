@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class GooglePlusOneButtonAlignment
 {
-  /**
-   *
-   */
-  const Left = "left";
+    /**
+     *
+     */
+    const Left = "left";
 
-  /**
-   *
-   */
-  const Right = "right";
+    /**
+     *
+     */
+    const Right = "right";
+    
+    private function __construct()
+    {
 
-  private function __construct()
-  {
-  }
+    }
 }
+
+?>

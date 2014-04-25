@@ -5,15 +5,16 @@
  */
 final class VideoJSStylesTraitTest extends PHPUnit_Framework_TestCase
 {
-  use
-  Catharsis\Web\HtmlHelpersTrait,
-  Catharsis\Web\VideoJSStylesTrait;
+    use Catharsis\Web\HtmlHelpersTrait,
+        Catharsis\Web\VideoJSStylesTrait;
 
-  /**
-   * Performs testing of {@link Catharsis\Web\VideoJSStylesTrait::videojs()} method.
-   */
-  public function test_videojs_method()
-  {
-    $this->assertEquals('<link rel="stylesheet" href="http://vjs.zencdn.net/4.3/video-js.css" type="text/css"></link>', self::videojs());
-  }
+    /**
+     * Performs testing of {@link Catharsis\Web\VideoJSStylesTrait::videojs()} method.
+     */
+    public function test_videojs_method()
+    {
+        $this->assertEquals('<link href="http://vjs.zencdn.net/4.3/video-js.css" rel="stylesheet" type="text/css"></link>', self::videojs());
+    }
 }
+
+?>

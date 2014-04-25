@@ -6,27 +6,30 @@ namespace Catharsis\Web;
  */
 final class YandexSharePanelLayout
 {
-  /**
-   *
-   */
-  const Button = "button";
+    /**
+     *
+     */
+    const Button = "button";
 
-  /**
-   *
-   */
-  const Icon = "icon";
+    /**
+     *
+     */
+    const Icon = "icon";
 
-  /**
-   *
-   */
-  const Link = "link";
+    /**
+     *
+     */
+    const Link = "link";
 
-  /**
-   *
-   */
-  const None = "none";
+    /**
+     *
+     */
+    const None = "none";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>

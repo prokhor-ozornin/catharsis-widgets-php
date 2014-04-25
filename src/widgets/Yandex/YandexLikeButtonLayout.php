@@ -6,17 +6,20 @@ namespace Catharsis\Web;
  */
 final class YandexLikeButtonLayout
 {
-  /**
-   *
-   */
-  const Button = "button";
+    /**
+     *
+     */
+    const Button = "button";
 
-  /**
-   *
-   */
-  const Icon = "icon";
+    /**
+     *
+     */
+    const Icon = "icon";
 
-  private function __construct()
-  {
-  }
+    private function __construct()
+    {
+
+    }
 }
+
+?>
