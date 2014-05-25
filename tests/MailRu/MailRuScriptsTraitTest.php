@@ -1,7 +1,23 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\MailRuScriptsTrait}
+ * Tests set for class {@link \Catharsis\Web\MailRuScriptsTrait}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class MailRuScriptsTraitTest extends PHPUnit_Framework_TestCase
 {
@@ -9,12 +25,17 @@ final class MailRuScriptsTraitTest extends PHPUnit_Framework_TestCase
         Catharsis\Web\MailRuScriptsTrait;
 
     /**
-     * Performs testing of {@link Catharsis\Web\MailRuScriptsTrait::mailru()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\MailRuScriptsTrait::mailru()}
+     * method.
+     * @return void
      */
-    public function test_mailru_method()
+    public function testMailRuMethod()
     {
-        $this->assertEquals('<script src="http://cdn.connect.mail.ru/js/loader.js" type="text/javascript"></script>',
-                            self::mailru());
+        $this->assertEquals(
+            '<script src="http://cdn.connect.mail.ru/js/loader.js" type="text/javascript"></script>',
+            self::mailru()
+        );
     }
 }
 

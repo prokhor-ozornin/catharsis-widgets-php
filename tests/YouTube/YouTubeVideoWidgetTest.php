@@ -1,103 +1,152 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\YouTubeVideoWidget}
+ * Tests set for class {@link \Catharsis\Web\YouTubeVideoWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class YouTubeVideoWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\YouTubeVideoWidget::__construct()
+     * @link \Catharsis\Web\YouTubeVideoWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertAttributeEmpty("_id", $widget);
-        $this->assertAttributeEquals(false, "_privateMode", $widget);
-        $this->assertAttributeEquals(false, "_secureMode", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertEmpty($widget->getId());
+        $this->assertFalse($widget->getPrivateMode());
+        $this->assertFalse($widget->getSecureMode());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YouTubeVideoWidget::height(string $height)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YouTubeVideoWidget::height(string $height)}
+     * method.
+     * @return void
      */
-    public function test_height_method()
+    public function testHeightMethod()
     {
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertSame($widget, $widget->height("height"));
-        $this->assertAttributeEquals("height", "_height", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertSame($widget, $widget->height('height'));
+        $this->assertEquals('height', $widget->getHeight());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YouTubeVideoWidget::id(string $id)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YouTubeVideoWidget::id(string $id)}
+     * method.
+     * @return void
      */
-    public function test_id_method()
+    public function testIdMethod()
     {
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertAttributeEmpty("_id", $widget);
-        $this->assertSame($widget, $widget->id("id"));
-        $this->assertAttributeEquals("id", "_id", $widget);
+        $this->assertEmpty($widget->getId());
+        $this->assertSame($widget, $widget->id('id'));
+        $this->assertEquals('id', $widget->getId());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YouTubeVideoWidget::privateMode(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YouTubeVideoWidget::privateMode(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_privateMode_method()
+    public function testPrivateModeMethod()
     {
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertAttributeEquals(false, "_privateMode", $widget);
-        $this->assertSame($widget, $widget->privateMode());
-        $this->assertAttributeEquals(true, "_privateMode", $widget);
+        $this->assertFalse($widget->getPrivateMode());
+        $this->assertSame($widget, $widget->privateMode(true));
+        $this->assertTrue($widget->getPrivateMode());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YouTubeVideoWidget::secureMode(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YouTubeVideoWidget::secureMode(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_secureMode_method()
+    public function testSecureModeMethod()
     {
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertAttributeEquals(false, "_secureMode", $widget);
-        $this->assertSame($widget, $widget->secureMode());
-        $this->assertAttributeEquals(true, "_secureMode", $widget);
+        $this->assertFalse($widget->getSecureMode());
+        $this->assertSame($widget, $widget->secureMode(true));
+        $this->assertTrue(true, $widget->getSecureMode());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YouTubeVideoWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YouTubeVideoWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YouTubeVideoWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YouTubeVideoWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\YouTubeVideoWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->height("height"));
+        $this->assertEmpty((string) $widget->id('id')->height('height'));
 
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->width("width"));
+        $this->assertEmpty((string) $widget->id('id')->width('width'));
 
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertEmpty((string) $widget->height("height")->width("width"));
+        $this->assertEmpty((string) $widget->height('height')->width('width'));
 
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertEquals('<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://www.youtube.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>',
-                            (string) $widget->id("id")->height("height")->width("width"));
+        $this->assertEquals(
+            '<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true"'
+            .' src="http://www.youtube.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>',
+            (string) $widget
+                ->id('id')
+                ->height('height')
+                ->width('width')
+        );
 
         $widget = new Catharsis\Web\YouTubeVideoWidget();
-        $this->assertEquals('<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://www.youtube-nocookie.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>',
-                            (string) $widget->id("id")->height("height")->width("width")->privateMode()->secureMode());
+        $this->assertEquals(
+            '<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true"'
+            .' src="https://www.youtube-nocookie.com/embed/id" webkitallowfullscreen="true" width="width"></iframe>',
+            (string) $widget
+                ->id('id')
+                ->height('height')
+                ->width('width')
+                ->privateMode(true)
+                ->secureMode(true)
+        );
     }
 }
 

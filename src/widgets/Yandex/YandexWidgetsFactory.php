@@ -1,14 +1,33 @@
 <?php
+/**
+ * YandexWidgetsFactory class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Factory for instantiation of Yandex widgets.
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class YandexWidgetsFactory
 {
     /**
      * Creates new Yandex.Metrika analytics widget.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Initialized widget with default options.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Initialized widget with default options.
      */
     public function analytics()
     {
@@ -17,7 +36,8 @@ final class YandexWidgetsFactory
 
     /**
      * Creates new Yandex "Like" button widget.
-     * @return \Catharsis\Web\YandexLikeButtonWidget Initialized widget with default options.
+     * @return \Catharsis\Web\YandexLikeButtonWidget
+     *         Initialized widget with default options.
      */
     public function likeButton()
     {
@@ -26,7 +46,8 @@ final class YandexWidgetsFactory
 
     /**
      * Creates new Yandex Map widget.
-     * @return \Catharsis\Web\YandexMapWidget Initialized widget with default options.
+     * @return \Catharsis\Web\YandexMapWidget
+     *         Initialized widget with default options.
      */
     /* public function map()
       {
@@ -35,7 +56,8 @@ final class YandexWidgetsFactory
 
     /**
      * Creates new Yandex.Money button widget.
-     * @return \Catharsis\Web\YandexMoneyButtonWidget Initialized widget with default options.
+     * @return \Catharsis\Web\YandexMoneyButtonWidget
+     *         Initialized widget with default options.
      */
     public function moneyButton()
     {
@@ -44,7 +66,8 @@ final class YandexWidgetsFactory
 
     /**
      * Creates new Yandex.Money donation form widget.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Initialized widget with default options.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Initialized widget with default options.
      */
     public function moneyDonateForm()
     {
@@ -53,7 +76,8 @@ final class YandexWidgetsFactory
 
     /**
      * Creates new Yandex.Money payment form widget.
-     * @return \Catharsis\Web\YandexMoneyPaymentFormWidget Initialized widget with default options.
+     * @return \Catharsis\Web\YandexMoneyPaymentFormWidget
+     *         Initialized widget with default options.
      */
     public function moneyPaymentForm()
     {
@@ -62,7 +86,8 @@ final class YandexWidgetsFactory
 
     /**
      * Creates new Yandex "Share" button widget.
-     * @return \Catharsis\Web\YandexSharePanelWidget Initialized widget with default options.
+     * @return \Catharsis\Web\YandexSharePanelWidget
+     *         Initialized widget with default options.
      */
     public function sharePanel()
     {
@@ -71,7 +96,8 @@ final class YandexWidgetsFactory
 
     /**
      * Creates new Yandex embedded video widget.
-     * @return \Catharsis\Web\YandexVideoWidget Initialized widget with default options.
+     * @return \Catharsis\Web\YandexVideoWidget
+     *         Initialized widget with default options.
      */
     public function video()
     {

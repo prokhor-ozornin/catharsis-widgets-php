@@ -1,156 +1,213 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\GravatarProfileUrlWidget}
+ * Tests set for class {@link \Catharsis\Web\GravatarProfileUrlWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class GravatarProfileUrlWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\GravatarProfileUrlWidget::__construct()
+     * @link \Catharsis\Web\GravatarProfileUrlWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_format", $widget);
-        $this->assertAttributeEmpty("_hash", $widget);
-        $this->assertAttributeEmpty("_parameters", $widget);
+        $this->assertEmpty($widget->getFormat());
+        $this->assertEmpty($widget->getHash());
+        $this->assertAttributeEmpty('_parameters', $widget);
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::email(string $email)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::email(string $email)}
+     * method.
+     * @return void
      */
-    public function test_email_method()
+    public function testEmailMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_hash", $widget);
-        $this->assertSame($widget, $widget->email("email"));
-        $this->assertAttributeEquals(md5("email"), "_hash", $widget);
+        $this->assertEmpty($widget->getHash());
+        $this->assertSame($widget, $widget->email('email'));
+        $this->assertEquals(md5('email'), $widget->getHash());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::format(string $format)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::format(string $format)}
+     * method.
+     * @return void
      */
-    public function test_format_method()
+    public function testFormatMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_format", $widget);
-        $this->assertSame($widget, $widget->format("format"));
-        $this->assertAttributeEquals("format", "_format", $widget);
+        $this->assertEmpty($widget->getFormat());
+        $this->assertSame($widget, $widget->format('format'));
+        $this->assertEquals('format', $widget->getFormat());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::hash(string $hash)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::hash(string $hash)}
+     * method.
+     * @return void
      */
-    public function test_hash_method()
+    public function testHashMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_hash", $widget);
-        $this->assertSame($widget, $widget->hash("hash"));
-        $this->assertAttributeEquals("hash", "_hash", $widget);
+        $this->assertEmpty($widget->getHash());
+        $this->assertSame($widget, $widget->hash('hash'));
+        $this->assertEquals('hash', $widget->getHash());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::json(string $callback)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::json(string $callback)}
+     * method.
+     * @return void
      */
-    public function test_json_method()
+    public function testJsonMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_format", $widget);
+        $this->assertEmpty($widget->getFormat());
 
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
         $this->assertSame($widget, $widget->json());
-        $this->assertAttributeEquals("json", "_format", $widget);
-        $this->assertAttributeEmpty("_parameters", $widget);
+        $this->assertEquals('json', $widget->getFormat());
+        $this->assertAttributeEmpty('_parameters', $widget);
 
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertSame($widget, $widget->json("callback"));
-        $this->assertAttributeEquals("json", "_format", $widget);
-        $this->assertAttributeEquals(array("callback" => "callback"), "_parameters", $widget);
+        $this->assertSame($widget, $widget->json('callback'));
+        $this->assertEquals('json', $widget->getFormat());
+        $this->assertAttributeEquals(array('callback' => 'callback'), '_parameters', $widget);
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::parameter(string $name, mixed $value)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::parameter(string $name, mixed $value)}
+     * method.
+     * @return void
      */
-    public function test_parameter_method()
+    public function testParameterMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_parameters", $widget);
-        $this->assertSame($widget, $widget->parameter("name", "value"));
-        $this->assertAttributeEquals(array("name" => "value"), "_parameters", $widget);
+        $this->assertAttributeEmpty('_parameters', $widget);
+        $this->assertSame($widget, $widget->parameter('name', 'value'));
+        $this->assertAttributeEquals(array('name' => 'value'), '_parameters', $widget);
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::php()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::php()}
+     * method.
+     * @return void
      */
-    public function test_php_method()
+    public function testPhpMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_format", $widget);
+        $this->assertEmpty($widget->getFormat());
         $this->assertSame($widget, $widget->php());
-        $this->assertAttributeEquals("php", "_format", $widget);
+        $this->assertEquals('php', $widget->getFormat());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::qr()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::qr()}
+     * method.
+     * @return void
      */
-    public function test_qr_method()
+    public function testQrMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_format", $widget);
+        $this->assertEmpty($widget->getFormat());
 
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
         $this->assertSame($widget, $widget->qr());
-        $this->assertAttributeEquals("qr", "_format", $widget);
-        $this->assertAttributeEmpty("_parameters", $widget);
+        $this->assertEquals('qr', $widget->getFormat());
+        $this->assertAttributeEmpty('_parameters', $widget);
 
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
         $this->assertSame($widget, $widget->qr(1));
-        $this->assertAttributeEquals("qr", "_format", $widget);
-        $this->assertAttributeEquals(array("size" => 1), "_parameters", $widget);
+        $this->assertEquals('qr', $widget->getFormat());
+        $this->assertAttributeEquals(array('size' => 1), '_parameters', $widget);
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::vcf()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::vcf()}
+     * method.
+     * @return void
      */
-    public function test_vcf_method()
+    public function testVcfMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_format", $widget);
+        $this->assertEmpty($widget->getFormat());
         $this->assertSame($widget, $widget->vcf());
-        $this->assertAttributeEquals("vcf", "_format", $widget);
+        $this->assertEquals('vcf', $widget->getFormat());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::xml()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::xml()}
+     * method.
+     * @return void
      */
-    public function test_xml_method()
+    public function testXmlMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertAttributeEmpty("_format", $widget);
+        $this->assertEmpty($widget->getFormat());
         $this->assertSame($widget, $widget->xml());
-        $this->assertAttributeEquals("xml", "_format", $widget);
+        $this->assertEquals("xml", $widget->getFormat());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GravatarProfileUrlWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GravatarProfileUrlWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertEquals("http://www.gravatar.com/hash",
-                            (string) $widget->hash("hash"));
+        $this->assertEquals(
+            'http://www.gravatar.com/hash',
+            (string) $widget->hash('hash')
+        );
 
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertEquals("http://www.gravatar.com/hash?name=value",
-                            (string) $widget->hash("hash")->parameter("name", "value"));
+        $this->assertEquals(
+            'http://www.gravatar.com/hash?name=value',
+            (string) $widget->hash('hash')->parameter('name', 'value')
+        );
 
         $widget = new Catharsis\Web\GravatarProfileUrlWidget();
-        $this->assertEquals("http://www.gravatar.com/hash.format?first=1&second=2",
-                            (string) $widget->hash("hash")->format("format")->parameter("first", 1)->parameter("second", 2));
+        $this->assertEquals(
+            'http://www.gravatar.com/hash.format?first=1&second=2',
+            (string) $widget
+                ->hash('hash')
+                ->format('format')
+                ->parameter('first', 1)
+                ->parameter('second', 2)
+        );
     }
 }
 

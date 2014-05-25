@@ -1,10 +1,28 @@
 <?php
+/**
+ * PinterestBoardWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders Pinterest Board widget with board's latest pins.
  * Requires {@link WidgetsScripts::pinterest} script to be included.
- * @link http://business.pinterest.com/widget-builder/#do_embed_board
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
+ * @link      http://business.pinterest.com/widget-builder/#do_embed_board
  */
 class PinterestBoardWidget extends HtmlWidget
 {
@@ -27,6 +45,15 @@ class PinterestBoardWidget extends HtmlWidget
     }
 
     /**
+     * Pinterest user account.
+     * @return string Account name.
+     */
+    public function getAccount()
+    {
+        return $this->_account;
+    }
+
+    /**
      * Total height of board in pixels.
      * Min: 60; leave blank for 175.
      * @param string $height Board's height.
@@ -36,6 +63,16 @@ class PinterestBoardWidget extends HtmlWidget
     {
         $this->_height = (string) $height;
         return $this;
+    }
+
+    /**
+     * Total height of board in pixels.
+     * Min: 60; leave blank for 175.
+     * @return string Board's height.
+     */
+    public function getHeight()
+    {
+        return $this->_height;
     }
 
     /**
@@ -60,6 +97,15 @@ class PinterestBoardWidget extends HtmlWidget
     }
 
     /**
+     * Identifier of account's board.
+     * @return string Board's identifier.
+     */
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    /**
      * Width of board's image in pixels.
      * @param string $width Board's image width.
      * @return \Catharsis\Web\PinterestBoardWidget Reference to the current widget.
@@ -68,6 +114,15 @@ class PinterestBoardWidget extends HtmlWidget
     {
         $this->_image = (string) $width;
         return $this;
+    }
+
+    /**
+     * Width of board's image in pixels.
+     * @return string Board's image width.
+     */
+    public function getImage()
+    {
+        return $this->_image;
     }
 
     /**
@@ -101,20 +156,35 @@ class PinterestBoardWidget extends HtmlWidget
     }
 
     /**
+     * Total width of board in pixels.
+     * Min: 130; leave blank for auto.
+     * @return string Board's width.
+     */
+    public function getWidth()
+    {
+        return $this->_width;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        if (empty($this->_account) || empty($this->_id)) {
-            return "";
+        if (empty($this->getAccount()) || empty($this->getId())) {
+            return '';
         }
 
-        return self::htmlTag("a", array(
-            "data-pin-board-width" => $this->_width,
-            "data-pin-do" => "embedBoard",
-            "data-pin-scale-height" => $this->_height,
-            "data-pin-scale-width" => $this->_image,
-            "href" => "http://www.pinterest.com/{$this->_account}/{$this->_id}"));
+        return self::htmlTag(
+            'a',
+            array(
+                'data-pin-board-width' => $this->getWidth(),
+                'data-pin-do' => 'embedBoard',
+                'data-pin-scale-height' => $this->getHeight(),
+                'data-pin-scale-width' => $this->getImage(),
+                'href' => "http://www.pinterest.com/{$this->getAccount()}/{$this->getId()}"
+            )
+        );
     }
 }
 

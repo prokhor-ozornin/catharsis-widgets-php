@@ -1,10 +1,28 @@
 <?php
+/**
+ * PinterestProfileWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders Pinterest Profile widget with user's latest pins.
  * Requires {@link WidgetsScripts::pinterest} script to be included.
- * @link http://business.pinterest.com/widget-builder/#do_embed_user
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
+ * @link      http://business.pinterest.com/widget-builder/#do_embed_user
  */
 class PinterestProfileWidget extends HtmlWidget
 {
@@ -17,7 +35,8 @@ class PinterestProfileWidget extends HtmlWidget
      * Pinterest user account.
      * This attribute is required.
      * @param string $account Account name.
-     * @return \Catharsis\Web\PinterestProfileWidget Reference to the current widget.
+     * @return \Catharsis\Web\PinterestProfileWidget
+     *         Reference to the current widget.
      */
     public function account($account)
     {
@@ -26,10 +45,20 @@ class PinterestProfileWidget extends HtmlWidget
     }
 
     /**
+     * Pinterest user account.
+     * @return string Account name.
+     */
+    public function getAccount()
+    {
+        return $this->_account;
+    }
+
+    /**
      * Total height of profile area in pixels.
      * Min: 60; leave blank for 175.
      * @param string $height Areas's height.
-     * @return \Catharsis\Web\PinterestProfileWidget Reference to the current widget.
+     * @return \Catharsis\Web\PinterestProfileWidget
+     *         Reference to the current widget.
      */
     public function height($height)
     {
@@ -38,8 +67,19 @@ class PinterestProfileWidget extends HtmlWidget
     }
 
     /**
+     * Total height of profile area in pixels.
+     * Min: 60; leave blank for 175.
+     * @return string Areas's height.
+     */
+    public function getHeight()
+    {
+        return $this->_height;
+    }
+
+    /**
      * Sets predefined dimensions of area and images to make it look like a site's header.
-     * @return \Catharsis\Web\PinterestProfileWidget Reference to the current widget.
+     * @return \Catharsis\Web\PinterestProfileWidget
+     *         Reference to the current widget.
      */
     public function header()
     {
@@ -48,8 +88,9 @@ class PinterestProfileWidget extends HtmlWidget
 
     /**
      * Width of profile area's image in pixels.
-     * @param string $width
-     * @return \Catharsis\Web\PinterestProfileWidget Reference to the current widget.
+     * @param string $width Area's image width.
+     * @return \Catharsis\Web\PinterestProfileWidget
+     *         Reference to the current widget.
      */
     public function image($width)
     {
@@ -58,8 +99,18 @@ class PinterestProfileWidget extends HtmlWidget
     }
 
     /**
+     * Width of profile area's image in pixels.
+     * @return string Area's image width.
+     */
+    public function getImage()
+    {
+        return $this->_image;
+    }
+
+    /**
      * Sets predefined dimensions of area and images to make it look like a site's sidebar.
-     * @return \Catharsis\Web\PinterestProfileWidget Reference to the current widget.
+     * @return \Catharsis\Web\PinterestProfileWidget
+     *         Reference to the current widget.
      */
     public function sidebar()
     {
@@ -68,7 +119,8 @@ class PinterestProfileWidget extends HtmlWidget
 
     /**
      * Sets predefined dimensions of area and images to make it look like a site's square.
-     * @return \Catharsis\Web\PinterestProfileWidget Reference to the current widget.
+     * @return \Catharsis\Web\PinterestProfileWidget
+     *         Reference to the current widget.
      */
     public function square()
     {
@@ -78,8 +130,9 @@ class PinterestProfileWidget extends HtmlWidget
     /**
      * Total width of profile area in pixels.
      * Min: 130; leave blank for auto.
-     * @param string $width
-     * @return \Catharsis\Web\PinterestProfileWidget Reference to the current widget.
+     * @param string $width Area's width.
+     * @return \Catharsis\Web\PinterestProfileWidget
+     *         Reference to the current widget.
      */
     public function width($width)
     {
@@ -88,21 +141,35 @@ class PinterestProfileWidget extends HtmlWidget
     }
 
     /**
+     * Total width of profile area in pixels.
+     * Min: 130; leave blank for auto.
+     * @return string Area's width.
+     */
+    public function getWidth()
+    {
+        return $this->_width;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        if (empty($this->_account)) {
-            return "";
+        if (empty($this->getAccount())) {
+            return '';
         }
 
-        return self::htmlTag("a", array(
-            "data-pin-board-width" => $this->_width,
-            "data-pin-do" => "embedUser",
-            "data-pin-scale-height" => $this->_height,
-            "data-pin-scale-width" => $this->_image,
-            "href" => "http://www.pinterest.com/{$this->_account}"
-        ));
+        return self::htmlTag(
+            'a',
+            array(
+                'data-pin-board-width' => $this->getWidth(),
+                'data-pin-do' => 'embedUser',
+                'data-pin-scale-height' => $this->getHeight(),
+                'data-pin-scale-width' => $this->getImage(),
+                'href' => "http://www.pinterest.com/{$this->getAccount()}"
+            )
+        );
     }
 }
 

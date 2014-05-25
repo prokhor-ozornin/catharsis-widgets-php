@@ -1,41 +1,61 @@
 <?php
+/**
+ * YandexMoneyButtonText class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
- *
+ * Type of text label (verb) on Yandex.Money button.
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class YandexMoneyButtonText
 {
     /**
-     *
+     * Pay.
      */
-    const Pay = 1;
+    const PAY = 1;
 
     /**
-     *
+     * Buy.
      */
-    const Buy = 2;
+    const BUY = 2;
 
     /**
-     *
+     * Transfer.
      */
-    const Transfer = 3;
+    const TRANSFER = 3;
 
     /**
-     *
+     * Donate.
      */
-    const Donate = 4;
+    const DONATE = 4;
 
     /**
-     *
+     * Give.
      */
-    const Give = 5;
+    const GIVE = 5;
 
     /**
-     *
+     * Support.
      */
-    const Support = 6;
+    const SUPPORT = 6;
 
+    /**
+     * Private internal constructor.
+     */
     private function __construct()
     {
 

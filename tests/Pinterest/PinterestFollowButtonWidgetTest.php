@@ -1,58 +1,88 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\PinterestFollowButtonWidget}
+ * Tests set for class {@link \Catharsis\Web\PinterestFollowButtonWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class PinterestFollowButtonWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\PinterestFollowButtonWidget::__construct()
+     * @link \Catharsis\Web\PinterestFollowButtonWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\PinterestFollowButtonWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertAttributeEquals("Follow", "_label", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertEquals('Follow', $widget->getLabel());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestFollowButtonWidget::account(string $account)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestFollowButtonWidget::account(string $account)}
+     * method.
+     * @return void
      */
-    public function test_account_method()
+    public function testAccountMethod()
     {
         $widget = new Catharsis\Web\PinterestFollowButtonWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertSame($widget, $widget->account("account"));
-        $this->assertAttributeEquals("account", "_account", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertSame($widget, $widget->account('account'));
+        $this->assertEquals('account', $widget->getAccount());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestFollowButtonWidget::label(string $label)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestFollowButtonWidget::label(string $label)}
+     * method.
+     * @return void
      */
-    public function test_label_method()
+    public function testLabelMethod()
     {
         $widget = new Catharsis\Web\PinterestFollowButtonWidget();
-        $this->assertAttributeEquals("Follow", "_label", $widget);
-        $this->assertSame($widget, $widget->label("label"));
-        $this->assertAttributeEquals("label", "_label", $widget);
+        $this->assertEquals('Follow', $widget->getLabel());
+        $this->assertSame($widget, $widget->label('label'));
+        $this->assertEquals('label', $widget->getLabel());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestFollowButtonWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestFollowButtonWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\PinterestFollowButtonWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\PinterestFollowButtonWidget();
-        $this->assertEquals('<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">Follow</a>',
-                            (string) $widget->account("account"));
+        $this->assertEquals(
+            '<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">Follow</a>',
+            (string) $widget->account('account')
+        );
 
         $widget = new Catharsis\Web\PinterestFollowButtonWidget();
-        $this->assertEquals('<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">label</a>',
-                            (string) $widget->account("account")->label("label"));
+        $this->assertEquals(
+            '<a data-pin-do="buttonFollow" href="http://www.pinterest.com/account">label</a>',
+            (string) $widget->account('account')->label('label')
+        );
     }
 }
 

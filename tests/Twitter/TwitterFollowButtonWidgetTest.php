@@ -1,127 +1,186 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\TwitterFollowButtonWidget}
+ * Tests set for class {@link \Catharsis\Web\TwitterFollowButtonWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class TwitterFollowButtonWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\TwitterFollowButtonWidget::__construct()
+     * @link \Catharsis\Web\TwitterFollowButtonWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertAttributeEmpty("_alignment", $widget);
-        $this->assertAttributeEmpty("_counter", $widget);
-        $this->assertAttributeEmpty("_language", $widget);
-        $this->assertAttributeEmpty("_screenName", $widget);
-        $this->assertAttributeEmpty("_size", $widget);
-        $this->assertAttributeEmpty("_suggestions", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertEmpty($widget->getAlignment());
+        $this->assertEmpty($widget->getCounter());
+        $this->assertEmpty($widget->getLanguage());
+        $this->assertEmpty($widget->getScreenName());
+        $this->assertEmpty($widget->getSize());
+        $this->assertEmpty($widget->getSuggestions());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::account(string $account)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::account(string $account)}
+     * method.
+     * @return void
      */
-    public function test_account_method()
+    public function testAccountMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertSame($widget, $widget->account("account"));
-        $this->assertAttributeEquals("account", "_account", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertSame($widget, $widget->account('account'));
+        $this->assertEquals('account', $widget->getAccount());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::alignment(string $alignment)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::alignment(string $alignment)}
+     * method.
+     * @return void
      */
-    public function test_alignment_method()
+    public function testAlignmentMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_alignment", $widget);
-        $this->assertSame($widget, $widget->alignment("alignment"));
-        $this->assertAttributeEquals("alignment", "_alignment", $widget);
+        $this->assertEmpty($widget->getAlignment());
+        $this->assertSame($widget, $widget->alignment('alignment'));
+        $this->assertEquals('alignment', $widget->getAlignment());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::counter(boolean $show)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::counter(boolean $show)}
+     * method.
+     * @return void
      */
-    public function test_counter_method()
+    public function testCounterMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_counter", $widget);
-        $this->assertSame($widget, $widget->counter());
-        $this->assertAttributeEquals(true, "_counter", $widget);
+        $this->assertEmpty($widget->getCounter());
+        $this->assertSame($widget, $widget->counter(true));
+        $this->assertTrue($widget->getCounter());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::language(string $language)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::language(string $language)}
+     * method.
+     * @return void
      */
-    public function test_language_method()
+    public function testLanguageMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_language", $widget);
-        $this->assertSame($widget, $widget->language("language"));
-        $this->assertAttributeEquals("language", "_language", $widget);
+        $this->assertEmpty($widget->getLanguage());
+        $this->assertSame($widget, $widget->language('language'));
+        $this->assertEquals('language', $widget->getLanguage());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::screenName(boolean $screenName)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::screenName(boolean $screenName)}
+     * method.
+     * @return void
      */
-    public function test_screenName_method()
+    public function testScreenNameMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_screenName", $widget);
-        $this->assertSame($widget, $widget->screenName());
-        $this->assertAttributeEquals(true, "_screenName", $widget);
+        $this->assertEmpty($widget->getScreenName());
+        $this->assertSame($widget, $widget->screenName(true));
+        $this->assertTrue($widget->getScreenName());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::size(string $size)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::size(string $size)}
+     * method.
+     * @return void
      */
-    public function test_size_method()
+    public function testSizeMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_size", $widget);
-        $this->assertSame($widget, $widget->size("size"));
-        $this->assertAttributeEquals("size", "_size", $widget);
+        $this->assertEmpty($widget->getSize());
+        $this->assertSame($widget, $widget->size('size'));
+        $this->assertEquals('size', $widget->getSize());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::suggestions(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::suggestions(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_suggestions_method()
+    public function testSuggestionsMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_suggestions", $widget);
+        $this->assertEmpty($widget->getSuggestions());
         $this->assertSame($widget, $widget->suggestions(false));
-        $this->assertAttributeEquals(false, "_suggestions", $widget);
+        $this->assertFalse($widget->getSuggestions());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterFollowButtonWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterFollowButtonWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertEquals("<a class=\"twitter-follow-button\" data-lang=\"{$widget->userLanguage()}\" href=\"https://twitter.com/account\"></a>",
-                            (string) $widget->account("account"));
+        $this->assertEquals(
+            "<a class=\"twitter-follow-button\" data-lang=\"{$widget->userLanguage()}\""
+            . ' href="https://twitter.com/account"></a>',
+            (string) $widget->account('account')
+        );
 
         $widget = new Catharsis\Web\TwitterFollowButtonWidget();
-        $this->assertEquals('<a class="twitter-follow-button" data-align="align" data-dnt="true" data-lang="en" data-show-count="true" data-show-screen-name="true" data-size="size" data-width="width" href="https://twitter.com/account"></a>',
-                            (string) $widget->account("account")->language("en")->counter()->size("size")->width("width")->alignment("align")->screenName()->suggestions(false));
+        $this->assertEquals(
+            '<a class="twitter-follow-button" data-align="align" data-dnt="true"'
+            . ' data-lang="en" data-show-count="true" data-show-screen-name="true"'
+            .' data-size="size" data-width="width" href="https://twitter.com/account"></a>',
+            (string) $widget
+                ->account('account')
+                ->language('en')
+                ->counter(true)
+                ->size('size')
+                ->width('width')
+                ->alignment('align')
+                ->screenName(true)
+                ->suggestions(false)
+        );
     }
 }
 

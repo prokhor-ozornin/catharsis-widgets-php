@@ -1,46 +1,70 @@
 <?php
+/**
+ * GravatarDefaultImage class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Type of default image for Gravatar's avatar.
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class GravatarDefaultImage
 {
     /**
-     * Do not load any image if none is associated with the email hash, instead return an HTTP 404 (File Not Found) response.
+     * Do not load any image if none is associated with the email hash,
+     * instead return an HTTP 404 (File Not Found) response.
      */
-    const NotFound = "404";
+    const NOT_FOUND = '404';
 
     /**
-     * A simple, cartoon-style silhouetted outline of a person (does not vary by email hash).
+     * A simple, cartoon-style silhouetted outline of a person
+     * (does not vary by email hash).
      */
-    const MysteryMan = "mm";
+    const MYSTERY_MAN = 'mm';
 
     /**
      * A geometric pattern based on an email hash.
      */
-    const IdentIcon = "identicon";
+    const IDENT_ICON = 'identicon';
 
     /**
      * A generated 'monster' with different colors, faces, etc.
      */
-    const MonsterId = "monsterid";
+    const MONSTER_ID = 'monsterid';
 
     /**
      * Generated faces with differing features and backgrounds.
      */
-    const Wavatar = "wavatar";
+    const WAVATAR = 'wavatar';
 
     /**
      * Awesome generated, 8-bit arcade-style pixelated faces.
      */
-    const Retro = "retro";
+    const RETRO = 'retro';
 
     /**
-     * A transparent PNG image (border added to HTML below for demonstration purposes).
+     * A transparent PNG image (border added to HTML below for
+     * demonstration purposes).
      */
-    const Blank = "blank";
+    const BLANK = 'blank';
 
+    /**
+     * Private internal constructor.
+     */
     private function __construct()
     {
 

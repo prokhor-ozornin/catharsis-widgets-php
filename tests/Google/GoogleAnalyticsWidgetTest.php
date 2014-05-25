@@ -1,59 +1,85 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\GoogleAnalyticsWidget}
+ * Tests set for class {@link \Catharsis\Web\GoogleAnalyticsWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class GoogleAnalyticsWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\GoogleAnalyticsWidget::__construct()
+     * @link \Catharsis\Web\GoogleAnalyticsWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\GoogleAnalyticsWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertAttributeEmpty("_domain", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertEmpty($widget->getDomain());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GoogleAnalyticsWidget::account(string $account)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GoogleAnalyticsWidget::account(string $account)}
+     * method.
+     * @return void
      */
-    public function test_account_method()
+    public function testAccountMethod()
     {
         $widget = new Catharsis\Web\GoogleAnalyticsWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertSame($widget, $widget->account("account"));
-        $this->assertAttributeEquals("account", "_account", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertSame($widget, $widget->account('account'));
+        $this->assertEquals('account', $widget->getAccount());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GoogleAnalyticsWidget::domain(string $domain)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GoogleAnalyticsWidget::domain(string $domain)}
+     * method.
+     * @return void
      */
-    public function test_domain_method()
+    public function testDomainMethod()
     {
         $widget = new Catharsis\Web\GoogleAnalyticsWidget();
-        $this->assertAttributeEmpty("_domain", $widget);
-        $this->assertSame($widget, $widget->domain("domain"));
-        $this->assertAttributeEquals("domain", "_domain", $widget);
+        $this->assertEmpty($widget->getDomain());
+        $this->assertSame($widget, $widget->domain('domain'));
+        $this->assertEquals('domain', $widget->getDomain());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\GoogleAnalyticsWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\GoogleAnalyticsWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\GoogleAnalyticsWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\GoogleAnalyticsWidget();
-        $this->assertEmpty((string) $widget->account("account"));
+        $this->assertEmpty((string) $widget->account('account'));
 
         $widget = new Catharsis\Web\GoogleAnalyticsWidget();
-        $this->assertEmpty((string) $widget->domain("domain"));
+        $this->assertEmpty((string) $widget->domain('domain'));
 
         $widget = new Catharsis\Web\GoogleAnalyticsWidget();
-        $html = (string) $widget->account("account")->domain("domain");
+        $html = (string) $widget->account('account')->domain('domain');
         $this->assertContains('//www.google-analytics.com/analytics.js', $html);
         $this->assertContains('ga("create", "account", "domain");', $html);
     }

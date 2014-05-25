@@ -1,151 +1,218 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\FacebookRecommendationsFeedWidget}
+ * Tests set for class {@link \Catharsis\Web\FacebookRecommendationsFeedWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class FacebookRecommendationsFeedWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\FacebookRecommendationsFeedWidget::__construct()
+     * @link \Catharsis\Web\FacebookRecommendationsFeedWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_actions", $widget);
-        $this->assertAttributeEmpty("_appId", $widget);
-        $this->assertAttributeEmpty("_colorScheme", $widget);
-        $this->assertAttributeEmpty("_domain", $widget);
-        $this->assertAttributeEmpty("_header", $widget);
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertAttributeEmpty("_linkTarget", $widget);
-        $this->assertAttributeEmpty("_maxAge", $widget);
-        $this->assertAttributeEmpty("_trackLabel", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertEmpty($widget->getActions());
+        $this->assertEmpty($widget->getAppId());
+        $this->assertEmpty($widget->getColorScheme());
+        $this->assertEmpty($widget->getDomain());
+        $this->assertEmpty($widget->getHeader());
+        $this->assertEmpty($widget->getHeight());
+        $this->assertEmpty($widget->getLinkTarget());
+        $this->assertEmpty($widget->getMaxAge());
+        $this->assertEmpty($widget->getTrackLabel());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::actions(array $actions)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::actions(array $actions)}
+     * method.
+     * @return void
      */
-    public function test_actions_method()
+    public function testActionsMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_actions", $widget);
-        $this->assertSame($widget, $widget->actions(array("action")));
-        $this->assertAttributeEquals(array("action"), "_actions", $widget);
+        $this->assertEmpty($widget->getActions());
+        $this->assertSame($widget, $widget->actions(array('action')));
+        $this->assertEquals(array('action'), $widget->getActions());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::appId(string $appId)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::appId(string $appId)}
+     * method.
+     * @return void
      */
-    public function test_appId_method()
+    public function testAppIdMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_appId", $widget);
-        $this->assertSame($widget, $widget->appId("appId"));
-        $this->assertAttributeEquals("appId", "_appId", $widget);
+        $this->assertEmpty($widget->getAppId());
+        $this->assertSame($widget, $widget->appId('appId'));
+        $this->assertEquals('appId', $widget->getAppId());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::colorScheme(string $colorScheme)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::colorScheme(string $colorScheme)}
+     * method.
+     * @return void
      */
-    public function test_colorScheme_method()
+    public function testColorSchemeMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_colorScheme", $widget);
-        $this->assertSame($widget, $widget->colorScheme("colorScheme"));
-        $this->assertAttributeEquals("colorScheme", "_colorScheme", $widget);
+        $this->assertEmpty($widget->getColorScheme());
+        $this->assertSame($widget, $widget->colorScheme('colorScheme'));
+        $this->assertEquals('colorScheme', $widget->getColorScheme());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::domain(string $domain)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::domain(string $domain)}
+     * method.
+     * @return void
      */
-    public function test_domain_method()
+    public function testDomainMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_domain", $widget);
-        $this->assertSame($widget, $widget->domain("domain"));
-        $this->assertAttributeEquals("domain", "_domain", $widget);
+        $this->assertEmpty($widget->getDomain());
+        $this->assertSame($widget, $widget->domain('domain'));
+        $this->assertEquals('domain', $widget->getDomain());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::header(boolean $header)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::header(boolean $header)}
+     * method.
+     * @return void
      */
-    public function test_header_method()
+    public function testHeaderMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_header", $widget);
-        $this->assertSame($widget, $widget->header());
-        $this->assertAttributeEquals(true, "_header", $widget);
+        $this->assertEmpty($widget->getHeader());
+        $this->assertSame($widget, $widget->header(true));
+        $this->assertTrue($widget->getHeader());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::height(string $height)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::height(string $height)}
+     * method.
+     * @return void
      */
-    public function test_height_method()
+    public function testHeightMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertSame($widget, $widget->height("height"));
-        $this->assertAttributeEquals("height", "_height", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertSame($widget, $widget->height('height'));
+        $this->assertEquals('height', $widget->getHeight());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::linkTarget(string $target)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::linkTarget(string $target)}
+     * method.
+     * @return void
      */
-    public function test_linkTarget_method()
+    public function testLinkTargetMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_linkTarget", $widget);
-        $this->assertSame($widget, $widget->linkTarget("linkTarget"));
-        $this->assertAttributeEquals("linkTarget", "_linkTarget", $widget);
+        $this->assertEmpty($widget->getLinkTarget());
+        $this->assertSame($widget, $widget->linkTarget('linkTarget'));
+        $this->assertEquals('linkTarget', $widget->getLinkTarget());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::maxAge(integer $maxAge)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::maxAge(integer $maxAge)}
+     * method.
+     * @return void
      */
-    public function test_maxAge_method()
+    public function testMaxAgeMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_maxAge", $widget);
+        $this->assertEmpty($widget->getMaxAge());
         $this->assertSame($widget, $widget->maxAge(1));
-        $this->assertAttributeEquals(1, "_maxAge", $widget);
+        $this->assertEquals(1, $widget->getMaxAge());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::trackLabel(string $label)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::trackLabel(string $label)}
+     * method.
+     * @return void
      */
-    public function test_trackLabel_method()
+    public function testTrackLabelMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_trackLabel", $widget);
-        $this->assertSame($widget, $widget->trackLabel("trackLabel"));
-        $this->assertAttributeEquals("trackLabel", "_trackLabel", $widget);
+        $this->assertEmpty($widget->getTrackLabel());
+        $this->assertSame($widget, $widget->trackLabel('trackLabel'));
+        $this->assertEquals('trackLabel', $widget->getTrackLabel());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookRecommendationsFeedWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookRecommendationsFeedWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertEquals('<div class="fb-recommendations"></div>',
-                            (string) $widget);
+        $this->assertEquals(
+            '<div class="fb-recommendations"></div>',
+            (string) $widget
+        );
 
         $widget = new Catharsis\Web\FacebookRecommendationsFeedWidget();
-        $this->assertEquals('<div class="fb-recommendations" data-action="actions" data-app-id="app_id" data-colorscheme="dark" data-header="true" data-height="height" data-linktarget="link_target" data-max-age="1" data-ref="track_label" data-site="domain" data-width="width"></div>',
-                            (string) $widget->domain("domain")->appId("app_id")->actions("actions")->width("width")->height("height")->colorScheme(Catharsis\Web\FacebookColorScheme::Dark)->header()->linkTarget("link_target")->maxAge(1)->trackLabel("track_label"));
+        $this->assertEquals(
+            '<div class="fb-recommendations" data-action="actions" data-app-id="app_id"'
+            .' data-colorscheme="dark" data-header="true" data-height="height"'
+            .' data-linktarget="link_target" data-max-age="1" data-ref="track_label"'
+            .' data-site="domain" data-width="width"></div>',
+            (string) $widget
+                ->domain('domain')
+                ->appId('app_id')
+                ->actions('actions')
+                ->width('width')
+                ->height('height')
+                ->colorScheme(Catharsis\Web\FacebookColorScheme::DARK)
+                ->header(true)
+                ->linkTarget('link_target')
+                ->maxAge(1)
+                ->trackLabel('track_label')
+        );
     }
 }
 

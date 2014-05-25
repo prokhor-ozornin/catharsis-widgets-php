@@ -1,9 +1,27 @@
 <?php
+/**
+ * YandexAnalyticsWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders Yandex.Metrika web counter's JavaScript code.
- * @link https://metrika.yandex.ru
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
+ * @link      https://metrika.yandex.ru
  */
 class YandexAnalyticsWidget extends HtmlWidget
 {
@@ -20,7 +38,8 @@ class YandexAnalyticsWidget extends HtmlWidget
      * Identifier Yandex.Metrica site.
      * This attribute is required.
      * @param string $account Yandex.Metrika identifier.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Reference to the current widget.
      */
     public function account($account)
     {
@@ -29,31 +48,70 @@ class YandexAnalyticsWidget extends HtmlWidget
     }
 
     /**
-     * Whether to use accurate track bounce. Default is TRUE.
-     * @param boolean $enabled TRUE to enable accurate track bounce functionality, FALSE to disable it.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Reference to the current widget.
+     * Identifier Yandex.Metrica site.
+     * @return string Yandex.Metrika identifier.
      */
-    public function accurate($enabled = true)
+    public function getAccount()
+    {
+        return $this->_account;
+    }
+
+    /**
+     * Whether to use accurate track bounce.
+     * Default is TRUE.
+     * @param boolean $enabled TRUE to enable accurate track bounce functionality,
+     *                         FALSE to disable it.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Reference to the current widget.
+     */
+    public function accurate($enabled)
     {
         $this->_accurate = (bool) $enabled;
         return $this;
     }
 
     /**
-     * Whether to use click map (gathering statistics for "click map" report). Default is TRUE.
-     * @param boolean $enabled TRUE to enable click map functionality, FALSE to disable it.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Reference to the current widget.
+     * Whether to use accurate track bounce.
+     * Default is TRUE.
+     * @return boolean TRUE to enable accurate track bounce functionality,
+     *                 FALSE to disable it.
      */
-    public function clickMap($enabled = true)
+    public function getAccurate()
+    {
+        return $this->_accurate;
+    }
+
+    /**
+     * Whether to use click map (gathering statistics for "click map" report).
+     * Default is TRUE.
+     * @param boolean $enabled TRUE to enable click map functionality,
+     *                         FALSE to disable it.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Reference to the current widget.
+     */
+    public function clickMap($enabled)
     {
         $this->_clickMap = (bool) $enabled;
         return $this;
     }
 
     /**
-     * Language of visual counter's interface to use. Default is current locale's language/language of the current thread.
+     * Whether to use click map (gathering statistics for "click map" report).
+     * Default is TRUE.
+     * @return boolean TRUE to enable click map functionality,
+     *                 FALSE to disable it.
+     */
+    public function getClickMap()
+    {
+        return $this->_clickMap;
+    }
+
+    /**
+     * Language of visual counter's interface to use.
+     * Default is current locale's language/language of the current thread.
      * @param string $language Interface language to use.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Reference to the current widget.
      */
     public function language($language)
     {
@@ -62,80 +120,147 @@ class YandexAnalyticsWidget extends HtmlWidget
     }
 
     /**
-     * Whether to disable indexing of site's pages. Default is FALSE.
-     * @param boolean $enabled TRUE to disable indexing, FALSE to enable it.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Reference to the current widget.
+     * Language of visual counter's interface to use.
+     * Default is current locale's language/language of the current thread.
+     * @return string Interface language to use.
      */
-    public function noIndex($enabled = true)
+    public function getLanguage()
+    {
+        return $this->_language;
+    }
+
+    /**
+     * Whether to disable indexing of site's pages.
+     * Default is FALSE.
+     * @param boolean $enabled TRUE to disable indexing, FALSE to enable it.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Reference to the current widget.
+     */
+    public function noIndex($enabled)
     {
         $this->_noIndex = (bool) $enabled;
         return $this;
     }
 
     /**
-     * Whether to track address hash in URL query string. Default is TRUE.
-     * @param boolean $enabled TRUE to enable track hash functionality, FALSE to disable.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Reference to the current widget.
+     * Whether to disable indexing of site's pages.
+     * Default is FALSE.
+     * @return boolean TRUE to disable indexing, FALSE to enable it.
      */
-    public function trackHash($enabled = true)
+    public function getNoIndex()
+    {
+        return $this->_noIndex;
+    }
+
+    /**
+     * Whether to track address hash in URL query string.
+     * Default is TRUE.
+     * @param boolean $enabled TRUE to enable track hash functionality,
+     *                         FALSE to disable.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Reference to the current widget.
+     */
+    public function trackHash($enabled)
     {
         $this->_trackHash = (bool) $enabled;
         return $this;
     }
 
     /**
-     * Whether to track links (gathering statistics for external links, file uploads and "Share" button). Default is TRUE.
-     * @param boolean $enabled TRUE to enable track links functionality, FALSE to disable it.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Reference to the current widget.
+     * Whether to track address hash in URL query string.
+     * Default is TRUE.
+     * @return boolean TRUE to enable track hash functionality,
+     *                 FALSE to disable.
      */
-    public function trackLinks($enabled = true)
+    public function getTrackHash()
+    {
+        return $this->_trackHash;
+    }
+
+    /**
+     * Whether to track links (gathering statistics for external links,
+     * file uploads and "Share" button).
+     * Default is TRUE.
+     * @param boolean $enabled TRUE to enable track links functionality,
+     *                         FALSE to disable it.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Reference to the current widget.
+     */
+    public function trackLinks($enabled)
     {
         $this->_trackLinks = (bool) $enabled;
         return $this;
     }
 
     /**
-     * Whether to use webvisor (recording and analysis of site's visitors behaviour). Default is TRUE.
-     * @param boolean $enabled TRUE to enable webvisor functionality, FALSE to disable it.
-     * @return \Catharsis\Web\YandexAnalyticsWidget Reference to the current widget.
+     * Whether to track links (gathering statistics for external links,
+     * file uploads and "Share" button).
+     * Default is TRUE.
+     * @return boolean TRUE to enable track links functionality,
+     *                 FALSE to disable it.
      */
-    public function webVisor($enabled = true)
+    public function getTrackLinks()
+    {
+        return $this->_trackLinks;
+    }
+
+    /**
+     * Whether to use webvisor (recording and analysis of site's visitors behaviour).
+     * Default is TRUE.
+     * @param boolean $enabled TRUE to enable webvisor functionality,
+     *                         FALSE to disable it.
+     * @return \Catharsis\Web\YandexAnalyticsWidget
+     *         Reference to the current widget.
+     */
+    public function webVisor($enabled)
     {
         $this->_webVisor = (bool) $enabled;
         return $this;
     }
 
     /**
+     * Whether to use webvisor (recording and analysis of site's visitors behaviour).
+     * Default is TRUE.
+     * @return boolean TRUE to enable webvisor functionality,
+     *                 FALSE to disable it.
+     */
+    public function getWebVisor()
+    {
+        return $this->_webVisor;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        if (empty($this->_account)) {
-            return "";
+        if (empty($this->getAccount())) {
+            return '';
         }
 
         $config = array(
-            "id" => $this->_account,
-            "webvisor" => $this->_webVisor,
-            "clickmap" => $this->_clickMap,
-            "trackLinks" => $this->_trackLinks,
-            "accurateTrackBounce" => $this->_accurate,
-            "trackHash" => $this->_trackHash
+            'id' => $this->getAccount(),
+            'webvisor' => $this->getWebVisor(),
+            'clickmap' => $this->getClickMap(),
+            'trackLinks' => $this->getTrackLinks(),
+            'accurateTrackBounce' => $this->getAccurate(),
+            'trackHash' => $this->getTrackHash()
         );
 
-        if ($this->_noIndex) {
-            $config["ut"] = "noindex";
+        if ($this->getNoIndex()) {
+            $config['ut'] = 'noindex';
         }
 
         $config_json = json_encode($config, JSON_FORCE_OBJECT);
-        $language = empty($this->_language) ? $this->userLanguage() : $this->_language;
+        $language = empty($this->getLanguage()) ? $this->userLanguage() : $this->getLanguage();
 
         return <<< EOT
     <!-- Yandex.Metrika informer -->
      <a href="http://metrika.yandex.ru/stat/?id=12066574&amp;from=informer" target="_blank" rel="nofollow">
      <img src="//bs.yandex.ru/informer/12066574/3_1_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try
      {
-       Ya.Metrika.informer({i: this, id: {$this->_account}, lang: '{$language}'});
+       Ya.Metrika.informer({i: this, id: {$this->getAccount()}, lang: '{$language}'});
        return false
      }
      catch (e)
@@ -152,7 +277,7 @@ class YandexAnalyticsWidget extends HtmlWidget
         {
           try
           {
-            w.yaCounter{$this->_account} = new Ya.Metrika({$config_json});
+            w.yaCounter{$this->getAccount()} = new Ya.Metrika({$config_json});
           }
           catch (e)
           {

@@ -1,10 +1,28 @@
 <?php
+/**
+ * TwitterFollowButtonWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders Twitter "Follow" button.
  * Requires {@link WidgetsScriptsBundles::twitter()} scripts bundle to be included.
- * @link https://dev.twitter.com/docs/follow-button
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
+ * @link      https://dev.twitter.com/docs/follow-button
  */
 class TwitterFollowButtonWidget extends HtmlWidget
 {
@@ -21,7 +39,8 @@ class TwitterFollowButtonWidget extends HtmlWidget
      * Twitter account name.
      * This attribute is required.
      * @param string $account Account name.
-     * @return \Catharsis\Web\TwitterFollowButtonWidget Reference to the current widget.
+     * @return \Catharsis\Web\TwitterFollowButtonWidget
+     *         Reference to the current widget.
      */
     public function account($account)
     {
@@ -30,9 +49,19 @@ class TwitterFollowButtonWidget extends HtmlWidget
     }
 
     /**
+     * Twitter account name.
+     * @return string Account name.
+     */
+    public function getAccount()
+    {
+        return $this->_account;
+    }
+
+    /**
      * Horizontal alignment of the button.
      * @param string $alignment Horizontal alignment of button.
-     * @return \Catharsis\Web\TwitterFollowButtonWidget Reference to the current widget.
+     * @return \Catharsis\Web\TwitterFollowButtonWidget
+     *         Reference to the current widget.
      */
     public function alignment($alignment)
     {
@@ -41,20 +70,43 @@ class TwitterFollowButtonWidget extends HtmlWidget
     }
 
     /**
-     * Whether to display user's followers count. Default is FALSE.
-     * @param boolean $show TRUE to show followers count, FALSE to hide.
-     * @return \Catharsis\Web\TwitterFollowButtonWidget Reference to the current widget.
+     * Horizontal alignment of the button.
+     * @return string Horizontal alignment of button.
      */
-    public function counter($show = true)
+    public function getAlignment()
+    {
+        return $this->_alignment;
+    }
+
+    /**
+     * Whether to display user's followers count.
+     * Default is FALSE.
+     * @param boolean $show TRUE to show followers count, FALSE to hide.
+     * @return \Catharsis\Web\TwitterFollowButtonWidget
+     *         Reference to the current widget.
+     */
+    public function counter($show)
     {
         $this->_counter = (bool) $show;
         return $this;
     }
 
     /**
-     * Language for the "Follow" button. Default is either request locale's language or language of the current thread.
+     * Whether to display user's followers count.
+     * Default is FALSE.
+     * @return boolean TRUE to show followers count, FALSE to hide.
+     */
+    public function getCounter()
+    {
+        return $this->_counter;
+    }
+
+    /**
+     * Language for the "Follow" button.
+     * Default is either request locale's language or language of the current thread.
      * @param string $language Interface language for button.
-     * @return \Catharsis\Web\TwitterFollowButtonWidget Reference to the current widget.
+     * @return \Catharsis\Web\TwitterFollowButtonWidget
+     *         Reference to the current widget.
      */
     public function language($language)
     {
@@ -63,20 +115,44 @@ class TwitterFollowButtonWidget extends HtmlWidget
     }
 
     /**
-     * Whether to show user's screen name. Default is TRUE.
-     * @param boolean $screenName TRUE to show screen name, FALSE to hide.
-     * @return \Catharsis\Web\TwitterFollowButtonWidget Reference to the current widget.
+     * Language for the "Follow" button.
+     * Default is either request locale's language or language of the current thread.
+     * @return string Interface language for button.
      */
-    public function screenName($screenName = true)
+    public function getLanguage()
+    {
+        return $this->_language;
+    }
+
+    /**
+     * Whether to show user's screen name.
+     * Default is TRUE.
+     * @param boolean $screenName TRUE to show screen name, FALSE to hide.
+     * @return \Catharsis\Web\TwitterFollowButtonWidget
+     *         Reference to the current widget.
+     */
+    public function screenName($screenName)
     {
         $this->_screenName = (bool) $screenName;
         return $this;
     }
 
     /**
-     * The size of the rendered button. Default is "medium".
+     * Whether to show user's screen name.
+     * Default is TRUE.
+     * @return boolean TRUE to show screen name, FALSE to hide.
+     */
+    public function getScreenName()
+    {
+        return $this->_screenName;
+    }
+
+    /**
+     * The size of the rendered button.
+     * Default is "medium".
      * @param string $size Size of button.
-     * @return \Catharsis\Web\TwitterFollowButtonWidget Reference to the current widget.
+     * @return \Catharsis\Web\TwitterFollowButtonWidget
+     *         Reference to the current widget.
      */
     public function size($size)
     {
@@ -85,20 +161,43 @@ class TwitterFollowButtonWidget extends HtmlWidget
     }
 
     /**
-     * Whether to enable twitter suggestions. Default is TRUE.
-     * @param boolean $enabled TRUE to not opt-out of suggestions, FALSE to opt-in.
-     * @return \Catharsis\Web\TwitterFollowButtonWidget Reference to the current widget.
+     * The size of the rendered button.
+     * Default is "medium".
+     * @return string Size of button.
      */
-    public function suggestions($enabled = true)
+    public function getSize()
+    {
+        return $this->_size;
+    }
+
+    /**
+     * Whether to enable twitter suggestions.
+     * Default is TRUE.
+     * @param boolean $enabled TRUE to not opt-out of suggestions, FALSE to opt-in.
+     * @return \Catharsis\Web\TwitterFollowButtonWidget
+     *         Reference to the current widget.
+     */
+    public function suggestions($enabled)
     {
         $this->_suggestions = (bool) $enabled;
         return $this;
     }
 
     /**
+     * Whether to enable twitter suggestions.
+     * Default is TRUE.
+     * @return boolean TRUE to not opt-out of suggestions, FALSE to opt-in.
+     */
+    public function getSuggestions()
+    {
+        return $this->_suggestions;
+    }
+
+    /**
      * Width of the button.
      * @param string $width Width of button.
-     * @return \Catharsis\Web\TwitterFollowButtonWidget Reference to the current widget.
+     * @return \Catharsis\Web\TwitterFollowButtonWidget
+     *         Reference to the current widget.
      */
     public function width($width)
     {
@@ -107,25 +206,38 @@ class TwitterFollowButtonWidget extends HtmlWidget
     }
 
     /**
+     * Width of the button.
+     * @return string Width of button.
+     */
+    public function getWidth()
+    {
+        return $this->_width;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        if (empty($this->_account)) {
-            return "";
+        if (empty($this->getAccount())) {
+            return '';
         }
 
-        return self::htmlTag("a", array(
-            "class" => "twitter-follow-button",
-            "data-align" => $this->_alignment,
-            "data-dnt" => isset($this->_suggestions) ? !$this->_suggestions : null,
-            "data-lang" => empty($this->_language) ? $this->userLanguage() : $this->_language,
-            "data-show-count" => $this->_counter,
-            "data-show-screen-name" => $this->_screenName,
-            "data-size" => $this->_size,
-            "data-width" => $this->_width,
-            "href" => "https://twitter.com/{$this->_account}"
-        ));
+        return self::htmlTag(
+            'a',
+            array(
+                'class' => 'twitter-follow-button',
+                'data-align' => $this->getAlignment(),
+                'data-dnt' => $this->getSuggestions() !== null ? !$this->getSuggestions() : null,
+                'data-lang' => empty($this->getLanguage()) ? $this->userLanguage() : $this->getLanguage(),
+                'data-show-count' => $this->getCounter(),
+                'data-show-screen-name' => $this->getScreenName(),
+                'data-size' => $this->getSize(),
+                'data-width' => $this->getWidth(),
+                'href' => "https://twitter.com/{$this->getAccount()}"
+            )
+        );
     }
 }
 

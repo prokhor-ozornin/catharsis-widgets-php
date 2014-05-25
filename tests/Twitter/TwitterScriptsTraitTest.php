@@ -1,7 +1,23 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\TwitterScriptsTrait}
+ * Tests set for class {@link \Catharsis\Web\TwitterScriptsTrait}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class TwitterScriptsTraitTest extends PHPUnit_Framework_TestCase
 {
@@ -9,12 +25,18 @@ final class TwitterScriptsTraitTest extends PHPUnit_Framework_TestCase
         Catharsis\Web\TwitterScriptsTrait;
 
     /**
-     * Performs testing of {@link Catharsis\Web\TwitterScriptsTrait::twitter()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterScriptsTrait::twitter()}
+     * method.
+     * @return void
      */
-    public function test_twitter_method()
+    public function testTwitterMethod()
     {
         $scripts_path = Catharsis\Web\Widgets::scripts_path();
-        $this->assertEquals("<script src=\"{$scripts_path}/twitter_initialize.js\" type=\"text/javascript\"></script>", self::twitter());
+        $this->assertEquals(
+            "<script src=\"{$scripts_path}/twitter_initialize.js\" type=\"text/javascript\"></script>",
+            self::twitter()
+        );
     }
 }
 

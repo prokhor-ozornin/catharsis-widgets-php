@@ -1,8 +1,26 @@
 <?php
+/**
+ * GoogleScriptsTrait trait.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Scripts bundles manager to render JavaScript code, required by Google widgets.
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 trait GoogleScriptsTrait
 {
@@ -12,9 +30,9 @@ trait GoogleScriptsTrait
      */
     public static function google()
     {
-        return self::javascriptLink(Widgets::scripts_path()
-            . "/google_analytics.js")
-            .self::javascriptLink(Widgets::scripts_path() . "/google_plusone.js");
+        return
+        self::javascriptLink(Widgets::scripts_path() . '/google_analytics.js')
+        .self::javascriptLink(Widgets::scripts_path() . '/google_plusone.js');
     }
 }
 

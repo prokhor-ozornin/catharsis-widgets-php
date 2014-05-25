@@ -1,103 +1,151 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\VimeoVideoWidget}
+ * Tests set for class {@link \Catharsis\Web\VimeoVideoWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class VimeoVideoWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\VimeoVideoWidget::__construct()
+     * @link \Catharsis\Web\VimeoVideoWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertAttributeEquals(false, "_autoPlay", $widget);
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertAttributeEmpty("_id", $widget);
-        $this->assertAttributeEquals(false, "_loop", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertFalse($widget->getAutoPlay());
+        $this->assertEmpty($widget->getHeight());
+        $this->assertEmpty($widget->getId());
+        $this->assertFalse($widget->getLoop());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VimeoVideoWidget::auto_play(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VimeoVideoWidget::auto_play(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_auto_play_method()
+    public function testAutoPlayMethod()
     {
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertAttributeEquals(false, "_autoPlay", $widget);
-        $this->assertSame($widget, $widget->autoPlay());
-        $this->assertAttributeEquals(true, "_autoPlay", $widget);
+        $this->assertFalse($widget->getAutoPlay());
+        $this->assertSame($widget, $widget->autoPlay(true));
+        $this->assertTrue($widget->getAutoPlay());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VimeoVideoWidget::height(string $height)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VimeoVideoWidget::height(string $height)}
+     * method.
+     * @return void
      */
-    public function test_height_method()
+    public function testHeightMethod()
     {
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertSame($widget, $widget->height("height"));
-        $this->assertAttributeEquals("height", "_height", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertSame($widget, $widget->height('height'));
+        $this->assertEquals('height', $widget->getHeight());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VimeoVideoWidget::id(string $id)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VimeoVideoWidget::id(string $id)}
+     * method.
+     * @return void
      */
-    public function test_id_method()
+    public function testIdMethod()
     {
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertAttributeEmpty("_id", $widget);
-        $this->assertSame($widget, $widget->id("id"));
-        $this->assertAttributeEquals("id", "_id", $widget);
+        $this->assertEmpty($widget->getId());
+        $this->assertSame($widget, $widget->id('id'));
+        $this->assertEquals('id', $widget->getId());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VimeoVideoWidget::loop(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VimeoVideoWidget::loop(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_loop_method()
+    public function testLoopMethod()
     {
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertAttributeEquals(false, "_loop", $widget);
-        $this->assertSame($widget, $widget->loop());
-        $this->assertAttributeEquals(true, "_loop", $widget);
+        $this->assertFalse($widget->getLoop());
+        $this->assertSame($widget, $widget->loop(true));
+        $this->assertTrue($widget->getLoop());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VimeoVideoWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VimeoVideoWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VimeoVideoWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VimeoVideoWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\VimeoVideoWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->height("height"));
+        $this->assertEmpty((string) $widget->id('id')->height('height'));
 
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->width("width"));
+        $this->assertEmpty((string) $widget->id('id')->width('width'));
 
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertEmpty((string) $widget->height("height")->width("width"));
+        $this->assertEmpty((string) $widget->height('height')->width('width'));
 
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertEquals('<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0" webkitallowfullscreen="true" width="width"></iframe>',
-                            (string) $widget->id("id")->height("height")->width("width"));
+        $this->assertEquals(
+            '<iframe allowfullscreen="true" frameborder="0" height="height"'
+            .' mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0"'
+            .' webkitallowfullscreen="true" width="width"></iframe>',
+            (string) $widget->id('id')->height('height')->width('width')
+        );
 
         $widget = new Catharsis\Web\VimeoVideoWidget();
-        $this->assertEquals('<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1" webkitallowfullscreen="true" width="width"></iframe>',
-                            (string) $widget->id("id")->height("height")->width("width")->autoPlay()->loop());
+        $this->assertEquals(
+            '<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true"'
+            .' src="https://player.vimeo.com/video/id?badge=0&amp;autoplay=1&amp;loop=1"'
+            .' webkitallowfullscreen="true" width="width"></iframe>',
+            (string) $widget
+                ->id('id')
+                ->height('height')
+                ->width('width')
+                ->autoPlay(true)
+                ->loop(true)
+        );
     }
 }
 

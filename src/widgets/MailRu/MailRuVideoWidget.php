@@ -1,8 +1,26 @@
 <?php
+/**
+ * MailRuVideoWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders embedded Mail.ru video on web page.
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 class MailRuVideoWidget extends HtmlWidget
 {
@@ -23,6 +41,15 @@ class MailRuVideoWidget extends HtmlWidget
     }
 
     /**
+     * Height of video control.
+     * @return string Height of video.
+     */
+    public function getHeight()
+    {
+        return $this->_height;
+    }
+
+    /**
      * Identifier of video.
      * This attribute is required.
      * @param string $id Identifier of video.
@@ -32,6 +59,15 @@ class MailRuVideoWidget extends HtmlWidget
     {
         $this->_id = (string) $id;
         return $this;
+    }
+
+    /**
+     * Identifier of video.
+     * @return string Identifier of video.
+     */
+    public function getId()
+    {
+        return $this->_id;
     }
 
     /**
@@ -47,23 +83,39 @@ class MailRuVideoWidget extends HtmlWidget
     }
 
     /**
+     * Width of video control.
+     * @return string Width of video.
+     */
+    public function getWidth()
+    {
+        return $this->_width;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        if (empty($this->_id) || empty($this->_height) || empty($this->_width)) {
-            return "";
+        if (empty($this->getId())
+            || empty($this->getHeight())
+            || empty($this->getWidth())
+        ) {
+            return '';
         }
 
-        return self::htmlTag("iframe", array(
-            "allowfullscreen" => true,
-            "frameborder" => 0,
-            "height" => $this->_height,
-            "mozallowfullscreen" => true,
-            "src" => "http://api.video.mail.ru/videos/embed/mail/$this->_id",
-            "webkitallowfullscreen" => true,
-            "width" => $this->_width
-        ));
+        return self::htmlTag(
+            'iframe',
+            array(
+                'allowfullscreen' => true,
+                'frameborder' => 0,
+                'height' => $this->getHeight(),
+                'mozallowfullscreen' => true,
+                'src' => "http://api.video.mail.ru/videos/embed/mail/{$this->getId()}",
+                'webkitallowfullscreen' => true,
+                'width' => $this->getWidth()
+            )
+        );
     }
 }
 

@@ -1,196 +1,278 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\YandexMoneyDonateFormWidget}
+ * Tests set for class {@link \Catharsis\Web\YandexMoneyDonateFormWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class YandexMoneyDonateFormWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\YandexMoneyDonateFormWidget::__construct()
+     * @link \Catharsis\Web\YandexMoneyDonateFormWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertAttributeEquals(false, "_askPayerComment", $widget);
-        $this->assertAttributeEquals(false, "_askPayerEmail", $widget);
-        $this->assertAttributeEquals(false, "_askPayerFullName", $widget);
-        $this->assertAttributeEquals(false, "_askPayerPhone", $widget);
-        $this->assertAttributeEquals(true, "_cards", $widget);
-        $this->assertAttributeEmpty("_commentHint", $widget);
-        $this->assertAttributeEquals(false, "_description", $widget);
-        $this->assertAttributeEmpty("_descriptionText", $widget);
-        $this->assertAttributeEmpty("_projectName", $widget);
-        $this->assertAttributeEmpty("_projectSite", $widget);
-        $this->assertAttributeEmpty("_sum", $widget);
-        $this->assertAttributeEquals(Catharsis\Web\YandexMoneyDonateFormText::Donate, "_text", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertFalse($widget->getAskPayerComment());
+        $this->assertFalse($widget->getAskPayerEmail());
+        $this->assertFalse($widget->getAskPayerFullName());
+        $this->assertFalse($widget->getAskPayerPhone());
+        $this->assertTrue($widget->getCards());
+        $this->assertEmpty($widget->getCommentHint());
+        $this->assertFalse($widget->getDescription());
+        $this->assertEmpty($widget->getDescriptionText());
+        $this->assertEmpty($widget->getProjectName());
+        $this->assertEmpty($widget->getProjectSite());
+        $this->assertEmpty($widget->getSum());
+        $this->assertEquals(Catharsis\Web\YandexMoneyDonateFormText::DONATE, $widget->getText());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::account(string $account)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::account(string $account)}
+     * method.
+     * @return void
      */
-    public function test_account_method()
+    public function testAccountMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertSame($widget, $widget->account("account"));
-        $this->assertAttributeEquals("account", "_account", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertSame($widget, $widget->account('account'));
+        $this->assertEquals('account', $widget->getAccount());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::askPayerComment(boolean $ask)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::askPayerComment(boolean $ask)}
+     * method.
+     * @return void
      */
-    public function test_askPayerComment_method()
+    public function testAskPayerCommentMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEquals(false, "_askPayerComment", $widget);
-        $this->assertSame($widget, $widget->askPayerComment());
-        $this->assertAttributeEquals(true, "_askPayerComment", $widget);
+        $this->assertFalse($widget->getAskPayerComment());
+        $this->assertSame($widget, $widget->askPayerComment(true));
+        $this->assertTrue($widget->getAskPayerComment());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::askPayerEmail(boolean $ask)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::askPayerEmail(boolean $ask)}
+     * method.
+     * @return void
      */
-    public function test_askPayerEmail_method()
+    public function testAskPayerEmailMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEquals(false, "_askPayerEmail", $widget);
-        $this->assertSame($widget, $widget->askPayerEmail());
-        $this->assertAttributeEquals(true, "_askPayerEmail", $widget);
+        $this->assertFalse($widget->getAskPayerEmail());
+        $this->assertSame($widget, $widget->askPayerEmail(true));
+        $this->assertTrue($widget->getAskPayerEmail());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::askPayerFullName(boolean $ask)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::askPayerFullName(boolean $ask)}
+     * method.
+     * @return void
      */
-    public function test_askPayerFullName_method()
+    public function testAskPayerFullNameMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEquals(false, "_askPayerFullName", $widget);
-        $this->assertSame($widget, $widget->askPayerFullName());
-        $this->assertAttributeEquals(true, "_askPayerFullName", $widget);
+        $this->assertFalse($widget->getAskPayerFullName());
+        $this->assertSame($widget, $widget->askPayerFullName(true));
+        $this->assertTrue($widget->getAskPayerFullName());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::askPayerPhone(boolean $ask)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::askPayerPhone(boolean $ask)}
+     * method.
+     * @return void
      */
-    public function test_askPayerPhone_method()
+    public function testAskPayerPhoneMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEquals(false, "_askPayerPhone", $widget);
-        $this->assertSame($widget, $widget->askPayerPhone());
-        $this->assertAttributeEquals(true, "_askPayerPhone", $widget);
+        $this->assertFalse($widget->getAskPayerPhone());
+        $this->assertSame($widget, $widget->askPayerPhone(true));
+        $this->assertTrue($widget->getAskPayerPhone());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::cards(boolean $accept)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::cards(boolean $accept)}
+     * method.
+     * @return void
      */
-    public function test_cards_method()
+    public function testCardsMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEquals(true, "_cards", $widget);
+        $this->assertTrue($widget->getCards());
         $this->assertSame($widget, $widget->cards(false));
-        $this->assertAttributeEquals(false, "_cards", $widget);
+        $this->assertFalse($widget->getCards());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::payerCommentHint(string $hint)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::payerCommentHint(string $hint)}
+     * method.
+     * @return void
      */
-    public function test_commentHint_method()
+    public function testCommentHintMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEmpty("_commentHint", $widget);
-        $this->assertSame($widget, $widget->commentHint("commentHint"));
-        $this->assertAttributeEquals("commentHint", "_commentHint", $widget);
+        $this->assertEmpty($widget->getCommentHint());
+        $this->assertSame($widget, $widget->commentHint('commentHint'));
+        $this->assertEquals('commentHint', $widget->getCommentHint());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::description(boolean $show)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::description(boolean $show)}
+     * method.
+     * @return void
      */
-    public function test_description_method()
+    public function testDescriptionMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEquals(false, "_description", $widget);
-        $this->assertSame($widget, $widget->description());
-        $this->assertAttributeEquals(true, "_description", $widget);
+        $this->assertFalse($widget->getDescription());
+        $this->assertSame($widget, $widget->description(true));
+        $this->assertTrue($widget->getDescription());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::descriptiontext(string $description)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::descriptiontext(string $description)}
+     * method.
+     * @return void
      */
-    public function test_descriptionText_method()
+    public function testDescriptionTextMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEmpty("_descriptionText", $widget);
-        $this->assertSame($widget, $widget->descriptionText("description"));
-        $this->assertAttributeEquals("description", "_descriptionText", $widget);
+        $this->assertEmpty($widget->getDescriptionText());
+        $this->assertSame($widget, $widget->descriptionText('description'));
+        $this->assertEquals('description', $widget->getDescriptionText());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::projectName(string $name)} method.
+     * Performs testing of
+     * {@link\Catharsis\Web\YandexMoneyDonateFormWidget::projectName(string $name)}
+     * method.
+     * @return void
      */
-    public function test_projectName_method()
+    public function testProjectNameMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEmpty("_projectName", $widget);
-        $this->assertSame($widget, $widget->projectName("projectName"));
-        $this->assertAttributeEquals("projectName", "_projectName", $widget);
+        $this->assertEmpty($widget->getProjectName());
+        $this->assertSame($widget, $widget->projectName('projectName'));
+        $this->assertEquals('projectName', $widget->getProjectName());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::projectSite(string $url)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::projectSite(string $url)}
+     * method.
+     * @return void
      */
-    public function test_projectSite_method()
+    public function testProjectSiteMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEmpty("_projectSite", $widget);
-        $this->assertSame($widget, $widget->projectSite("projectSite"));
-        $this->assertAttributeEquals("projectSite", "_projectSite", $widget);
+        $this->assertEmpty($widget->getProjectSite());
+        $this->assertSame($widget, $widget->projectSite('projectSite'));
+        $this->assertEquals('projectSite', $widget->getProjectSite());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::sum(float $sum)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::sum(float $sum)}
+     * method.
+     * @return void
      */
-    public function test_sum_method()
+    public function testSumMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEmpty("_sum", $widget);
+        $this->assertEmpty($widget->getSum());
         $this->assertSame($widget, $widget->sum(1));
-        $this->assertAttributeEquals(1, "_sum", $widget);
+        $this->assertEquals(1, $widget->getSum());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::text(integer $text)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::text(integer $text)}
+     * method.
+     * @return void
      */
-    public function test_text_method()
+    public function testTextMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertAttributeEquals(Catharsis\Web\YandexMoneyDonateFormText::Donate, "_text", $widget);
+        $this->assertEquals(Catharsis\Web\YandexMoneyDonateFormText::DONATE, $widget->getText());
         $this->assertSame($widget, $widget->text(0));
-        $this->assertAttributeEquals(0, "_text", $widget);
+        $this->assertEquals(0, $widget->getText());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexMoneyDonateFormWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexMoneyDonateFormWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertEmpty((string) $widget->descriptionText("description"));
+        $this->assertEmpty((string) $widget->descriptionText('description'));
 
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertEmpty((string) $widget->account("account"));
+        $this->assertEmpty((string) $widget->account('account'));
 
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertEquals('<iframe allowtransparency="true" frameborder="0" height="133" scrolling="no" src="https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;payment-type-choice=on&amp;default-sum=&amp;targets=description&amp;project-name=&amp;project-site=&amp;button-text=01" width="523"></iframe>',
-                            (string) $widget->account("account")->descriptionText("description"));
+        $this->assertEquals(
+            '<iframe allowtransparency="true" frameborder="0" height="133" scrolling="no"'
+            .' src="https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;payment-type-choice=on&amp;default-sum=&amp;targets=description&amp;project-name=&amp;project-site=&amp;button-text=01"'
+            .' width="523"></iframe>',
+            (string) $widget
+                ->account('account')
+                ->descriptionText('description')
+        );
 
         $widget = new Catharsis\Web\YandexMoneyDonateFormWidget();
-        $this->assertEquals('<iframe allowtransparency="true" frameborder="0" height="210" scrolling="no" src="https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;default-sum=1&amp;targets=description&amp;target-visibility=on&amp;project-name=project_name&amp;project-site=project_site&amp;button-text=03&amp;comment=on&amp;hint=comment_hint&amp;fio=on&amp;mail=on&amp;phone=on" width="426"></iframe>',
-                            (string) $widget->account("account")->descriptionText("description")->description()->sum(1)->cards(false)->text(Catharsis\Web\YandexMoneyDonateFormText::Transfer)->projectName("project_name")->projectSite("project_site")->askPayerComment()->commentHint("comment_hint")->askPayerFullName()->askPayerEmail()->askPayerPhone());
+        $this->assertEquals(
+            '<iframe allowtransparency="true" frameborder="0" height="210" scrolling="no"'
+            .' src="https://money.yandex.ru/embed/donate.xml?account=account&amp;quickpay=donate&amp;default-sum=1&amp;targets=description&amp;target-visibility=on&amp;project-name=project_name&amp;project-site=project_site&amp;button-text=03&amp;comment=on&amp;hint=comment_hint&amp;fio=on&amp;mail=on&amp;phone=on"'
+            .' width="426"></iframe>',
+            (string) $widget
+                ->account('account')
+                ->descriptionText('description')
+                ->description(true)
+                ->sum(1)
+                ->cards(false)
+                ->text(Catharsis\Web\YandexMoneyDonateFormText::TRANSFER)
+                ->projectName('project_name')
+                ->projectSite('project_site')
+                ->askPayerComment(true)
+                ->commentHint('comment_hint')
+                ->askPayerFullName(true)
+                ->askPayerEmail(true)
+                ->askPayerPhone(true)
+        );
     }
 }
 

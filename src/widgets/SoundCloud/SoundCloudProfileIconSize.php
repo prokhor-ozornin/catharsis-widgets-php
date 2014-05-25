@@ -1,46 +1,67 @@
 <?php
+/**
+ * SoundCloudProfileIconSize class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Size of SoundCloud user's profile icon in pixels.
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class SoundCloudProfileIconSize
 {
     /**
-     * 16x16
+     * Size 16x16 px.
      */
-    const Size16 = 16;
+    const SIZE_16 = 16;
 
     /**
-     * 24x24
+     * Size 24x24 px.
      */
-    const Size24 = 24;
+    const SIZE_24 = 24;
 
     /**
-     * 32x32
+     * Size 32x32px.
      */
-    const Size32 = 32;
+    const SIZE_32 = 32;
 
     /**
-     * 40x40
+     * Size 40x40px.
      */
-    const Size40 = 40;
+    const SIZE_40 = 40;
 
     /**
-     * 48x48
+     * Size 48x48px.
      */
-    const Size48 = 48;
+    const SIZE_48 = 48;
 
     /**
-     * 56x56
+     * Size 56x56px.
      */
-    const Size56 = 56;
+    const SIZE_56 = 56;
 
     /**
-     * 64x64
+     * Size 64x64px.
      */
-    const Size64 = 64;
+    const SIZE_64 = 64;
 
+    /**
+     * Private internal constructor.
+     */
     private function __construct()
     {
 

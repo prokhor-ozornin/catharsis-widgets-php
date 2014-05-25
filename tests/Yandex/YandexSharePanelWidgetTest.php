@@ -1,93 +1,133 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\YandexSharePanelWidget}
+ * Tests set for class {@link \Catharsis\Web\YandexSharePanelWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class YandexSharePanelWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\YandexSharePanelWidget::__construct()
+     * @link \Catharsis\Web\YandexSharePanelWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\YandexSharePanelWidget();
-        $this->assertAttributeEmpty("_language", $widget);
-        $this->assertAttributeEquals(Catharsis\Web\YandexSharePanelLayout::Button, "_layout", $widget);
-        $this->assertAttributeEquals(array(
-            "yaru",
-            "vkontakte",
-            "facebook",
-            "twitter",
-            "odnoklassniki",
-            "moimir",
-            "lj",
-            "friendfeed",
-            "moikrug",
-            "gplus",
-            "pinterest",
-            "surfingbird"),
-        "_services", $widget);
+        $this->assertEmpty($widget->getLanguage());
+        $this->assertEquals(Catharsis\Web\YandexSharePanelLayout::BUTTON, $widget->getLayout());
+        $this->assertEquals(
+            array(
+                'yaru',
+                'vkontakte',
+                'facebook',
+                'twitter',
+                'odnoklassniki',
+                'moimir',
+                'lj',
+                'friendfeed',
+                'moikrug',
+                'gplus',
+                'pinterest',
+                'surfingbird'),
+            $widget->getServices()
+        );
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexSharePanelWidget::language(string $language)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexSharePanelWidget::language(string $language)}
+     * method.
+     * @return void
      */
-    public function test_language_method()
+    public function testLanguageMethod()
     {
         $widget = new Catharsis\Web\YandexSharePanelWidget();
-        $this->assertAttributeEmpty("_language", $widget);
-        $this->assertSame($widget, $widget->language("language"));
-        $this->assertAttributeEquals("language", "_language", $widget);
+        $this->assertEmpty($widget->getLanguage());
+        $this->assertSame($widget, $widget->language('language'));
+        $this->assertEquals('language', $widget->getLanguage());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexSharePanelWidget::layout(string $layout)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexSharePanelWidget::layout(string $layout)}
+     * method.
+     * @return void
      */
-    public function test_layout_method()
+    public function testLayoutMethod()
     {
         $widget = new Catharsis\Web\YandexSharePanelWidget();
-        $this->assertAttributeEquals(Catharsis\Web\YandexSharePanelLayout::Button, "_layout", $widget);
-        $this->assertSame($widget, $widget->layout("layout"));
-        $this->assertAttributeEquals("layout", "_layout", $widget);
+        $this->assertEquals(Catharsis\Web\YandexSharePanelLayout::BUTTON, $widget->getLayout());
+        $this->assertSame($widget, $widget->layout('layout'));
+        $this->assertEquals('layout', $widget->getLayout());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexSharePanelWidget::services(array $services)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexSharePanelWidget::services(array $services)}
+     * method.
+     * @return void
      */
-    public function test_services_method()
+    public function testServicesMethod()
     {
         $widget = new Catharsis\Web\YandexSharePanelWidget();
-        $this->assertAttributeEquals(array(
-            "yaru",
-            "vkontakte",
-            "facebook",
-            "twitter",
-            "odnoklassniki",
-            "moimir",
-            "lj",
-            "friendfeed",
-            "moikrug",
-            "gplus",
-            "pinterest",
-            "surfingbird"),
-        "_services", $widget);
-        $this->assertSame($widget, $widget->services(array("service")));
-        $this->assertAttributeEquals(array("service"), "_services", $widget);
+        $this->assertEquals(
+            array(
+                'yaru',
+                'vkontakte',
+                'facebook',
+                'twitter',
+                'odnoklassniki',
+                'moimir',
+                'lj',
+                'friendfeed',
+                'moikrug',
+                'gplus',
+                'pinterest',
+                'surfingbird'),
+            $widget->getServices()
+        );
+        $this->assertSame($widget, $widget->services(array('service')));
+        $this->assertEquals(array('service'), $widget->getServices());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexSharePanelWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexSharePanelWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\YandexSharePanelWidget();
-        $this->assertEquals("<div class=\"yashare-auto-init\" data-yashareL10n=\"{$widget->userLanguage()}\" data-yashareQuickServices=\"yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird\" data-yashareType=\"button\"></div>",
-                            (string) $widget);
+        $this->assertEquals(
+            "<div class=\"yashare-auto-init\" data-yashareL10n=\"{$widget->userLanguage()}\" data-yashareQuickServices=\"yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus,pinterest,surfingbird\" data-yashareType=\"button\"></div>",
+            (string) $widget
+        );
 
         $widget = new Catharsis\Web\YandexSharePanelWidget();
-        $this->assertEquals('<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="yaru" data-yashareType="link"></div>',
-                            (string) $widget->services("yaru")->layout(Catharsis\Web\YandexSharePanelLayout::Link)->language("ru"));
+        $this->assertEquals(
+            '<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="yaru" data-yashareType="link"></div>',
+            (string) $widget
+                ->services('yaru')
+                ->layout(Catharsis\Web\YandexSharePanelLayout::LINK)
+                ->language('ru')
+        );
     }
 }
 

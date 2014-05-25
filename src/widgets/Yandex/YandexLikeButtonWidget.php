@@ -1,13 +1,31 @@
 <?php
+/**
+ * YandexLikeButtonWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders Yandex "Like" button.
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 class YandexLikeButtonWidget extends HtmlWidget
 {
-    private $_layout = YandexLikeButtonLayout::Button;
-    private $_size = YandexLikeButtonSize::Large;
+    private $_layout = YandexLikeButtonLayout::BUTTON;
+    private $_size = YandexLikeButtonSize::LARGE;
     private $_text;
     private $_title;
     private $_url;
@@ -24,6 +42,15 @@ class YandexLikeButtonWidget extends HtmlWidget
     }
 
     /**
+     * Visual layout/appearance of the button.
+     * @return string Layout of button.
+     */
+    public function getLayout()
+    {
+        return $this->_layout;
+    }
+
+    /**
      * Size of the button.
      * @param string $size Size of button.
      * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
@@ -32,6 +59,15 @@ class YandexLikeButtonWidget extends HtmlWidget
     {
         $this->_size = (string) $size;
         return $this;
+    }
+
+    /**
+     * Size of the button.
+     * @return string Size of button.
+     */
+    public function getSize()
+    {
+        return $this->_size;
     }
 
     /**
@@ -46,6 +82,15 @@ class YandexLikeButtonWidget extends HtmlWidget
     }
 
     /**
+     * Label text to draw on the button.
+     * @return string Label text.
+     */
+    public function getText()
+    {
+        return $this->_text;
+    }
+
+    /**
      * Custom title text for shared page.
      * @param string $title Title text.
      * @return \Catharsis\Web\YandexLikeButtonWidget Reference to the current widget.
@@ -54,6 +99,15 @@ class YandexLikeButtonWidget extends HtmlWidget
     {
         $this->_title = (string) $title;
         return $this;
+    }
+
+    /**
+     * Custom title text for shared page.
+     * @return string Title text.
+     */
+    public function getTitle()
+    {
+        return $this->_title;
     }
 
     /**
@@ -68,17 +122,31 @@ class YandexLikeButtonWidget extends HtmlWidget
     }
 
     /**
+     * URL address of web page to share.
+     * @return string URL address of web page.
+     */
+    public function getUrl()
+    {
+        return $this->_url;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        return self::htmlTag("a", array(
-            "name" => "ya-share",
-            "share_text" => $this->_text,
-            "share_title" => $this->_title,
-            "share_url" => $this->_url,
-            "size" => $this->_size,
-            "type" => $this->_layout)) . <<<EOT
+        return self::htmlTag(
+            'a',
+            array(
+                'name' => 'ya-share',
+                'share_text' => $this->getText(),
+                'share_title' => $this->getTitle(),
+                'share_url' => $this->getUrl(),
+                'size' => $this->getSize(),
+                'type' => $this->getLayout()
+            )
+        ) . <<<EOT
       <script type="text/javascript">
         if (window.Ya && window.Ya.Share)
         {

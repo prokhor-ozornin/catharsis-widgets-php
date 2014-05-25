@@ -1,9 +1,27 @@
 <?php
+/**
+ * YandexMoneyDonateFormWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders donation form for Yandex.Money (http://money.yandex.ru) payment system that allows financial transactions to be performed.
- * @link https://money.yandex.ru/embed/quickpay/donate.xml
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
+ * @link      https://money.yandex.ru/embed/quickpay/donate.xml
  */
 class YandexMoneyDonateFormWidget extends HtmlWidget
 {
@@ -19,13 +37,14 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     private $_projectName;
     private $_projectSite;
     private $_sum;
-    private $_text = YandexMoneyDonateFormText::Donate;
+    private $_text = YandexMoneyDonateFormText::DONATE;
 
     /**
      * Identifier of account in the Yandex.Money payment system which is to receive money.
      * This attribute is required.
      * @param string $account Identifier of account.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
      */
     public function account($account)
     {
@@ -34,64 +53,136 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     }
 
     /**
-     * Whether to allow payer add custom payment comment. Default is FALSE.
-     * @param boolean $require TRUE to allow payer to add a form's comment, FALSE to not.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * Identifier of account in the Yandex.Money payment system which is to receive money.
+     * @return string Identifier of account.
      */
-    public function askPayerComment($ask = true)
+    public function getAccount()
+    {
+        return $this->_account;
+    }
+
+    /**
+     * Whether to accept payment from Visa/Master Card cards.
+     * Default is FALSE.
+     * @param boolean $ask TRUE to allow payer to add a form's comment,
+     *                     FALSE to not.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
+     */
+    public function askPayerComment($ask)
     {
         $this->_askPayerComment = (bool) $ask;
         return $this;
     }
 
     /**
-     * Whether to ask for email address of payer during transaction. Default is FALSE.
-     * @param boolean $require TRUE to make payer's email required, FALSE to not.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * Whether to accept payment from Visa/Master Card cards.
+     * Default is FALSE.
+     * @return boolean TRUE to allow payer to add a form's comment,
+     *                 FALSE to not.
      */
-    public function askPayerEmail($ask = true)
+    public function getAskPayerComment()
+    {
+        return $this->_askPayerComment;
+    }
+
+    /**
+     * Specifies whether to ask for email address of payer during transaction.
+     * Default is FALSE.
+     * @param boolean $ask TRUE to make payer's email required, FALSE to not.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
+     */
+    public function askPayerEmail($ask)
     {
         $this->_askPayerEmail = (bool) $ask;
         return $this;
     }
 
     /**
-     * Whether to ask for full name of payer during transaction. Default is FALSE.
-     * @param boolean $require TRUE to make payer's full name required, FALSE to not.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * Whether to ask for email address of payer during transaction.
+     * Default is FALSE.
+     * @return boolean TRUE to make payer's email required, FALSE to not.
      */
-    public function askPayerFullName($ask = true)
+    public function getAskPayerEmail()
+    {
+        return $this->_askPayerEmail;
+    }
+
+    /**
+     * Whether to ask for full name of payer during transaction.
+     * Default is FALSE.
+     * @param boolean $ask TRUE to make payer's full name required, FALSE to not.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
+     */
+    public function askPayerFullName($ask)
     {
         $this->_askPayerFullName = (bool) $ask;
         return $this;
     }
 
     /**
-     * Whether to ask for payer phone number during transaction. Default is FALSE.
-     * @param boolean $require TRUE to make payer's phone required, FALSE to not.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * Whether to ask for full name of payer during transaction.
+     * Default is FALSE.
+     * @return boolean TRUE to make payer's full name required, FALSE to not.
      */
-    public function askPayerPhone($ask = true)
+    public function getAskPayerFullName()
+    {
+        return $this->_askPayerFullName;
+    }
+
+    /**
+     * Whether to ask for payer phone number during transaction.
+     * Default is FALSE.
+     * @param boolean $ask TRUE to make payer's phone required, FALSE to not.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
+     */
+    public function askPayerPhone($ask)
     {
         $this->_askPayerPhone = (bool) $ask;
         return $this;
     }
 
     /**
-     * Whether to accept payment from Visa/Master Card cards. Default is TRUE.
-     * @param boolean $accept TRUE to accept Visa/Master Card payments, FALSE to not.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * Whether to ask for payer phone number during transaction.
+     * Default is FALSE.
+     * @return boolean TRUE to make payer's phone required, FALSE to not.
      */
-    public function cards($accept = true)
+    public function getAskPayerPhone()
+    {
+        return $this->_askPayerPhone;
+    }
+
+    /**
+     * Whether to accept payment from Visa/Master Card cards.
+     * Default is TRUE.
+     * @param boolean $accept TRUE to accept Visa/Master Card payments, FALSE to not.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
+     */
+    public function cards($accept)
     {
         $this->_cards = (bool) $accept;
         return $this;
     }
 
     /**
+     * Whether to accept payment from Visa/Master Card cards.
+     * Default is TRUE.
+     * @return boolean TRUE to accept Visa/Master Card payments, FALSE to not.
+     */
+    public function getCards()
+    {
+        return $this->_cards;
+    }
+
+    /**
      * Hint text for comment field.
      * @param string $hint Comment's hint.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
      */
     public function commentHint($hint)
     {
@@ -100,21 +191,45 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     }
 
     /**
-     * Whether to show description of payment goal/purpose in the form. Default is FALSE.
-     * @param boolean $show TRUE to show payment purpose text on the form, FALSE to hide it.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * Hint text for comment field.
+     * @return string Comment's hint.
      */
-    public function description($show = true)
+    public function getCommentHint()
+    {
+        return $this->_commentHint;
+    }
+
+    /**
+     * Whether to show description of payment goal/purpose in the form.
+     * Default is FALSE.
+     * @param boolean $show TRUE to show payment purpose text on the form,
+     *                      FALSE to hide it.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
+     */
+    public function description($show)
     {
         $this->_description = (bool) $show;
         return $this;
     }
 
     /**
+     * Whether to show description of payment goal/purpose in the form.
+     * Default is FALSE.
+     * @return boolean TRUE to show payment purpose text on the form,
+     *                 FALSE to hide it.
+     */
+    public function getDescription()
+    {
+        return $this->_description;
+    }
+
+    /**
      * Description of payment goal/purpose.
      * This attribute is required.
      * @param string $description Description of payment purpose.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
      */
     public function descriptionText($description)
     {
@@ -123,9 +238,19 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     }
 
     /**
+     * Description of payment goal/purpose.
+     * @return string Description of payment purpose.
+     */
+    public function getDescriptionText()
+    {
+        return $this->_descriptionText;
+    }
+
+    /**
      * Name of charitable project or program.
      * @param string $name Name of project.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
      */
     public function projectName($name)
     {
@@ -134,9 +259,19 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     }
 
     /**
+     * Name of charitable project or program.
+     * @return string Name of project.
+     */
+    public function getProjectName()
+    {
+        return $this->_projectName;
+    }
+
+    /**
      * URL address of charitable project or program website.
      * @param string $url Website of project.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
      */
     public function projectSite($url)
     {
@@ -145,9 +280,19 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     }
 
     /**
+     * URL address of charitable project or program website.
+     * @return string Website of project.
+     */
+    public function getProjectSite()
+    {
+        return $this->_projectSite;
+    }
+
+    /**
      * Monetary sum to transfer to Yandex.Money account.
      * @param type $sum Payment sum.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
      */
     public function sum($sum)
     {
@@ -156,9 +301,20 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     }
 
     /**
-     * Text to display on button. Default is 1 ("Donate").
+     * Monetary sum to transfer to Yandex.Money account.
+     * @return float Payment sum.
+     */
+    public function getSum()
+    {
+        return $this->_sum;
+    }
+
+    /**
+     * Specifies text to display on button.
+     * Default is 1 ("Donate").
      * @param integer $text Numeric code of text to display.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
      */
     public function text($text)
     {
@@ -167,9 +323,21 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     }
 
     /**
-     * Text to display on button. Default is 1 ("Donate").
+     * Specifies text to display on button.
+     * Default is 1 ("Donate").
+     * @return integer Numeric code of text to display.
+     */
+    public function getText()
+    {
+        return $this->_text;
+    }
+
+    /**
+     * Text to display on button.
+     * Default is 1 ("Donate").
      * @param string $type Numeric code of text to display.
-     * @return \Catharsis\Web\YandexMoneyDonateFormWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexMoneyDonateFormWidget
+     *         Reference to the current widget.
      */
     public function type($type)
     {
@@ -178,60 +346,75 @@ class YandexMoneyDonateFormWidget extends HtmlWidget
     }
 
     /**
+     * Text to display on button.
+     * Default is 1 ("Donate").
+     * @return string Numeric code of text to display.
+     */
+    public function getType()
+    {
+        return $this->_type;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        if (empty($this->_account) || empty($this->_descriptionText)) {
-            return "";
+        if (empty($this->getAccount())
+            || empty($this->getDescriptionText())
+        ) {
+            return '';
         }
 
         $width = 0;
-        switch ($this->_text) {
-            case YandexMoneyDonateFormText::Donate :
-                $width = 523;
-                break;
+        switch ($this->getText()) {
+        case YandexMoneyDonateFormText::DONATE :
+            $width = 523;
+            break;
 
-            case YandexMoneyDonateFormText::Give :
-                $width = 487;
-                break;
+        case YandexMoneyDonateFormText::GIVE :
+            $width = 487;
+            break;
 
-            case YandexMoneyDonateFormText::Transfer :
-                $width = 495;
-                break;
+        case YandexMoneyDonateFormText::TRANSFER :
+            $width = 495;
+            break;
 
-            case YandexMoneyDonateFormText::Send :
-                $width = 494;
-                break;
+        case YandexMoneyDonateFormText::SEND :
+            $width = 494;
+            break;
 
-            case YandexMoneyDonateFormText::Support :
-                $width = 507;
-                break;
+        case YandexMoneyDonateFormText::SUPPORT :
+            $width = 507;
+            break;
 
-            default :
-                $width = 523;
-                break;
+        default :
+            $width = 523;
+            break;
         }
-        if (!$this->_cards) {
+        if (!$this->getCards()) {
             $width -= 69;
         }
 
-        $cards = $this->_cards ? "&payment-type-choice=on" : "";
-        $show_description = $this->_description ? "&target-visibility=on" : "";
-        $payer_comment = $this->_askPayerComment
-            ? "&comment=on&hint={$this->_commentHint}"
-            : "";
-        $payer_full_name = $this->_askPayerFullName ? "&fio=on" : "";
-        $payer_email = $this->_askPayerEmail ? "&mail=on" : "";
-        $payer_phone = $this->_askPayerPhone ? "&phone=on" : "";
+        $cards = $this->getCards() ? '&payment-type-choice=on' : '';
+        $show_description = $this->getDescription() ? '&target-visibility=on' : '';
+        $payer_comment = $this->getAskPayerComment() ? "&comment=on&hint={$this->getCommentHint()}" : '';
+        $payer_full_name = $this->getAskPayerFullName() ? '&fio=on' : '';
+        $payer_email = $this->getAskPayerEmail() ? '&mail=on' : '';
+        $payer_phone = $this->getAskPayerPhone() ? '&phone=on' : '';
 
-        return self::htmlTag("iframe", array(
-            "allowtransparency" => true,
-            "frameborder" => 0,
-            "height" => $this->_askPayerComment ? 210 : 133,
-            "scrolling" => "no",
-            "src" => "https://money.yandex.ru/embed/donate.xml?account={$this->_account}&quickpay=donate{$cards}&default-sum={$this->_sum}&targets={$this->_descriptionText}{$show_description}&project-name={$this->_projectName}&project-site={$this->_projectSite}&button-text=0{$this->_text}{$payer_comment}{$payer_full_name}{$payer_email}{$payer_phone}",
-            "width" => $width));
+        return self::htmlTag(
+            'iframe',
+            array(
+                'allowtransparency' => true,
+                'frameborder' => 0,
+                'height' => $this->getAskPayerComment() ? 210 : 133,
+                'scrolling' => "no",
+                'src' => "https://money.yandex.ru/embed/donate.xml?account={$this->getAccount()}&quickpay=donate{$cards}&default-sum={$this->getSum()}&targets={$this->getDescriptionText()}{$show_description}&project-name={$this->getProjectName()}&project-site={$this->getProjectSite()}&button-text=0{$this->getText()}{$payer_comment}{$payer_full_name}{$payer_email}{$payer_phone}",
+                'width' => $width
+            )
+        );
     }
 }
 

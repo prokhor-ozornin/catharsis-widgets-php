@@ -1,8 +1,25 @@
 <?php
+/**
+ * YandexVideoWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
- *
+ * Renders embedded Yandex video on web page.
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 class YandexVideoWidget extends HtmlWidget
 {
@@ -15,7 +32,8 @@ class YandexVideoWidget extends HtmlWidget
      * Height of video control.
      * This attribute is required.
      * @param string $height Height of video.
-     * @return \Catharsis\Web\YandexVideoWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexVideoWidget
+     *         Reference to the current widget.
      */
     public function height($height)
     {
@@ -24,10 +42,20 @@ class YandexVideoWidget extends HtmlWidget
     }
 
     /**
+     * Height of video control.
+     * @return string Height of video.
+     */
+    public function getHeight()
+    {
+        return $this->_height;
+    }
+
+    /**
      * Identifier of video.
      * This attribute is required.
      * @param string $id Identifier of video.
-     * @return \Catharsis\Web\YandexVideoWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexVideoWidget
+     *         Reference to the current widget.
      */
     public function id($id)
     {
@@ -36,10 +64,20 @@ class YandexVideoWidget extends HtmlWidget
     }
 
     /**
+     * Identifier of video.
+     * @return string Identifier of video.
+     */
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    /**
      * Account identifier of video's uploader.
      * This attribute is required.
      * @param string $user User's account identifier.
-     * @return \Catharsis\Web\YandexVideoWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexVideoWidget
+     *         Reference to the current widget.
      */
     public function user($user)
     {
@@ -48,10 +86,20 @@ class YandexVideoWidget extends HtmlWidget
     }
 
     /**
+     * Account identifier of video's uploader.
+     * @return string User's account identifier.
+     */
+    public function getUser()
+    {
+        return $this->_user;
+    }
+
+    /**
      * Width of video control.
      * This attribute is required.
      * @param string $width Width of video.
-     * @return \Catharsis\Web\YandexVideoWidget Reference to the current widget.
+     * @return \Catharsis\Web\YandexVideoWidget
+     *         Reference to the current widget.
      */
     public function width($width)
     {
@@ -60,22 +108,40 @@ class YandexVideoWidget extends HtmlWidget
     }
 
     /**
+     * Width of video control.
+     * @return string Width of video.
+     */
+    public function getWidth()
+    {
+        return $this->_width;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        if (empty($this->_id) || empty($this->_user) || empty($this->_height) || empty($this->_width)) {
-            return "";
+        if (empty($this->getId())
+            || empty($this->getUser())
+            || empty($this->getHeight())
+            || empty($this->getWidth())
+        ) {
+            return '';
         }
 
-        return self::htmlTag("iframe", array(
-            "allowfullscreen" => true,
-            "frameborder" => 0,
-            "height" => $this->_height,
-            "mozallowfullscreen" => true,
-            "src" => "http://video.yandex.ru/iframe/{$this->_user}/{$this->_id}",
-            "webkitallowfullscreen" => true,
-            "width" => $this->_width));
+        return self::htmlTag(
+            'iframe',
+            array(
+                'allowfullscreen' => true,
+                'frameborder' => 0,
+                'height' => $this->getHeight(),
+                'mozallowfullscreen' => true,
+                'src' => "http://video.yandex.ru/iframe/{$this->getUser()}/{$this->getId()}",
+                'webkitallowfullscreen' => true,
+                'width' => $this->getWidth()
+            )
+        );
     }
 }
 

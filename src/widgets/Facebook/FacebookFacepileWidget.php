@@ -1,10 +1,28 @@
 <?php
+/**
+ * FacebookFacepileWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders Facebook Facepile widget.
  * Requires Facebook JavaScript initialization to be performed first.
- * @link https://developers.facebook.com/docs/plugins/facepile
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
+ * @link      https://developers.facebook.com/docs/plugins/facepile
  */
 class FacebookFacepileWidget extends HtmlWidget
 {
@@ -19,7 +37,8 @@ class FacebookFacepileWidget extends HtmlWidget
     /**
      * Collection of Open Graph action types.
      * @param array $actions Collection of Facebook action types.
-     * @return \Catharsis\Web\FacebookFacepileWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookFacepileWidget
+     *         Reference to the current widget.
      */
     public function actions($actions)
     {
@@ -28,9 +47,20 @@ class FacebookFacepileWidget extends HtmlWidget
     }
 
     /**
-     * The color scheme used by the widget. Default is "light".
+     * Collection of Open Graph action types.
+     * @return array Collection of Facebook action types.
+     */
+    public function getActions()
+    {
+        return $this->_actions;
+    }
+
+    /**
+     * The color scheme used by the widget.
+     * Default is "light".
      * @param string $colorScheme Color scheme of widget.
-     * @return \Catharsis\Web\FacebookFacepileWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookFacepileWidget
+     *         Reference to the current widget.
      */
     public function colorScheme($colorScheme)
     {
@@ -39,9 +69,20 @@ class FacebookFacepileWidget extends HtmlWidget
     }
 
     /**
+     * The color scheme used by the widget.
+     * Default is "light".
+     * @return string Color scheme of widget.
+     */
+    public function getColorScheme()
+    {
+        return $this->_colorScheme;
+    }
+
+    /**
      * The height of the widget in pixels.
      * @param string $height Height of widget.
-     * @return \Catharsis\Web\FacebookFacepileWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookFacepileWidget
+     *         Reference to the current widget.
      */
     public function height($height)
     {
@@ -50,9 +91,20 @@ class FacebookFacepileWidget extends HtmlWidget
     }
 
     /**
-     * The maximum number of rows of faces to display. Default is 1.
+     * The height of the widget in pixels.
+     * @return string Height of widget.
+     */
+    public function getHeight()
+    {
+        return $this->_height;
+    }
+
+    /**
+     * The maximum number of rows of faces to display.
+     * Default is 1.
      * @param integer $maxRows Number of rows of faces to display.
-     * @return \Catharsis\Web\FacebookFacepileWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookFacepileWidget
+     *         Reference to the current widget.
      */
     public function maxRows($maxRows)
     {
@@ -61,9 +113,21 @@ class FacebookFacepileWidget extends HtmlWidget
     }
 
     /**
-     * Controls the size of the photos shown in the widget. Default is "medium".
+     * The maximum number of rows of faces to display.
+     * Default is 1.
+     * @return integer Number of rows of faces to display.
+     */
+    public function getMaxRows()
+    {
+        return $this->_maxRows;
+    }
+
+    /**
+     * Controls the size of the photos shown in the widget.
+     * Default is "medium".
      * @param string $size Size of photos.
-     * @return \Catharsis\Web\FacebookFacepileWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookFacepileWidget
+     *         Reference to the current widget.
      */
     public function photoSize($size)
     {
@@ -72,9 +136,21 @@ class FacebookFacepileWidget extends HtmlWidget
     }
 
     /**
-     * Display photos of the people who have liked this absolute URL. Default is current page URL.
+     * Controls the size of the photos shown in the widget.
+     * Default is "medium".
+     * @return string Size of photos.
+     */
+    public function getPhotoSize()
+    {
+        return $this->_photoSize;
+    }
+
+    /**
+     * Display photos of the people who have liked this absolute URL.
+     * Default is current page URL.
      * @param string $url Target "liked" URL.
-     * @return \Catharsis\Web\FacebookFacepileWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookFacepileWidget
+     *         Reference to the current widget.
      */
     public function url($url)
     {
@@ -83,9 +159,21 @@ class FacebookFacepileWidget extends HtmlWidget
     }
 
     /**
-     * The width of the widget in pixels. Minimum is 200. Default is 300.
+     * Display photos of the people who have liked this absolute URL.
+     * Default is current page URL.
+     * @return string Target "liked" URL.
+     */
+    public function getUrl()
+    {
+        return $this->_url;
+    }
+
+    /**
+     * The width of the widget in pixels.
+     * Minimum is 200. Default is 300.
      * @param string $width Width of widget.
-     * @return \Catharsis\Web\FacebookFacepileWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookFacepileWidget
+     *         Reference to the current widget.
      */
     public function width($width)
     {
@@ -94,22 +182,36 @@ class FacebookFacepileWidget extends HtmlWidget
     }
 
     /**
+     * The width of the widget in pixels.
+     * Minimum is 200. Default is 300.
+     * @return string Width of widget.
+     */
+    public function getWidth()
+    {
+        return $this->_width;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        return self::htmlTag("div", array(
-            "class" => "fb-facepile",
-            "data-action" => implode(",", $this->_actions),
-            "data-colorscheme" => $this->_colorScheme,
-            "data-height" => $this->_height,
-            "data-href" => empty($this->_url)
-                ? $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]
-                : $this->_url,
-            "data-max-rows" => $this->_maxRows,
-            "data-size" => $this->_photoSize,
-            "data-width" => $this->_width
-        ));
+        return self::htmlTag(
+            'div',
+            array(
+                'class' => 'fb-facepile',
+                'data-action' => implode(',', $this->getActions()),
+                'data-colorscheme' => $this->getColorScheme(),
+                'data-height' => $this->getHeight(),
+                'data-href' => empty($this->getUrl())
+                    ? $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']
+                    : $this->getUrl(),
+                'data-max-rows' => $this->getMaxRows(),
+                'data-size' => $this->getPhotoSize(),
+                'data-width' => $this->getWidth()
+            )
+        );
     }
 }
 

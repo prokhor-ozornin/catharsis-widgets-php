@@ -13,7 +13,7 @@ trait HtmlHelpersTrait
      */
     public static function cssInline($code)
     {
-        return self::htmlTag("style", array("type" => "text/css"),
+        return self::htmlTag('style', array('type' =>'text/css'),
                 (string) $code);
     }
 
@@ -25,13 +25,13 @@ trait HtmlHelpersTrait
     public static function cssLink($url)
     {
         if (empty($url)) {
-            return "";
+            return '';
         }
 
-        return self::htmlTag("link", array(
-            "href" => (string) $url,
-            "rel" => "stylesheet",
-            "type" => "text/css"
+        return self::htmlTag('link', array(
+            'href' => (string) $url,
+            'rel' => 'stylesheet',
+            'type' => 'text/css'
         ));
     }
 
@@ -42,18 +42,18 @@ trait HtmlHelpersTrait
      * @param string $body Inner body contents of tag (text or valid HTML).
      * @return string HTML tag string.
      */
-    public static function htmlTag($tag, $attributes = array(), $body = "")
+    public static function htmlTag($tag, $attributes = array(), $body = '')
     {
         if (empty($tag)) {
-            return "";
+            return '';
         }
 
         $attributes_pairs = array();
         foreach ((array) $attributes as $name => $value) {
             if (is_bool($value)) {
-                $value = $value ? "true" : "false";
+                $value = $value ? 'true' : 'false';
             }
-            else if (!isset($value) || $value === "") {
+            else if (!isset($value) || $value === '') {
                 continue;
             }
             else {
@@ -61,12 +61,15 @@ trait HtmlHelpersTrait
             }
 
             $name = htmlentities($name, ENT_HTML401 | ENT_QUOTES);
-            $attributes_pairs[] = "$name=\"$value\"";
+            $attributes_pairs[] = "{$name}=\"{$value}\"";
         }
 
-        $attributes_string = empty($attributes_pairs) ? "" : " "
-                             .implode(" ", $attributes_pairs);
-        return isset($body) ? "<{$tag}{$attributes_string}>$body</$tag>" : "<{$tag}{$attributes_string}/>";
+        $attributes_string = empty($attributes_pairs) ? '' : ' '
+                             .implode(' ', $attributes_pairs);
+
+        return isset($body)
+            ? "<{$tag}{$attributes_string}>{$body}</{$tag}>"
+            : "<{$tag}{$attributes_string}/>";
     }
 
     /**
@@ -76,7 +79,7 @@ trait HtmlHelpersTrait
      */
     public static function javascriptInline($code)
     {
-        return self::htmlTag("script", array("type" => "text/javascript"), (string) $code);
+        return self::htmlTag('script', array('type' => 'text/javascript'), (string) $code);
     }
 
     /**
@@ -87,12 +90,12 @@ trait HtmlHelpersTrait
     public static function javascriptLink($url)
     {
         if (empty($url)) {
-            return "";
+            return '';
         }
 
-        return self::htmlTag("script", array(
-            "src" => (string) $url,
-            "type" => "text/javascript"
+        return self::htmlTag('script', array(
+            'src' => (string) $url,
+            'type' => 'text/javascript'
         ));
     }
 
@@ -108,15 +111,15 @@ trait HtmlHelpersTrait
         foreach ((array) $parameters as $name => $value) {
             $name = urlencode($name);
             if (is_bool($value)) {
-                $value = $value ? "true" : "false";
+                $value = $value ? 'true' : 'false';
             }
             else {
                 $value = urlencode($value);
             }
-            $parameters_pairs[] = "$name=$value";
+            $parameters_pairs[] = "{$name}={$value}";
         }
 
-        return implode("&", $parameters_pairs);
+        return implode('&', $parameters_pairs);
     }
 
     /**
@@ -125,17 +128,17 @@ trait HtmlHelpersTrait
      */
     public static function userLanguage()
     {
-        if (!empty($_REQUEST["lang"])) {
-            $language = $_REQUEST["lang"];
+        if (!empty($_REQUEST['lang'])) {
+            $language = $_REQUEST['lang'];
         }
-        else if (!empty($_REQUEST["language"])) {
-            $language = $_REQUEST["language"];
+        else if (!empty($_REQUEST['language'])) {
+            $language = $_REQUEST['language'];
         }
-        else if (!empty($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
-            $language = explode(",", $_SERVER["HTTP_ACCEPT_LANGUAGE"])[0];
+        else if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $language = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE'])[0];
         }
         else {
-            $language = "en";
+            $language = 'en';
         }
 
         return $language;

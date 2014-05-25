@@ -1,90 +1,129 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\YandexVideoWidget}
+ * Tests set for class {@link \Catharsis\Web\YandexVideoWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class YandexVideoWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\YandexVideoWidget::__construct()
+     * @link \Catharsis\Web\YandexVideoWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertAttributeEmpty("_id", $widget);
-        $this->assertAttributeEmpty("_user", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertEmpty($widget->getId());
+        $this->assertEmpty($widget->getUser());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexVideoWidget::height(string $height)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexVideoWidget::height(string $height)}
+     * method.
+     * @return void
      */
-    public function test_height_method()
+    public function testHeightMethod()
     {
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertSame($widget, $widget->height("height"));
-        $this->assertAttributeEquals("height", "_height", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertSame($widget, $widget->height('height'));
+        $this->assertEquals('height', $widget->getHeight());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexVideoWidget::id(string id)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexVideoWidget::id(string id)}
+     * method.
+     * @return void
      */
-    public function test_id_method()
+    public function testIdMethod()
     {
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertAttributeEmpty("_id", $widget);
-        $this->assertSame($widget, $widget->id("id"));
-        $this->assertAttributeEquals("id", "_id", $widget);
+        $this->assertEmpty($widget->getId());
+        $this->assertSame($widget, $widget->id('id'));
+        $this->assertEquals('id', $widget->getId());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexVideoWidget::user(string $user)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexVideoWidget::user(string $user)}
+     * method.
+     * @return void
      */
-    public function test_user_method()
+    public function testUserMethod()
     {
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertAttributeEmpty("_user", $widget);
-        $this->assertSame($widget, $widget->user("user"));
-        $this->assertAttributeEquals("user", "_user", $widget);
+        $this->assertEmpty($widget->getUser());
+        $this->assertSame($widget, $widget->user('user'));
+        $this->assertEquals('user', $widget->getUser());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexVideoWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexVideoWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexVideoWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexVideoWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\YandexVideoWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->user("user")->width("width"));
+        $this->assertEmpty((string) $widget->id('id')->user('user')->width('width'));
 
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->user("user")->height("height"));
+        $this->assertEmpty((string) $widget->id('id')->user('user')->height('height'));
 
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->width("width")->height("height"));
+        $this->assertEmpty((string) $widget->id('id')->width('width')->height('height'));
 
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertEmpty((string) $widget->user("user")->width("width")->height("height"));
+        $this->assertEmpty((string) $widget->user('user')->width('width')->height('height'));
 
         $widget = new Catharsis\Web\YandexVideoWidget();
-        $this->assertEquals('<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://video.yandex.ru/iframe/user/id" webkitallowfullscreen="true" width="width"></iframe>',
-                            (string) $widget->id("id")->height("height")->width("width")->user("user"));
+        $this->assertEquals(
+            '<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true"'
+            .' src="http://video.yandex.ru/iframe/user/id" webkitallowfullscreen="true" width="width"></iframe>',
+            (string) $widget
+                ->id('id')
+                ->height('height')
+                ->width('width')
+                ->user('user')
+        );
     }
 }
 

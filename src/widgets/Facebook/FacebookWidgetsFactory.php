@@ -1,14 +1,33 @@
 <?php
+/**
+ * FacebookWidgetsFactory class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Factory for instantiation of Facebook widgets.
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class FacebookWidgetsFactory
 {
     /**
      * Creates new Facebook Activity Feed widget.
-     * @return \Catharsis\Web\FacebookActivityFeedWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookActivityFeedWidget
+     *         Initialized widget with default options.
      */
     public function activityFeed()
     {
@@ -17,7 +36,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook comments widget.
-     * @return \Catharsis\Web\FacebookCommentsWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookCommentsWidget
+     *         Initialized widget with default options.
      */
     public function comments()
     {
@@ -26,7 +46,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook Facepile widget.
-     * @return \Catharsis\Web\FacebookFacepileWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookFacepileWidget
+     *         Initialized widget with default options.
      */
     public function facepile()
     {
@@ -35,7 +56,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook "Follow" button widget.
-     * @return \Catharsis\Web\FacebookFollowButtonWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookFollowButtonWidget
+     *         Initialized widget with default options.
      */
     public function followButton()
     {
@@ -44,7 +66,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook JavaScript API initialization widget.
-     * @return \Catharsis\Web\FacebookInitializationWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookInitializationWidget
+     *         Initialized widget with default options.
      */
     public function initialize()
     {
@@ -53,7 +76,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook "Like" button widget.
-     * @return \Catharsis\Web\FacebookLikeButtonWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookLikeButtonWidget
+     *         Initialized widget with default options.
      */
     public function likeButton()
     {
@@ -62,7 +86,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook Likebox widget.
-     * @return \Catharsis\Web\FacebookLikeBoxWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookLikeBoxWidget
+     *         Initialized widget with default options.
      */
     public function likeBox()
     {
@@ -71,7 +96,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook embedded post widget.
-     * @return \Catharsis\Web\FacebookPostWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookPostWidget
+     *         Initialized widget with default options.
      */
     public function post()
     {
@@ -80,7 +106,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook Recommendations Feed widget.
-     * @return \Catharsis\Web\FacebookRecommendationsFeedWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookRecommendationsFeedWidget
+     *         Initialized widget with default options.
      */
     public function recommendationsFeed()
     {
@@ -89,7 +116,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook "Send" button widget.
-     * @return \Catharsis\Web\FacebookSendButtonWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookSendButtonWidget
+     *         Initialized widget with default options.
      */
     public function sendButton()
     {
@@ -98,7 +126,8 @@ final class FacebookWidgetsFactory
 
     /**
      * Creates new Facebook embedded video widget.
-     * @return \Catharsis\Web\FacebookVideoWidget Initialized widget with default options.
+     * @return \Catharsis\Web\FacebookVideoWidget
+     *         Initialized widget with default options.
      */
     public function video()
     {

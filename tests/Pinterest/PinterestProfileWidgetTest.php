@@ -1,118 +1,164 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\PinterestProfileWidget}
+ * Tests set for class {@link \Catharsis\Web\PinterestProfileWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class PinterestProfileWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\PinterestProfileWidget::__construct()
+     * @link \Catharsis\Web\PinterestProfileWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertAttributeEmpty("_image", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertEmpty($widget->getHeight());
+        $this->assertEmpty($widget->getImage());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestProfileWidget::account(string $account)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestProfileWidget::account(string $account)}
+     * method.
+     * @return void
      */
-    public function test_account_method()
+    public function testAccountMethod()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertSame($widget, $widget->account("account"));
-        $this->assertAttributeEquals("account", "_account", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertSame($widget, $widget->account('account'));
+        $this->assertEquals('account', $widget->getAccount());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestProfileWidget::height(string $height)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestProfileWidget::height(string $height)}
+     * method.
+     * @return void
      */
-    public function test_height_method()
+    public function testHeightMethod()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertSame($widget, $widget->height("height"));
-        $this->assertAttributeEquals("height", "_height", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertSame($widget, $widget->height('height'));
+        $this->assertEquals('height', $widget->getHeight());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestProfileWidget::header()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestProfileWidget::header()}
+     * method.
+     * @return void
      */
-    public function test_header_method()
+    public function testHeaderMethod()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
         $this->assertSame($widget, $widget->header());
-        $this->assertAttributeEquals("115", "_image", $widget);
-        $this->assertAttributeEquals("120", "_height", $widget);
-        $this->assertAttributeEquals("900", "_width", $widget);
+        $this->assertEquals('115', $widget->getImage());
+        $this->assertEquals('120', $widget->getHeight());
+        $this->assertEquals('900', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestProfileWidget::image(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestProfileWidget::image(string $width)}
+     * method.
+     * @return void
      */
-    public function test_image_method()
+    public function testImageMethod()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
-        $this->assertAttributeEmpty("_image", $widget);
-        $this->assertSame($widget, $widget->image("image"));
-        $this->assertAttributeEquals("image", "_image", $widget);
+        $this->assertEmpty($widget->getImage());
+        $this->assertSame($widget, $widget->image('image'));
+        $this->assertEquals('image', $widget->getImage());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestProfileWidget::sidebar()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestProfileWidget::sidebar()}
+     * method.
+     * @return void
      */
-    public function test_sidebar_method()
+    public function testSidebarMethod()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
         $this->assertSame($widget, $widget->sidebar());
-        $this->assertAttributeEquals("60", "_image", $widget);
-        $this->assertAttributeEquals("800", "_height", $widget);
-        $this->assertAttributeEquals("150", "_width", $widget);
+        $this->assertEquals('60', $widget->getImage());
+        $this->assertEquals('800', $widget->getHeight());
+        $this->assertEquals('150', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestProfileWidget::square()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestProfileWidget::square()}
+     * method.
+     * @return void
      */
-    public function test_square_method()
+    public function testSquareMethod()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
         $this->assertSame($widget, $widget->square());
-        $this->assertAttributeEquals("80", "_image", $widget);
-        $this->assertAttributeEquals("320", "_height", $widget);
-        $this->assertAttributeEquals("400", "_width", $widget);
+        $this->assertEquals('80', $widget->getImage());
+        $this->assertEquals('320', $widget->getHeight());
+        $this->assertEquals('400', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestProfileWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestProfileWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\PinterestProfileWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\PinterestProfileWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\PinterestProfileWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\PinterestProfileWidget();
-        $this->assertEquals('<a data-pin-do="embedUser" href="http://www.pinterest.com/account"></a>',
-                            (string) $widget->account("account"));
+        $this->assertEquals(
+            '<a data-pin-do="embedUser" href="http://www.pinterest.com/account"></a>',
+            (string) $widget->account('account')
+        );
 
         $widget = new Catharsis\Web\PinterestProfileWidget();
-        $this->assertEquals('<a data-pin-board-width="width" data-pin-do="embedUser" data-pin-scale-height="height" data-pin-scale-width="image" href="http://www.pinterest.com/account"></a>',
-                            (string) $widget->account("account")->width("width")->height("height")->image("image"));
+        $this->assertEquals(
+            '<a data-pin-board-width="width" data-pin-do="embedUser" data-pin-scale-height="height"'
+            .' data-pin-scale-width="image" href="http://www.pinterest.com/account"></a>',
+            (string) $widget->account('account')->width('width')->height('height')->image('image')
+        );
     }
 }
 

@@ -1,151 +1,218 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\TwitterTweetButtonWidget}
+ * Tests set for class {@link \Catharsis\Web\TwitterTweetButtonWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class TwitterTweetButtonWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\TwitterTweetButtonWidget::__construct()
+     * @link \Catharsis\Web\TwitterTweetButtonWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_counterPosition", $widget);
-        $this->assertAttributeEmpty("_countUrl", $widget);
-        $this->assertAttributeEmpty("_language", $widget);
-        $this->assertAttributeEmpty("_relatedAccounts", $widget);
-        $this->assertAttributeEmpty("_size", $widget);
-        $this->assertAttributeEmpty("_suggestions", $widget);
-        $this->assertAttributeEmpty("_tags", $widget);
-        $this->assertAttributeEmpty("_text", $widget);
-        $this->assertAttributeEmpty("_url", $widget);
-        $this->assertAttributeEmpty("_via", $widget);
+        $this->assertEmpty($widget->getCounterPosition());
+        $this->assertEmpty($widget->getCountUrl());
+        $this->assertEmpty($widget->getLanguage());
+        $this->assertEmpty($widget->getRelatedAccounts());
+        $this->assertEmpty($widget->getSize());
+        $this->assertEmpty($widget->getSuggestions());
+        $this->assertEmpty($widget->getHashTags());
+        $this->assertEmpty($widget->getText());
+        $this->assertEmpty($widget->getUrl());
+        $this->assertEmpty($widget->getVia());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::counterPosition(string $position)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::counterPosition(string $position)}
+     * method.
+     * @return void
      */
-    public function test_counterPosition_method()
+    public function testCounterPositionMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_counterPosition", $widget);
-        $this->assertSame($widget, $widget->counterPosition("counterPosition"));
-        $this->assertAttributeEquals("counterPosition", "_counterPosition", $widget);
+        $this->assertEmpty($widget->getCounterPosition());
+        $this->assertSame($widget, $widget->counterPosition('counterPosition'));
+        $this->assertEquals('counterPosition', $widget->getCounterPosition());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::countUrl(string $url)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::countUrl(string $url)}
+     * method.
+     * @return void
      */
-    public function test_countUrl_method()
+    public function testCountUrlMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_countUrl", $widget);
-        $this->assertSame($widget, $widget->countUrl("countUrl"));
-        $this->assertAttributeEquals("countUrl", "_countUrl", $widget);
+        $this->assertEmpty($widget->getCountUrl());
+        $this->assertSame($widget, $widget->countUrl('countUrl'));
+        $this->assertEquals('countUrl', $widget->getCountUrl());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::hashTags(array $tags)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::hashTags(array $tags)}
+     * method.
+     * @return void
      */
-    public function test_hashTags_method()
+    public function testHashTagsMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_tags", $widget);
-        $this->assertSame($widget, $widget->hashTags(array("tag")));
-        $this->assertAttributeEquals(array("tag"), "_tags", $widget);
+        $this->assertEmpty($widget->getHashTags());
+        $this->assertSame($widget, $widget->hashTags(array('tag')));
+        $this->assertEquals(array('tag'), $widget->getHashTags());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::language(string $language)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::language(string $language)}
+     * method.
+     * @return void
      */
-    public function test_language_method()
+    public function testLanguageMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_language", $widget);
-        $this->assertSame($widget, $widget->language("language"));
-        $this->assertAttributeEquals("language", "_language", $widget);
+        $this->assertEmpty($widget->getLanguage());
+        $this->assertSame($widget, $widget->language('language'));
+        $this->assertEquals('language', $widget->getLanguage());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::relatedAccounts(array $accounts)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::relatedAccounts(array $accounts)}
+     * method.
+     * @return void
      */
-    public function test_relatedAccounts_method()
+    public function testRelatedAccountsMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_relatedAccounts", $widget);
-        $this->assertSame($widget, $widget->relatedAccounts(array("account")));
-        $this->assertAttributeEquals(array("account"), "_relatedAccounts", $widget);
+        $this->assertAttributeEmpty('_relatedAccounts', $widget);
+        $this->assertSame($widget, $widget->relatedAccounts(array('account')));
+        $this->assertAttributeEquals(array('account'), '_relatedAccounts', $widget);
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::size(string $size)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::size(string $size)}
+     * method.
+     * @return void
      */
-    public function test_size_method()
+    public function testSizeMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_size", $widget);
-        $this->assertSame($widget, $widget->size("size"));
-        $this->assertAttributeEquals("size", "_size", $widget);
+        $this->assertEmpty($widget->getSize());
+        $this->assertSame($widget, $widget->size('size'));
+        $this->assertEquals('size', $widget->getSize());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::suggestions(boolean $optOut)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::suggestions(boolean $optOut)}
+     * method.
+     * @return void
      */
-    public function test_suggestions_method()
+    public function testSuggestionsMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_suggestions", $widget);
-        $this->assertSame($widget, $widget->suggestions());
-        $this->assertAttributeEquals(true, "_suggestions", $widget);
+        $this->assertEmpty($widget->getSuggestions());
+        $this->assertSame($widget, $widget->suggestions(true));
+        $this->assertTrue($widget->getSuggestions());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::text(string $text)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::text(string $text)}
+     * method.
+     * @return void
      */
-    public function test_text_method()
+    public function testTextMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_text", $widget);
-        $this->assertSame($widget, $widget->text("text"));
-        $this->assertAttributeEquals("text", "_text", $widget);
+        $this->assertEmpty($widget->getText());
+        $this->assertSame($widget, $widget->text('text'));
+        $this->assertEquals('text', $widget->getText());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::url(string $url)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::url(string $url)}
+     * method.
+     * @return void
      */
-    public function test_url_method()
+    public function testUrlMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_url", $widget);
-        $this->assertSame($widget, $widget->url("url"));
-        $this->assertAttributeEquals("url", "_url", $widget);
+        $this->assertEmpty($widget->getUrl());
+        $this->assertSame($widget, $widget->url('url'));
+        $this->assertEquals('url', $widget->getUrl());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::via(string $via)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::via(string $via)}
+     * method.
+     * @return void
      */
-    public function test_via_method()
+    public function testViaMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertAttributeEmpty("_via", $widget);
-        $this->assertSame($widget, $widget->via("via"));
-        $this->assertAttributeEquals("via", "_via", $widget);
+        $this->assertEmpty($widget->getVia());
+        $this->assertSame($widget, $widget->via('via'));
+        $this->assertEquals('via', $widget->getVia());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\TwitterTweetButtonWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\TwitterTweetButtonWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertEquals("<a class=\"twitter-share-button\" data-lang=\"{$widget->userLanguage()}\" href=\"https://twitter.com/share\"></a>",
-                            (string) $widget);
+        $this->assertEquals(
+            "<a class=\"twitter-share-button\" data-lang=\"{$widget->userLanguage()}\""
+            . ' href="https://twitter.com/share"></a>',
+            (string) $widget
+        );
 
         $widget = new Catharsis\Web\TwitterTweetButtonWidget();
-        $this->assertEquals('<a class="twitter-hashtag-button" data-count="counter_position" data-counturl="count_url" data-dnt="true" data-hashtags="tags" data-lang="en" data-related="related" data-size="size" data-text="text" data-url="url" data-via="via" href="https://twitter.com/share"></a>',
-                            (string) $widget->language("en")->url("url")->via("via")->text("text")->relatedAccounts("related")->counterPosition("counter_position")->countUrl("count_url")->hashTags("tags")->size("size")->suggestions(false));
+        $this->assertEquals(
+            '<a class="twitter-hashtag-button" data-count="counter_position" data-counturl="count_url"'
+            .' data-dnt="true" data-hashtags="tags" data-lang="en" data-related="related" data-size="size"'
+            .' data-text="text" data-url="url" data-via="via" href="https://twitter.com/share"></a>',
+            (string) $widget
+                ->language('en')
+                ->url('url')
+                ->via('via')
+                ->text('text')
+                ->relatedAccounts('related')
+                ->counterPosition('counter_position')
+                ->countUrl('count_url')
+                ->hashTags('tags')
+                ->size('size')
+                ->suggestions(false)
+        );
     }
 }
 

@@ -1,131 +1,193 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\VkontakteLikeButtonWidget}
+ * Tests set for class {@link \Catharsis\Web\VkontakteLikeButtonWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class VkontakteLikeButtonWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\VkontakteLikeButtonWidget::__construct()
+     * @link \Catharsis\Web\VkontakteLikeButtonWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_description", $widget);
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertAttributeEmpty("_image", $widget);
-        $this->assertAttributeEmpty("_layout", $widget);
-        $this->assertAttributeEmpty("_text", $widget);
-        $this->assertAttributeEmpty("_title", $widget);
-        $this->assertAttributeEmpty("_url", $widget);
-        $this->assertAttributeEmpty("_verb", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertEmpty($widget->getDescription());
+        $this->assertEmpty($widget->getElementId());
+        $this->assertEmpty($widget->getHeight());
+        $this->assertEmpty($widget->getImage());
+        $this->assertEmpty($widget->getLayout());
+        $this->assertEmpty($widget->getText());
+        $this->assertEmpty($widget->getTitle());
+        $this->assertEmpty($widget->getUrl());
+        $this->assertEmpty($widget->getVerb());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::description(string $description)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::description(string $description)}
+     * method.
+     * @return void
      */
-    public function test_description_method()
+    public function testDescriptionMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_description", $widget);
-        $this->assertSame($widget, $widget->description("description"));
-        $this->assertAttributeEquals("description", "_description", $widget);
+        $this->assertEmpty($widget->getDescription());
+        $this->assertSame($widget, $widget->description('description'));
+        $this->assertEquals('description', $widget->getDescription());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::height(string $height)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::elementId(string $id)}
+     * method.
+     * @return void
      */
-    public function test_height_method()
+    public function testElementIdMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertSame($widget, $widget->height("height"));
-        $this->assertAttributeEquals("height", "_height", $widget);
+        $this->assertEmpty($widget->getElementId());
+        $this->assertSame($widget, $widget->elementId('elementId'));
+        $this->assertEquals('elementId', $widget->getElementId());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::image(string $url)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::height(string $height)}
+     * method.
+     * @return void
      */
-    public function test_image_method()
+    public function testHeightMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_image", $widget);
-        $this->assertSame($widget, $widget->image("url"));
-        $this->assertAttributeEquals("url", "_image", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertSame($widget, $widget->height('height'));
+        $this->assertEquals('height', $widget->getHeight());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::layout(string $layout)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::image(string $url)}
+     * method.
+     * @return void
      */
-    public function test_layout_method()
+    public function testImageMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_layout", $widget);
-        $this->assertSame($widget, $widget->layout("layout"));
-        $this->assertAttributeEquals("layout", "_layout", $widget);
+        $this->assertEmpty($widget->getImage());
+        $this->assertSame($widget, $widget->image('url'));
+        $this->assertEquals('url', $widget->getImage());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::text(string $text)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::layout(string $layout)}
+     * method.
+     * @return void
      */
-    public function test_text_method()
+    public function testLayoutMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_text", $widget);
-        $this->assertSame($widget, $widget->text("text"));
-        $this->assertAttributeEquals("text", "_text", $widget);
+        $this->assertEmpty($widget->getLayout());
+        $this->assertSame($widget, $widget->layout('layout'));
+        $this->assertEquals('layout', $widget->getLayout());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::title(string $title)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::text(string $text)}
+     * method.
+     * @return void
      */
-    public function test_title_method()
+    public function testTextMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_title", $widget);
-        $this->assertSame($widget, $widget->title("title"));
-        $this->assertAttributeEquals("title", "_title", $widget);
+        $this->assertEmpty($widget->getText());
+        $this->assertSame($widget, $widget->text('text'));
+        $this->assertEquals('text', $widget->getText());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::url(string $url)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::title(string $title)}
+     * method.
+     * @return void
      */
-    public function test_url_method()
+    public function testTitleMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_url", $widget);
-        $this->assertSame($widget, $widget->url("url"));
-        $this->assertAttributeEquals("url", "_url", $widget);
+        $this->assertEmpty($widget->getTitle());
+        $this->assertSame($widget, $widget->title('title'));
+        $this->assertEquals('title', $widget->getTitle());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::verb(integer $verb)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::url(string $url)}
+     * method.
+     * @return void
      */
-    public function test_verb_method()
+    public function testUrlMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_verb", $widget);
+        $this->assertEmpty($widget->getUrl());
+        $this->assertSame($widget, $widget->url('url'));
+        $this->assertEquals('url', $widget->getUrl());
+    }
+
+    /**
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::verb(integer $verb)}
+     * method.
+     * @return void
+     */
+    public function testVerbMethod()
+    {
+        $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
+        $this->assertEmpty($widget->getVerb());
         $this->assertSame($widget, $widget->verb(0));
-        $this->assertAttributeEquals(0, "_verb", $widget);
+        $this->assertEquals(0, $widget->getVerb());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\VkontakteLikeButtonWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\VkontakteLikeButtonWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
         $html = (string) $widget;
@@ -134,10 +196,23 @@ final class VkontakteLikeButtonWidgetTest extends PHPUnit_Framework_TestCase
         $this->assertContains('VK.Widgets.Like("vk_like", {});', $html);
 
         $widget = new Catharsis\Web\VkontakteLikeButtonWidget();
-        $html = (string) $widget->layout(Catharsis\Web\VkontakteLikeButtonLayout::Button)->width("width")->title("title")->description("description")->url("url")->image("image")->text("text")->height("height")->verb(1);
-        $this->assertContains('<div id="vk_like"></div>', $html);
+        $html = (string) $widget
+            ->layout(Catharsis\Web\VkontakteLikeButtonLayout::BUTTON)
+            ->width('width')
+            ->title('title')
+            ->description('description')
+            ->url('url')
+            ->image('image')
+            ->text('text')
+            ->height('height')
+            ->verb(Catharsis\Web\VkontakteLikeButtonVerb::INTEREST)
+            ->elementId('elementId');
+        $this->assertContains('<div id="elementId"></div>', $html);
         $this->assertContains('<script type="text/javascript">', $html);
-        $this->assertContains('VK.Widgets.Like("vk_like", {"type":"button","width":"width","pageTitle":"title","pageDescription":"description","pageUrl":"url","pageImage":"image","text":"text","height":"height","verb":1});', $html);
+        $this->assertContains(
+            'VK.Widgets.Like("elementId", {"type":"button","width":"width","pageTitle":"title","pageDescription":"description","pageUrl":"url","pageImage":"image","text":"text","height":"height","verb":1});',
+            $html
+        );
     }
 }
 

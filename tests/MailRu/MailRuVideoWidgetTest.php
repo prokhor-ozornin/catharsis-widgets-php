@@ -1,75 +1,107 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\MailRuVideoWidget}
+ * Tests set for class {@link \Catharsis\Web\MailRuVideoWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class MailRuVideoWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\MailRuVideoWidget::__construct()
+     * @link \Catharsis\Web\MailRuVideoWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\MailRuVideoWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertAttributeEmpty("_id", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertEmpty($widget->getId());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\MailRuVideoWidget::height(string $height)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\MailRuVideoWidget::height(string $height)}
+     * method.
+     * @return void
      */
-    public function test_height_method()
+    public function testHeightMethod()
     {
         $widget = new Catharsis\Web\MailRuVideoWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertSame($widget, $widget->height("height"));
-        $this->assertAttributeEquals("height", "_height", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertSame($widget, $widget->height('height'));
+        $this->assertEquals('height', $widget->getHeight());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\MailRuVideoWidget::id(string $id)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\MailRuVideoWidget::id(string $id)}
+     * method.
+     * @return void
      */
-    public function test_id_method()
+    public function testIdMethod()
     {
         $widget = new Catharsis\Web\MailRuVideoWidget();
-        $this->assertAttributeEmpty("_id", $widget);
-        $this->assertSame($widget, $widget->id("id"));
-        $this->assertAttributeEquals("id", "_id", $widget);
+        $this->assertEmpty($widget->getId());
+        $this->assertSame($widget, $widget->id('id'));
+        $this->assertEquals('id', $widget->getId());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\MailRuVideoWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\MailRuVideoWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\MailRuVideoWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\MailRuVideoWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\MailRuVideoWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\MailRuVideoWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\MailRuVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->height("height"));
+        $this->assertEmpty((string) $widget->id('id')->height('height'));
 
         $widget = new Catharsis\Web\MailRuVideoWidget();
-        $this->assertEmpty((string) $widget->id("id")->width("width"));
+        $this->assertEmpty((string) $widget->id('id')->width('width'));
 
         $widget = new Catharsis\Web\MailRuVideoWidget();
-        $this->assertEmpty((string) $widget->height("height")->width("width"));
+        $this->assertEmpty((string) $widget->height('height')->width('width'));
 
         $widget = new Catharsis\Web\MailRuVideoWidget();
-        $this->assertEquals('<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true" src="http://api.video.mail.ru/videos/embed/mail/id" webkitallowfullscreen="true" width="width"></iframe>',
-                            (string) $widget->id("id")->height("height")->width("width"));
+        $this->assertEquals(
+            '<iframe allowfullscreen="true" frameborder="0" height="height" mozallowfullscreen="true"'
+            .' src="http://api.video.mail.ru/videos/embed/mail/id" webkitallowfullscreen="true" width="width"></iframe>',
+            (string) $widget->id('id')->height('height')->width('width')
+        );
     }
 }
 

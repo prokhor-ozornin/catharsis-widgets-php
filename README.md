@@ -68,7 +68,7 @@ The simplest PHP file that makes use of the library may look like the following 
 
     `<?php`
 
-      `echo Catharsis\Web\Widgets::cackle()->comments()->account("20049"); // Render HTML code for Cackle Comments widget.`
+      `Catharsis\Web\Widgets::cackle()->comments()->account("20049")->render(); // Render HTML code for Cackle Comments widget.`
 
       `echo Catharsis\Web\WebWidgetsScripts::cackle(); // Include required local Cackle javascript file from /scripts directory. Note : not all widgets require JavaScript files.`
 
@@ -90,7 +90,7 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::cackle()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::cackle()->comments()->account("20049")`
+`Catharsis\Web\Widgets::cackle()->comments()->account("20049")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dece_4254dc0d_orig)
 
@@ -102,7 +102,7 @@ _Note:_ Hyperlinks must have a specific CSS class for this to work, as described
 
 _Code:_
 
-`Catharsis\Web\Widgets::cackle()->commentsCount()->account("20049")`
+`Catharsis\Web\Widgets::cackle()->commentsCount()->account("20049")->render()`
 
 **3. Latest comments**
 
@@ -110,9 +110,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::cackle()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::cackle()->latestComments()->account("20049")`
+`Catharsis\Web\Widgets::cackle()->latestComments()->account("20049")->render()`
 
-`Catharsis\Web\Widgets::cackle()->latestComments()->account("20049")->max(15)->avatarSize(32)->titleSize(50)->textSize(255)`
+`Catharsis\Web\Widgets::cackle()->latestComments()->account("20049")->max(15)->avatarSize(32)->titleSize(50)->textSize(255)->render()`
 
 **4. OAuth login**
 
@@ -120,7 +120,7 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::cackle()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::cackle()->login()->account("20049")`
+`Catharsis\Web\Widgets::cackle()->login()->account("20049")->render()`
 
 **Disqus**
 
@@ -130,7 +130,7 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::disqus()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::disqus()->comments()->account("v-svete-snov")`
+`Catharsis\Web\Widgets::disqus()->comments()->account("v-svete-snov")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8decd_52c79adf_orig)
 
@@ -142,7 +142,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->initialize()->appId("1437917246425293")`
+`Catharsis\Web\Widgets::facebook()->initialize()->appId("1437917246425293")->render()`
 
 **2. Activity Feed**
 
@@ -150,11 +150,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->activityFeed()`
+`Catharsis\Web\Widgets::facebook()->activityFeed()->render()`
 
-`Catharsis\Web\Widgets::facebook()->activityFeed()->domain("yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->activityFeed()->domain("yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::facebook()->activityFeed()->domain("yandex.ru")->header(false)->recommendations()->colorScheme(Catharsis\Web\FacebookColorScheme::Dark)`
+`Catharsis\Web\Widgets::facebook()->activityFeed()->domain("yandex.ru")->header(false)->recommendations(true)->colorScheme(Catharsis\Web\FacebookColorScheme::DARK)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8decf_7b4f254a_orig)
 
@@ -164,11 +164,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->recommendationsFeed()`
+`Catharsis\Web\Widgets::facebook()->recommendationsFeed()->render()`
 
-`Catharsis\Web\Widgets::facebook()->recommendationsFeed()->domain("yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->recommendationsFeed()->domain("yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::facebook()->recommendationsFeed()->domain("yandex.ru")->header(false)->colorScheme(Catharsis\Web\FacebookColorScheme::Dark)`
+`Catharsis\Web\Widgets::facebook()->recommendationsFeed()->domain("yandex.ru")->header(false)->colorScheme(Catharsis\Web\FacebookColorScheme::DARK)->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded5_c2a1df46_orig)
 
@@ -178,11 +178,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->comments()`
+`Catharsis\Web\Widgets::facebook()->comments()->render()`
 
-`Catharsis\Web\Widgets::facebook()->comments()->url("http://yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->comments()->url("http://yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::facebook()->comments()->url("http://yandex.ru")->order(Catharsis\Web\FacebookCommentsOrder::ReverseTime)->posts(1)->width("500")`
+`Catharsis\Web\Widgets::facebook()->comments()->url("http://yandex.ru")->order(Catharsis\Web\FacebookCommentsOrder::REVERSE_TIME)->posts(1)->width("500")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8ded0_864544eb_orig)
 
@@ -192,11 +192,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->facepile()`
+`Catharsis\Web\Widgets::facebook()->facepile()->render()`
 
-`Catharsis\Web\Widgets::facebook()->facepile()->url("http://yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->facepile()->url("http://yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::facebook()->facepile()->url("http://yandex.ru")->maxRows(5)->photoSize(Catharsis\Web\FacebookFacepileSize::Large)->height("300")`
+`Catharsis\Web\Widgets::facebook()->facepile()->url("http://yandex.ru")->maxRows(5)->photoSize(Catharsis\Web\FacebookFacepileSize::LARGE)->height("300")->render()`
 
 **6. Follow Button**
 
@@ -204,9 +204,9 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->followButton()->url("http://www.facebook.com/zuck")`
+`Catharsis\Web\Widgets::facebook()->followButton()->url("http://www.facebook.com/zuck")->render()`
 
-`Catharsis\Web\Widgets::facebook()->followButton()->url("http://www.facebook.com/zuck")->kidsMode()->faces()->layout(Catharsis\Web\FacebookButtonLayout::BoxCount)`
+`Catharsis\Web\Widgets::facebook()->followButton()->url("http://www.facebook.com/zuck")->kidsMode(true)->faces(true)->layout(Catharsis\Web\FacebookButtonLayout::BOX_COUNT)->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded1_e4885846_orig)
 
@@ -216,9 +216,9 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->likeBox()->url("https://www.facebook.com/pages/Clear-Words/515749945120070")`
+`Catharsis\Web\Widgets::facebook()->likeBox()->url("https://www.facebook.com/pages/Clear-Words/515749945120070")->render()`
 
-`Catharsis\Web\Widgets::facebook()->likeBox()->url("https://www.facebook.com/pages/Clear-Words/515749945120070")->header(false)->border(false)->faces(false)->stream()->width("500")`
+`Catharsis\Web\Widgets::facebook()->likeBox()->url("https://www.facebook.com/pages/Clear-Words/515749945120070")->header(false)->border(false)->faces(false)->stream(true)->width("500")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded2_e76aa4ec_orig)
 
@@ -228,11 +228,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")->layout(Catharsis\Web\FacebookLikeButtonLayout::BoxCount)->faces()->verb(Catharsis\Web\FacebookLikeButtonVerb::Recommend)`
+`Catharsis\Web\Widgets::facebook()->likeButton()->url("http://yandex.ru")->layout(Catharsis\Web\FacebookLikeButtonLayout::BOX_COUNT)->faces(true)->verb(Catharsis\Web\FacebookLikeButtonVerb::RECOMMEND)->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded3_38a5cbe9_orig)
 
@@ -242,7 +242,7 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->post()->url("https://www.facebook.com/prokhor.ozornin/posts/10203109769053557")->width(640)`
+`Catharsis\Web\Widgets::facebook()->post()->url("https://www.facebook.com/prokhor.ozornin/posts/10203109769053557")->width(640)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded4_d52c9373_orig)
 
@@ -252,11 +252,11 @@ _Requirements:_ Call to `Catharsis\Web\Widgets::facebook()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->sendButton()`
+`Catharsis\Web\Widgets::facebook()->sendButton()->render()`
 
-`Catharsis\Web\Widgets::facebook()->sendButton()->url("http://yandex.ru")`
+`Catharsis\Web\Widgets::facebook()->sendButton()->url("http://yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::facebook()->sendButton()->url("http://yandex.ru")->colorScheme(Catharsis\Web\FacebookColorScheme::Dark)->kidsMode()`
+`Catharsis\Web\Widgets::facebook()->sendButton()->url("http://yandex.ru")->colorScheme(Catharsis\Web\FacebookColorScheme::DARK)->kidsMode()->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8ded6_4da589ba_orig)
 
@@ -266,7 +266,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::facebook()->video()->height("480")->width("640")->id("10203121281421359")`
+`Catharsis\Web\Widgets::facebook()->video()->height("480")->width("640")->id("10203121281421359")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9491/80185211.1e/0_8df01_d86a4cce_orig)
 
@@ -278,7 +278,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::google()->analytics()->domain("v-svete-snov.ru")->account("UA-27123759-16")`
+`Catharsis\Web\Widgets::google()->analytics()->domain("v-svete-snov.ru")->account("UA-27123759-16")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8ded7_a5f7153d_orig)
 
@@ -288,9 +288,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::google()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::google()->plusOneButton()`
+`Catharsis\Web\Widgets::google()->plusOneButton()->render()`
 
-`Catharsis\Web\Widgets::google()->plusOneButton()->url("http://yandex.ru")->alignment(Catharsis\Web\GooglePlusOneButtonAlignment::Right)->size(Catharsis\Web\GooglePlusOneButtonSize::Tall)->annotation(Catharsis\Web\GooglePlusOneButtonAnnotation::Inline)->recommendations(false)`
+`Catharsis\Web\Widgets::google()->plusOneButton()->url("http://yandex.ru")->alignment(Catharsis\Web\GooglePlusOneButtonAlignment::RIGHT)->size(Catharsis\Web\GooglePlusOneButtonSize::TALL)->annotation(Catharsis\Web\GooglePlusOneButtonAnnotation::INLINE)->recommendations(false)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded8_426fde9_orig)
 
@@ -302,9 +302,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::gravatar()->imageUrl()->email("prokhor.ozornin@yandex.ru")`
+`Catharsis\Web\Widgets::gravatar()->imageUrl()->email("prokhor.ozornin@yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::gravatar()->imageUrl()->email("prokhor.ozornin@yandex.ru")->extension("jpg")->forceDefault()->size(320)`
+`Catharsis\Web\Widgets::gravatar()->imageUrl()->email("prokhor.ozornin@yandex.ru")->extension("jpg")->forceDefault(true)->size(320)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8ded9_af2ee96e_orig)
 
@@ -314,9 +314,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::gravatar()->profileUrl()->email("prokhor.ozornin@yandex.ru")`
+`Catharsis\Web\Widgets::gravatar()->profileUrl()->email("prokhor.ozornin@yandex.ru")->render()`
 
-`Catharsis\Web\Widgets::gravatar()->profileUrl()->email("prokhor.ozornin@yandex.ru")->xml()`
+`Catharsis\Web\Widgets::gravatar()->profileUrl()->email("prokhor.ozornin@yandex.ru")->xml()->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8deda_4837ca1b_orig)
 
@@ -328,7 +328,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::intensedebate()->comments()->account("a639ec3507d53023d4f213666651b6c2")`
+`Catharsis\Web\Widgets::intensedebate()->comments()->account("a639ec3507d53023d4f213666651b6c2")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dedb_af15dfff_orig)
 
@@ -338,7 +338,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::intensedebate()->link()->account("a639ec3507d53023d4f213666651b6c2")`
+`Catharsis\Web\Widgets::intensedebate()->link()->account("a639ec3507d53023d4f213666651b6c2")->render()`
 
 **LiveJournal**
 
@@ -348,7 +348,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::livejournal()->likeButton()`
+`Catharsis\Web\Widgets::livejournal()->likeButton()->render()`
 
 **2. Repost Button**
 
@@ -356,9 +356,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::livejournal()->repostButton()`
+`Catharsis\Web\Widgets::livejournal()->repostButton()->render()`
 
-`Catharsis\Web\Widgets::livejournal()->repostButton()->title("title")->text("text")`
+`Catharsis\Web\Widgets::livejournal()->repostButton()->title("title")->text("text")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dedc_e64cb946_orig)
 
@@ -370,9 +370,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::mailru()->icq()`
+`Catharsis\Web\Widgets::mailru()->icq()->render()`
 
-`Catharsis\Web\Widgets::mailru()->icq()->account("12345678")->language("en")`
+`Catharsis\Web\Widgets::mailru()->icq()->account("12345678")->language("en")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dedf_48c0f729_orig)
 
@@ -382,7 +382,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::mailru()->video()->id("i.v.sosnin62/3023/3027.html")->height("480")->width("640")`
+`Catharsis\Web\Widgets::mailru()->video()->id("i.v.sosnin62/3023/3027.html")->height("480")->width("640")->render()`
 
 **3. Like Button**
 
@@ -390,9 +390,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::mailru()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::mailru()->likeButton()`
+`Catharsis\Web\Widgets::mailru()->likeButton()->render()`
 
-`Catharsis\Web\Widgets::mailru()->likeButton()->layout(Catharsis\Web\MailRuLikeButtonLayout::Second)->text(false)->counterPosition(Catharsis\Web\MailRuLikeButtonCounterPosition::Upper)->size(30)`
+`Catharsis\Web\Widgets::mailru()->likeButton()->layout(Catharsis\Web\MailRuLikeButtonLayout::SECOND)->text(false)->counterPosition(Catharsis\Web\MailRuLikeButtonCounterPosition::UPPER)->size(30)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee0_ab70e64f_orig)
 
@@ -402,9 +402,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::mailru()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::mailru()->faces()->domain("mail.ru")->width(640)->height(480)`
+`Catharsis\Web\Widgets::mailru()->faces()->domain("mail.ru")->width(640)->height(480)->render()`
 
-`Catharsis\Web\Widgets::mailru()->faces()->domain("mail.ru")->width(640)->height(480)->font(Catharsis\Web\MailRuFacesFont::Tahoma)->title(false)->backgroundColor("aaffaa")->hyperlinkColor("ffaaff")->borderColor("aaaaaa")`
+`Catharsis\Web\Widgets::mailru()->faces()->domain("mail.ru")->width(640)->height(480)->font(Catharsis\Web\MailRuFacesFont::TAHOMA)->title(false)->backgroundColor("aaffaa")->hyperlinkColor("ffaaff")->borderColor("aaaaaa")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dedd_1e4bea58_orig)
 
@@ -414,9 +414,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::mailru()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::mailru()->groups()->account("mail_ru")->width(640)->height(480)`
+`Catharsis\Web\Widgets::mailru()->groups()->account("mail_ru")->width(640)->height(480)->render()`
 
-`Catharsis\Web\Widgets::mailru()->groups()->account("mail_ru")->width(640)->height(480)->backgroundColor("aaffaa")->buttonColor("ffaaff")->subscribers(false)->textColor("aaaadd")`
+`Catharsis\Web\Widgets::mailru()->groups()->account("mail_ru")->width(640)->height(480)->backgroundColor("aaffaa")->buttonColor("ffaaff")->subscribers(false)->textColor("aaaadd")->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dede_dcf4ba5a_orig)
 
@@ -428,9 +428,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::pinterest()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::pinterest()->followButton()->account("pinterest")`
+`Catharsis\Web\Widgets::pinterest()->followButton()->account("pinterest")->render()`
 
-`Catharsis\Web\Widgets::pinterest()->followButton()->account("pinterest")->label("Pinterest")`
+`Catharsis\Web\Widgets::pinterest()->followButton()->account("pinterest")->label("Pinterest")->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee2_b4b37dac_orig)
 
@@ -440,7 +440,7 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::pinterest()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::pinterest()->pin()->id("99360735500167749")`
+`Catharsis\Web\Widgets::pinterest()->pin()->id("99360735500167749")->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee3_be322660_orig)
 
@@ -450,9 +450,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::pinterest()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::pinterest()->board()->account("pinterest")->id("pin-pets")`
+`Catharsis\Web\Widgets::pinterest()->board()->account("pinterest")->id("pin-pets")->render()`
 
-`Catharsis\Web\Widgets::pinterest()->board()->account("pinterest")->id("pin-pets")->sidebar()`
+`Catharsis\Web\Widgets::pinterest()->board()->account("pinterest")->id("pin-pets")->sidebar()->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee1_71b1ce7d_orig)
 
@@ -462,9 +462,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::pinterest()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::pinterest()->profile()->account("pinterest")`
+`Catharsis\Web\Widgets::pinterest()->profile()->account("pinterest")->render()`
 
-`Catharsis\Web\Widgets::pinterest()->profile()->account("pinterest")->sidebar()`
+`Catharsis\Web\Widgets::pinterest()->profile()->account("pinterest")->sidebar()->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee5_6a6520e5_orig)
 
@@ -474,9 +474,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::pinterest()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::pinterest()->pinItButton()->url("http://www.flickr.com/photos/kentbrew/6851755809")->image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg")->description("Next stop: Pinterest")`
+`Catharsis\Web\Widgets::pinterest()->pinItButton()->url("http://www.flickr.com/photos/kentbrew/6851755809")->image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg")->description("Next stop: Pinterest")->render()`
 
-`Catharsis\Web\Widgets::pinterest()->pinItButton()->url("http://www.flickr.com/photos/kentbrew/6851755809")->image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg")->description("Next stop: Pinterest")->counter(Catharsis\Web\PinterestPinItButtonPinCountPosition::None)->size(Catharsis\Web\PinterestPinItButtonSize::Large)->red()->shape(Catharsis\Web\PinterestPinItButtonShape::Rectangular)->language("ja")`
+`Catharsis\Web\Widgets::pinterest()->pinItButton()->url("http://www.flickr.com/photos/kentbrew/6851755809")->image("http://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg")->description("Next stop: Pinterest")->counter(Catharsis\Web\PinterestPinItButtonPinCountPosition::NONE)->size(Catharsis\Web\PinterestPinItButtonSize::LARGE)->red()->shape(Catharsis\Web\PinterestPinItButtonShape::RECTANGULAR)->language("ja")->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee4_3a2af139_orig)
 
@@ -488,7 +488,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::rutube()->video()->id("6785018")->height("480")->width("640")`
+`Catharsis\Web\Widgets::rutube()->video()->id("6785018")->height("480")->width("640")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8dee6_43358fbd_orig)
 
@@ -500,9 +500,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::soundcloud()->profileIcon()->account("prokhor-ozornin")`
+`Catharsis\Web\Widgets::soundcloud()->profileIcon()->account("prokhor-ozornin")->render()`
 
-`Catharsis\Web\Widgets::soundcloud()->profileIcon()->account("prokhor-ozornin")->blackWhite()->size(Catharsis\Web\SoundCloudProfileIconSize::Size64)`
+`Catharsis\Web\Widgets::soundcloud()->profileIcon()->account("prokhor-ozornin")->blackWhite()->size(Catharsis\Web\SoundCloudProfileIconSize::SIZE_64)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8deed_d181e855_orig)
 
@@ -514,9 +514,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::surfingbird()` JavaScript bund
 
 _Code:_
 
-`Catharsis\Web\Widgets::surfingbird()->surfButton()`
+`Catharsis\Web\Widgets::surfingbird()->surfButton()->render()`
 
-`Catharsis\Web\Widgets::surfingbird()->surfButton()->color(Catharsis\Web\SurfingbirdSurfButtonColor::Blue)->counter()->label("Share")->url("http://yandex.ru")->layout(Catharsis\Web\SurfingbirdSurfButtonLayout::Common)`
+`Catharsis\Web\Widgets::surfingbird()->surfButton()->color(Catharsis\Web\SurfingbirdSurfButtonColor::BLUE)->counter(true)->label("Share")->url("http://yandex.ru")->layout(Catharsis\Web\SurfingbirdSurfButtonLayout::COMMON)->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8dee7_74e3c86c_orig)
 
@@ -528,9 +528,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::tumblr()->followButton()->account("clear-words-en")`
+`Catharsis\Web\Widgets::tumblr()->followButton()->account("clear-words-en")->render()`
 
-`Catharsis\Web\Widgets::tumblr()->followButton()->account("clear-words-en")->colorScheme(Catharsis\Web\TumblrFollowButtonColorScheme::Dark)->type(Catharsis\Web\TumblrFollowButtonType::Second)`
+`Catharsis\Web\Widgets::tumblr()->followButton()->account("clear-words-en")->colorScheme(Catharsis\Web\TumblrFollowButtonColorScheme::DARK)->type(Catharsis\Web\TumblrFollowButtonType::SECOND)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8deea_60c1333d_orig)
 
@@ -540,9 +540,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::tumblr()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::tumblr()->shareButton()`
+`Catharsis\Web\Widgets::tumblr()->shareButton()->render()`
 
-`Catharsis\Web\Widgets::tumblr()->shareButton()->colorScheme(Catharsis\Web\TumblrShareButtonColorScheme::Gray)->type(Catharsis\Web\TumblrShareButtonType::Third)`
+`Catharsis\Web\Widgets::tumblr()->shareButton()->colorScheme(Catharsis\Web\TumblrShareButtonColorScheme::GRAY)->type(Catharsis\Web\TumblrShareButtonType::THIRD)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee8_5fd0a553_orig)
 
@@ -554,9 +554,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::twitter()` JavaScript bundle (
 
 _Code:_
 
-`Catharsis\Web\Widgets::twitter()->tweetButton()`
+`Catharsis\Web\Widgets::twitter()->tweetButton()->render()`
 
-`Catharsis\Web\Widgets::twitter()->tweetButton()->hashTags(array("first", "second", "third"))->url("http://yandex.ru")->text("Let's share it !")->via("Prokhor")->suggestions(false)`
+`Catharsis\Web\Widgets::twitter()->tweetButton()->hashTags(array("first", "second", "third"))->url("http://yandex.ru")->text("Let's share it !")->via("Prokhor")->suggestions(false)->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8deeb_cd475dfc_orig)
 
@@ -566,9 +566,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::twitter()` JavaScript bundle (
 
 _Code:_
 
-`Catharsis\Web\Widgets::twitter()->followButton()->account("prokhor_ozornin")`
+`Catharsis\Web\Widgets::twitter()->followButton()->account("prokhor_ozornin")->render()`
 
-`Catharsis\Web\Widgets::twitter()->followButton()->account("prokhor_ozornin")->suggestions()->counter(false)->screenName(false)`
+`Catharsis\Web\Widgets::twitter()->followButton()->account("prokhor_ozornin")->suggestions(true)->counter(false)->screenName(false)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1d/0_8dee9_39fe8a8c_orig)
 
@@ -580,7 +580,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::vimeo()->video()->id("55456906")->width("640")->height("480")`
+`Catharsis\Web\Widgets::vimeo()->video()->id("55456906")->width("640")->height("480")->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1d/0_8deec_a89cc026_orig)
 
@@ -592,7 +592,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->video()->id("167533148")->hash("7a0cdf6ef7a69e67")->user("5707198")->width("607")->height("360")->hd()`
+`Catharsis\Web\Widgets::vkontakte()->video()->id("167533148")->hash("7a0cdf6ef7a69e67")->user("5707198")->width("607")->height("360")->hd(true)->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8def8_8c281838_orig)
 
@@ -602,51 +602,99 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::vkontakte()` JavaScript bundle
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->initialize()->apiId("3816272")`
+`Catharsis\Web\Widgets::vkontakte()->initialize()->apiId("3816272")->render()`
 
-**3. Comments**
+**3. OAuth Button**
 
 _Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->comments()`
+`Catharsis\Web\Widgets::vkontakte()->authButton()->standard('http://yandex.ru')->render()`
 
-`Catharsis\Web\Widgets::vkontakte()->comments()->attach(Catharsis\Web\VkontakteCommentsAttach::All)->limit(Catharsis\Web\VkontakteCommentsLimit::Limit15)`
+`Catharsis\Web\Widgets::vkontakte()->authButton()->dynamic('onAuth')->width(640)->render()`
+
+![](http://img-fotki.yandex.ru/get/5204/80185211.1e/0_8ee77_efa1aeb_orig)
+
+**4. Comments**
+
+_Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
+
+_Code:_
+
+`Catharsis\Web\Widgets::vkontakte()->comments()->render()`
+
+`Catharsis\Web\Widgets::vkontakte()->comments()->attach(Catharsis\Web\VkontakteCommentsAttach::ALL)->limit(Catharsis\Web\VkontakteCommentsLimit::LIMIT_15)->autoPublish(true)->autoUpdate(true)->mini(true)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9822/80185211.1d/0_8deef_1d93c587_orig)
 
-**4. Community**
+**5. Community**
 
 _Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->community()->account("44545550")`
+`Catharsis\Web\Widgets::vkontakte()->community()->account("44545550")->render()`
 
-`Catharsis\Web\Widgets::vkontakte()->community()->account("44545550")->mode(Catharsis\Web\VkontakteCommunityMode::News)->height(400)->width(600)`
+`Catharsis\Web\Widgets::vkontakte()->community()->account("44545550")->mode(Catharsis\Web\VkontakteCommunityMode::NEWS)->height(400)->width(600)->backgroundColor("AABBCC")->textColor("FF0000")->buttonColor("00FF00")->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8def1_155d6ab8_orig)
 
-**5. Like Button**
+**6. Like Button**
 
 _Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->likeButton()`
+`Catharsis\Web\Widgets::vkontakte()->likeButton()->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def2_6a491b94_orig)
 
-**6. Subscription**
+**7. Poll**
 
 _Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
 
 _Code:_
 
-`Catharsis\Web\Widgets::vkontakte()->subscription()->account("5707198")`
+`Catharsis\Web\Widgets::vkontakte()->poll()->id('6564504_c2a6ccb7df15aff473')->render()`
 
-`Catharsis\Web\Widgets::vkontakte()->subscription()->account("5707198")->onlyButton()`
+`Catharsis\Web\Widgets::vkontakte()->poll()->id('6564504_c2a6ccb7df15aff473')->width(640)->render()`
+
+![](http://img-fotki.yandex.ru/get/5204/80185211.1e/0_8ee78_e69406c8_orig)
+
+**8. Wall Post**
+
+_Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
+
+_Code:_
+
+`Catharsis\Web\Widgets::vkontakte()->post()->id(45616)->owner(1)->hash('Yss6aNhrrQhOL5FfXZeuga8yKA')->render()`
+
+`Catharsis\Web\Widgets::vkontakte()->post()->id(45616)->owner(1)->hash('Yss6aNhrrQhOL5FfXZeuga8yKA')->width(640)->render()`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def5_d36b01d0_orig)
+
+**9. Recommendations Feed**
+
+_Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
+
+_Code:_
+
+`Catharsis\Web\Widgets::vkontakte()->recommendations()->render()`
+
+`Catharsis\Web\Widgets::vkontakte()->recommendations()->limit(VkontakteRecommendationsLimit.Ten)->max(50)->period(VkontakteRecommendationsPeriod.Month)->sorting(VkontakteRecommendationsSorting.Likes)->verb(VkontakteRecommendationsVerb.Like)->target('_blank')->render()`
+
+![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def6_9a22aa7c_orig)
+
+**10. Subscription**
+
+_Requirements:_ Call to `Catharsis\Web\Widgets::vkontakte()->initialize()`
+
+_Code:_
+
+`Catharsis\Web\Widgets::vkontakte()->subscription()->account("5707198")->render()`
+
+`Catharsis\Web\Widgets::vkontakte()->subscription()->account("5707198")->onlyButton(true)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def7_62688243_orig)
 
@@ -658,7 +706,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->analytics()->account("12066574")`
+`Catharsis\Web\Widgets::yandex()->analytics()->account("12066574")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8defa_a0bc72d8_orig)
 
@@ -668,9 +716,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->likeButton()`
+`Catharsis\Web\Widgets::yandex()->likeButton()->render()`
 
-`Catharsis\Web\Widgets::yandex()->likeButton()->title("Yandex Main Page")->text("Share")->url("http://yandex.ru")->size(Catharsis\Web\YandexLikeButtonSize::Small)`
+`Catharsis\Web\Widgets::yandex()->likeButton()->title("Yandex Main Page")->text("Share")->url("http://yandex.ru")->size(Catharsis\Web\YandexLikeButtonSize::SMALL)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8def9_dcb28653_orig)
 
@@ -680,7 +728,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->video()->id("6ea0ugstkx.2528")->user("leonevskiy")->width("450")->height("253")`
+`Catharsis\Web\Widgets::yandex()->video()->id("6ea0ugstkx.2528")->user("leonevskiy")->width("450")->height("253")->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8deff_387a5ec2_orig)
 
@@ -690,9 +738,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->moneyButton()->account("41001577953208")->sum(15.5)->description("Test Payment")`
+`Catharsis\Web\Widgets::yandex()->moneyButton()->account("41001577953208")->sum(15.5)->description("Test Payment")->render()`
 
-`Catharsis\Web\Widgets::yandex()->moneyButton()->account("41001577953208")->sum(15.5)->description("Test Payment")->type(Catharsis\Web\YandexMoneyButtonType::Card)->text(Catharsis\Web\YandexMoneyButtonText::Buy)->size(Catharsis\Web\YandexMoneyButtonSize::Medium)->color(Catharsis\Web\YandexMoneyButtonColor::White)->askPayerAddress()->askPayerEmail()->askPayerFullName()->askPayerPhone()`
+`Catharsis\Web\Widgets::yandex()->moneyButton()->account("41001577953208")->sum(15.5)->description("Test Payment")->type(Catharsis\Web\YandexMoneyButtonType::CARD)->text(Catharsis\Web\YandexMoneyButtonText::BUY)->size(Catharsis\Web\YandexMoneyButtonSize::MEDIUM)->color(Catharsis\Web\YandexMoneyButtonColor::WHITE)->askPayerAddress(true)->askPayerEmail(true)->askPayerFullName(true)->askPayerPhone(true)->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8defb_508fd66c_orig)
 
@@ -702,9 +750,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->moneyDonateForm()->account("41001577953208")->descriptionText("Test Donation")`
+`Catharsis\Web\Widgets::yandex()->moneyDonateForm()->account("41001577953208")->descriptionText("Test Donation")->render()`
 
-`Catharsis\Web\Widgets::yandex()->moneyDonateForm()->account("41001577953208")->descriptionText("Test Donation")->description()->sum(15.5)->cards()->projectName("Yandex")->projectSite("http://yandex.ru")->text(Catharsis\Web\YandexMoneyDonateFormText::Give)->askPayerPhone()->askPayerFullName()->askPayerComment()->askPayerEmail()`
+`Catharsis\Web\Widgets::yandex()->moneyDonateForm()->account("41001577953208")->descriptionText("Test Donation")->description()->sum(15.5)->cards(true)->projectName("Yandex")->projectSite("http://yandex.ru")->text(Catharsis\Web\YandexMoneyDonateFormText::GIVE)->askPayerPhone(true)->askPayerFullName(true)->askPayerComment(true)->askPayerEmail(true)->render()`
 
 ![](http://img-fotki.yandex.ru/get/5203/80185211.1e/0_8defc_3a3f4bf0_orig)
 
@@ -714,9 +762,9 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->money_payment_form()->account("41001577953208")->description("Test Payment")`
+`Catharsis\Web\Widgets::yandex()->money_payment_form()->account("41001577953208")->description("Test Payment")->render()`
 
-`Catharsis\Web\Widgets::Yandex()->money_payment_form()->account("41001577953208")->description("Test Payment")->sum(15.5)->cards(false)->text(Catharsis\Web\YandexMoneyPaymentFormText::Transfer)->askPayerComment()->askPayerEmail()->askPayerFullName()->askPayerAddress()->askPayerPhone()->askPayerPurpose()`
+`Catharsis\Web\Widgets::Yandex()->money_payment_form()->account("41001577953208")->description("Test Payment")->sum(15.5)->cards(false)->text(Catharsis\Web\YandexMoneyPaymentFormText::TRANSFER)->askPayerComment(true)->askPayerEmail(true)->askPayerFullName(true)->askPayerAddress(true)->askPayerPhone(true)->askPayerPurpose(true)->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8defd_154be7bd_orig)
 
@@ -726,9 +774,9 @@ _Requirements:_ `Catharsis\Web\WebWidgetsScripts::yandex()` JavaScript bundle (_
 
 _Code:_
 
-`Catharsis\Web\Widgets::yandex()->shareButton()`
+`Catharsis\Web\Widgets::yandex()->shareButton()->render()`
 
-`Catharsis\Web\Widgets::yandex()->shareButton()->services("facebook")->language("en")`
+`Catharsis\Web\Widgets::yandex()->shareButton()->services("facebook")->language("en")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8defe_9ec5f03a_orig)
 
@@ -740,7 +788,7 @@ _Requirements:_ None
 
 _Code:_
 
-`Catharsis\Web\Widgets::youtube()->video()->id("eYJSlHiXegI")->width("100%")->height("480")`
+`Catharsis\Web\Widgets::youtube()->video()->id("eYJSlHiXegI")->width("100%")->height("480")->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8df00_839c0d10_orig)
 
@@ -756,6 +804,6 @@ _Requirements:_
 
 _Code:_
 
-`Catharsis\Web\Widgets::videojs()->player()->width("640")->height("480")->videos(array("http://vjs.zencdn.net/v/oceans.mp4" => Catharsis\Web\VideoContentTypes::MP4, "http://vjs.zencdn.net/v/oceans.webm" => Catharsis\Web\VideoContentTypes::WebM))->extra('<track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"/>')`
+`Catharsis\Web\Widgets::videojs()->player()->width("640")->height("480")->videos(array("http://vjs.zencdn.net/v/oceans.mp4" => Catharsis\Web\VideoContentTypes::MP4, "http://vjs.zencdn.net/v/oceans.webm" => Catharsis\Web\VideoContentTypes::WebM))->extra('<track kind="captions" src="http://www.videojs.com/vtt/captions.vtt" srclang="en" label="English"/>')->render()`
 
 ![](http://img-fotki.yandex.ru/get/9489/80185211.1e/0_8deee_352bf71e_orig)

@@ -1,10 +1,28 @@
 <?php
+/**
+ * FacebookPostWidget class.
+ *
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 namespace Catharsis\Web;
 
 /**
  * Renders embedded Facebook post on web page.
  * Requires Facebook JavaScript initialization to be performed first.
- * @link https://developers.facebook.com/docs/plugins/embedded-posts
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
+ * @link      https://developers.facebook.com/docs/plugins/embedded-posts
  */
 class FacebookPostWidget extends HtmlWidget
 {
@@ -15,7 +33,8 @@ class FacebookPostWidget extends HtmlWidget
      * Specified URL address of Facebook post to embed.
      * This attribute is required.
      * @param string $url URL of Facebook post.
-     * @return \Catharsis\Web\FacebookPostWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookPostWidget
+     *         Reference to the current widget.
      */
     public function url($url)
     {
@@ -24,9 +43,19 @@ class FacebookPostWidget extends HtmlWidget
     }
 
     /**
+     * Specified URL address of Facebook post to embed.
+     * @return string URL of Facebook post.
+     */
+    public function getUrl()
+    {
+        return $this->_url;
+    }
+
+    /**
      * Specifies width of Facebook post area on page.
      * @param string $width Width of post.
-     * @return \Catharsis\Web\FacebookPostWidget Reference to the current widget.
+     * @return \Catharsis\Web\FacebookPostWidget
+     *         Reference to the current widget.
      */
     public function width($width)
     {
@@ -35,19 +64,32 @@ class FacebookPostWidget extends HtmlWidget
     }
 
     /**
+     * Specifies width of Facebook post area on page.
+     * @return string Width of post.
+     */
+    public function getWidth()
+    {
+        return $this->_width;
+    }
+
+    /**
      * Returns HTML markup text of widget.
+     * @return string Widget's HTML markup.
      */
     public function __toString()
     {
-        if (empty($this->_url)) {
-            return "";
+        if (empty($this->getUrl())) {
+            return '';
         }
 
-        return self::htmlTag("div", array(
-            "class" => "fb-post",
-            "data-href" => $this->_url,
-            "data-width" => $this->_width
-        ));
+        return self::htmlTag(
+            'div',
+            array(
+                'class' => 'fb-post',
+                'data-href' => $this->getUrl(),
+                'data-width' => $this->getWidth()
+            )
+        );
     }
 }
 

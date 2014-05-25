@@ -1,125 +1,169 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\YandexAnalyticsWidget}
+ * Tests set for class {@link \Catharsis\Web\YandexAnalyticsWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class YandexAnalyticsWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\YandexAnalyticsWidget::__construct()
+     * @link \Catharsis\Web\YandexAnalyticsWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertAttributeEquals(true, "_accurate", $widget);
-        $this->assertAttributeEquals(true, "_clickMap", $widget);
-        $this->assertAttributeEmpty("_language", $widget);
-        $this->assertAttributeEmpty("_noIndex", $widget);
-        $this->assertAttributeEquals(true, "_trackHash", $widget);
-        $this->assertAttributeEquals(true, "_trackLinks", $widget);
-        $this->assertAttributeEquals(true, "_webVisor", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertTrue($widget->getAccurate());
+        $this->assertTrue($widget->getClickMap());
+        $this->assertEmpty($widget->getLanguage());
+        $this->assertEmpty($widget->getNoIndex());
+        $this->assertTrue($widget->getTrackHash());
+        $this->assertTrue($widget->getTrackLinks());
+        $this->assertTrue($widget->getWebVisor());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::account(string $account)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::account(string $account)}
+     * method.
+     * @return void
      */
-    public function test_account_method()
+    public function testAccountMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEmpty("_account", $widget);
-        $this->assertSame($widget, $widget->account("account"));
-        $this->assertAttributeEquals("account", "_account", $widget);
+        $this->assertEmpty($widget->getAccount());
+        $this->assertSame($widget, $widget->account('account'));
+        $this->assertEquals('account', $widget->getAccount());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::accurate(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::accurate(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_accurate_method()
+    public function testAccurateMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEquals(true, "_accurate", $widget);
+        $this->assertTrue($widget->getAccurate());
         $this->assertSame($widget, $widget->accurate(false));
-        $this->assertAttributeEquals(false, "_accurate", $widget);
+        $this->assertFalse($widget->getAccurate());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::clickMap(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::clickMap(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_clickMap_method()
+    public function testClickMapMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEquals(true, "_clickMap", $widget);
+        $this->assertTrue($widget->getClickMap());
         $this->assertSame($widget, $widget->clickMap(false));
-        $this->assertAttributeEquals(false, "_clickMap", $widget);
+        $this->assertFalse($widget->getClickMap());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::language(string $language)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::language(string $language)}
+     * method.
+     * @return void
      */
-    public function test_language_method()
+    public function testLanguageMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEmpty("_language", $widget);
-        $this->assertSame($widget, $widget->language("language"));
-        $this->assertAttributeEquals("language", "_language", $widget);
+        $this->assertEmpty($widget->getLanguage());
+        $this->assertSame($widget, $widget->language('language'));
+        $this->assertEquals('language', $widget->getLanguage());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::noIndex(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::noIndex(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_noIndex_method()
+    public function testNoIndexMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEmpty("_noIndex", $widget);
-        $this->assertSame($widget, $widget->noIndex());
-        $this->assertAttributeEquals(true, "_noIndex", $widget);
+        $this->assertEmpty($widget->getNoIndex());
+        $this->assertSame($widget, $widget->noIndex(true));
+        $this->assertTrue($widget->getNoIndex());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::trackHash(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::trackHash(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_trackHash_method()
+    public function testTrackHashMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEquals(true, "_trackHash", $widget);
+        $this->assertTrue($widget->getTrackHash());
         $this->assertSame($widget, $widget->trackHash(false));
-        $this->assertAttributeEquals(false, "_trackHash", $widget);
+        $this->assertFalse($widget->getTrackHash());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::track_links(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::track_links(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_trackLinks_method()
+    public function testTrackLinksMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEquals(true, "_trackLinks", $widget);
+        $this->assertTrue($widget->getTrackLinks());
         $this->assertSame($widget, $widget->trackLinks(false));
-        $this->assertAttributeEquals(false, "_trackLinks", $widget);
+        $this->assertFalse($widget->getTrackLinks());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::webVisor(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::webVisor(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_webVisor_method()
+    public function testWebVisorMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $this->assertAttributeEquals(true, "_webVisor", $widget);
+        $this->assertTrue($widget->getWebVisor());
         $this->assertSame($widget, $widget->webVisor(false));
-        $this->assertAttributeEquals(false, "_webVisor", $widget);
+        $this->assertFalse($widget->getWebVisor());
     }
 
     /**
-     * * Performs testing of {@link Catharsis\Web\YandexAnalyticsWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\YandexAnalyticsWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
         $this->assertEmpty((string) $widget);
 
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $html = (string) $widget->account("account");
+        $html = (string) $widget->account('account');
         $this->assertContains("Ya.Metrika.informer({i: this, id: account, lang: '{$widget->userLanguage()}'})", $html);
         $this->assertContains('yaCounteraccount', $html);
         $this->assertContains('"webvisor":true', $html);
@@ -130,7 +174,15 @@ final class YandexAnalyticsWidgetTest extends PHPUnit_Framework_TestCase
         $this->assertNotContains('"ut":"noindex"', $html);
 
         $widget = new Catharsis\Web\YandexAnalyticsWidget();
-        $html = (string) $widget->account("account")->language("language")->webVisor(false)->clickMap(false)->trackLinks(false)->accurate(false)->trackHash(false)->noIndex();
+        $html = (string) $widget
+            ->account('account')
+            ->language('language')
+            ->webVisor(false)
+            ->clickMap(false)
+            ->trackLinks(false)
+            ->accurate(false)
+            ->trackHash(false)
+            ->noIndex(true);
         $this->assertContains("Ya.Metrika.informer({i: this, id: account, lang: 'language'})", $html);
         $this->assertContains('yaCounteraccount', $html);
         $this->assertContains('"webvisor":false', $html);

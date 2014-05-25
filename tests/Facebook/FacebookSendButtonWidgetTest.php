@@ -1,102 +1,149 @@
 <?php
+/**
+ * PHP version 5
+ *
+ * @category HTML
+ * @package  WebWidgets
+ * @author   Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @license  LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link     http://pear.php.net/package/HTML_WebWidgets
+ */
 
 /**
- * Tests set for class {@link Catharsis\Web\FacebookSendButtonWidget}
+ * Tests set for class {@link \Catharsis\Web\FacebookSendButtonWidget}
+ *
+ * @category  HTML
+ * @package   WebWidgets
+ * @author    Prokhor Ozornin <prokhor.ozornin@yandex.ru>
+ * @copyright 2014 Prokhor Ozornin
+ * @license   LGPL https://www.gnu.org/licenses/lgpl.html
+ * @link      http://pear.php.net/package/HTML_WebWidgets
  */
 final class FacebookSendButtonWidgetTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Performs testing of class constructor(s).
-     * @link Catharsis\Web\FacebookSendButtonWidget::__construct()
+     * @link \Catharsis\Web\FacebookSendButtonWidget::__construct()
+     * @return void
      */
-    public function test_constructors()
+    public function testConstructors()
     {
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
-        $this->assertAttributeEmpty("_colorScheme", $widget);
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertAttributeEmpty("_kidsMode", $widget);
-        $this->assertAttributeEmpty("_trackLabel", $widget);
-        $this->assertAttributeEmpty("_url", $widget);
-        $this->assertAttributeEmpty("_width", $widget);
+        $this->assertEmpty($widget->getColorScheme());
+        $this->assertEmpty($widget->getHeight());
+        $this->assertEmpty($widget->getKidsMode());
+        $this->assertEmpty($widget->getTrackLabel());
+        $this->assertEmpty($widget->getUrl());
+        $this->assertEmpty($widget->getWidth());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookSendButtonWidget::colorScheme(string $colorScheme)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookSendButtonWidget::colorScheme(string $colorScheme)}
+     * method.
+     * @return void
      */
-    public function test_colorScheme_method()
+    public function testColorSchemeMethod()
     {
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
-        $this->assertAttributeEmpty("_colorScheme", $widget);
-        $this->assertSame($widget, $widget->colorScheme("colorScheme"));
-        $this->assertAttributeEquals("colorScheme", "_colorScheme", $widget);
+        $this->assertEmpty($widget->getColorScheme());
+        $this->assertSame($widget, $widget->colorScheme('colorScheme'));
+        $this->assertEquals('colorScheme', $widget->getColorScheme());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookSendButtonWidget::height(string $height)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookSendButtonWidget::height(string $height)}
+     * method.
+     * @return void
      */
-    public function test_height_method()
+    public function testHeightMethod()
     {
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
-        $this->assertAttributeEmpty("_height", $widget);
-        $this->assertSame($widget, $widget->height("height"));
-        $this->assertAttributeEquals("height", "_height", $widget);
+        $this->assertEmpty($widget->getHeight());
+        $this->assertSame($widget, $widget->height('height'));
+        $this->assertEquals('height', $widget->getHeight());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookSendButtonWidget::kidsMode(boolean $enabled)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookSendButtonWidget::kidsMode(boolean $enabled)}
+     * method.
+     * @return void
      */
-    public function test_kidsMode_method()
+    public function testKidsModeMethod()
     {
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
-        $this->assertAttributeEmpty("_kidsMode", $widget);
-        $this->assertSame($widget, $widget->kidsMode());
-        $this->assertAttributeEquals(true, "_kidsMode", $widget);
+        $this->assertEmpty($widget->getKidsMode());
+        $this->assertSame($widget, $widget->kidsMode(true));
+        $this->assertTrue($widget->getKidsMode());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookSendButtonWidget::trackLabel(string $label)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookSendButtonWidget::trackLabel(string $label)}
+     * method.
+     * @return void
      */
-    public function test_trackLabel_method()
+    public function testTrackLabelMethod()
     {
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
-        $this->assertAttributeEmpty("_trackLabel", $widget);
-        $this->assertSame($widget, $widget->trackLabel("trackLabel"));
-        $this->assertAttributeEquals("trackLabel", "_trackLabel", $widget);
+        $this->assertEmpty($widget->getTrackLabel());
+        $this->assertSame($widget, $widget->trackLabel('trackLabel'));
+        $this->assertEquals('trackLabel', $widget->getTrackLabel());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookSendButtonWidget::url(string $url)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookSendButtonWidget::url(string $url)}
+     * method.
+     * @return void
      */
-    public function test_url_method()
+    public function testUrlMethod()
     {
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
-        $this->assertAttributeEmpty("_url", $widget);
-        $this->assertSame($widget, $widget->url("url"));
-        $this->assertAttributeEquals("url", "_url", $widget);
+        $this->assertEmpty($widget->getUrl());
+        $this->assertSame($widget, $widget->url('url'));
+        $this->assertEquals('url', $widget->getUrl());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookSendButtonWidget::width(string $width)} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookSendButtonWidget::width(string $width)}
+     * method.
+     * @return void
      */
-    public function test_width_method()
+    public function testWidthMethod()
     {
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
-        $this->assertAttributeEmpty("_width", $widget);
-        $this->assertSame($widget, $widget->width("width"));
-        $this->assertAttributeEquals("width", "_width", $widget);
+        $this->assertEmpty($widget->getWidth());
+        $this->assertSame($widget, $widget->width('width'));
+        $this->assertEquals('width', $widget->getWidth());
     }
 
     /**
-     * Performs testing of {@link Catharsis\Web\FacebookSendButtonWidget::__toString()} method.
+     * Performs testing of
+     * {@link \Catharsis\Web\FacebookSendButtonWidget::__toString()}
+     * method.
+     * @return void
      */
-    public function test_toString_method()
+    public function testToStringMethod()
     {
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
         $this->assertEquals('<div class="fb-send"></div>', (string) $widget);
 
         $widget = new Catharsis\Web\FacebookSendButtonWidget();
-        $this->assertEquals('<div class="fb-send" data-colorscheme="dark" data-height="height" data-href="url" data-kid-directed-site="true" data-ref="track_label" data-width="width"></div>',
-                            (string) $widget->url("url")->colorScheme(Catharsis\Web\FacebookColorScheme::Dark)->kidsMode()->width("width")->height("height")->trackLabel("track_label"));
+        $this->assertEquals(
+            '<div class="fb-send" data-colorscheme="dark" data-height="height" data-href="url"'
+            .' data-kid-directed-site="true" data-ref="track_label" data-width="width"></div>',
+            (string) $widget
+                ->url('url')
+                ->colorScheme(Catharsis\Web\FacebookColorScheme::DARK)
+                ->kidsMode(true)
+                ->width('width')
+                ->height('height')
+                ->trackLabel('track_label')
+        );
     }
 }
 
